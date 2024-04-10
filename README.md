@@ -1,2 +1,2 @@
-# somen-spirits
-A Yo-Kai Watch Battle Simulator!
+# Hexatunes' Websites
+All my silly websites!
