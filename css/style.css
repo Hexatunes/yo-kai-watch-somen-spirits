@@ -1,0 +1,123 @@
+@font-face {
+  font-family: ykw;
+  src: url(/ChangaOne-Regular.ttf);
+}
+
+p{
+  font-family: ykw;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+    background-image: url('/images/home/beach1.jpg'); 
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#battleButton{
+  position: absolute;
+  height: 20%;
+  width: 10%;
+  left: 10%;
+  top: 25%;
+}
+
+#teambuilderButton{
+  position: absolute;
+  height: 20%;
+  width: 10%;
+  left: 25%;
+  top: 25%;
+}
+
+#startMenu{
+  background-color: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  left: 0%;
+}
+
+#startText{
+  font-family: ykw;
+  font-size: 4vw;
+  position: absolute;
+  left: 28%;
+  top: 70%;
+}
+
+#dialogBG{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 100%;
+  width: 100%;
+}
+
+#dialogText{
+  position: absolute;
+  font-size: 2vw;
+  left: 15%;
+  top: 65%;
+  color: #fff;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;  
+}
+
+#dialogName{
+  position: absolute;
+  font-size: 3vw;
+  left: 17%;
+  top: 54%;
+  color: #fff;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;  
+}
+
+#dialogPortrait{
+  position: absolute;
+  height: 80%;
+  width: 50%;
+  left: 45%;
+  top: 10%;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+#toggleMusic{
+  position: absolute;
+  height: 10%;
+  width: 5%;
+  top: 90%;
+  left: 2%;
+}
+
+#padTrans {
+  display: "none";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
