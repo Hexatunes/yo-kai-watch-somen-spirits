@@ -13,7 +13,7 @@ html {
 }
 
 body {
-    background-image: url('/images/home/beach1.jpg'); 
+    background-image: url('images/home/beach1.jpg'); 
     background-repeat: no-repeat;
     background-position: center;
 }
