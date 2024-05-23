@@ -44,9 +44,13 @@ function startGame(){
     document.getElementById("toggleMusic").src = "./images/musicON.png";
     document.getElementById("bgm").volume = 0.5;
 
-  }else{
+  }else if(musicToggle == "false"){
     document.getElementById("toggleMusic").src = "./images/musicOFF.png";
     document.getElementById("bgm").volume = 0.0;
+  }else{
+    document.getElementById("toggleMusic").src = "./images/musicON.png";
+    document.getElementById("bgm").volume = 0.5;
+    document.cookie = "BGMute=true";
   }
 }
 
