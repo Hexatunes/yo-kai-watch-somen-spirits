@@ -1,3 +1,19 @@
+function getCookie(name) {
+    let cookieArr = document.cookie.split(";");
+
+    for(let i = 0; i < cookieArr.length; i++) {
+        let cookiePair = cookieArr[i].split("=");
+
+        if(name == cookiePair[0].trim()) {
+            return decodeURIComponent(cookiePair[1]);
+        }
+    }
+
+    // Return null if the cookie by name does not exist
+    return null;
+}
+
+
 function actuallySwitchTeambuilder(){
   location.href = "./teambuilder.html";
 }
@@ -20,21 +36,36 @@ function startGame(){
   const path = "./audios/music/" + songs[randomSong];
   document.getElementById("bgm").src = path;
   document.getElementById("bgm").play()
-  document.getElementById("bgm").volume = 0.5
-}
 
-var musicPlaying = true;
+  var musicToggle = getCookie("BGMute")
 
-function toggleMusic(){
-  if(musicPlaying){
+  console.log(musicToggle)
+  if(musicToggle == "true"){
+    document.getElementById("toggleMusic").src = "./images/musicON.png";
+    document.getElementById("bgm").volume = 0.5;
+
+  }else{
     document.getElementById("toggleMusic").src = "./images/musicOFF.png";
     document.getElementById("bgm").volume = 0.0;
-    musicPlaying = false;
+  }
+}
+
+function toggleMusic(){
+  var musicToggle = getCookie("BGMute")
+  if(musicToggle == "true"){
+    document.getElementById("toggleMusic").src = "./images/musicOFF.png";
+    document.getElementById("bgm").volume = 0.0;
+    document.cookie = "BGMute=false";
+
   }else{
     document.getElementById("toggleMusic").src = "./images/musicON.png";
     document.getElementById("bgm").volume = 0.5;
-    musicPlaying = true;
+    document.cookie = "BGMute=true";
   }
+}
+
+function loadMusic(){
+  
 }
 
 function hidePad(){
