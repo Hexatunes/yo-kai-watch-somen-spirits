@@ -1,5 +1,5 @@
 function actuallySwitchHome(){
-  location.href = "/";
+  location.href = "yo-kai-watch-somen-spirits/";
 }
 
 function intoFinished(){
