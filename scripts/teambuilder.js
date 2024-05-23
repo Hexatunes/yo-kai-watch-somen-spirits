@@ -1,5 +1,5 @@
 function actuallySwitchHome(){
-  location.href = "/";
+  location.href = "./";
 }
 
 function intoFinished(){
@@ -16,7 +16,7 @@ const songs = ["Harrisville.mp3", "Springdale.mp3", "Blossom.mp3"]
 
 function setUp(){
   const randomSong = Math.floor(Math.random() * songs.length);
-  const path = "audios/music/" + songs[randomSong];
+  const path = "./audios/music/" + songs[randomSong];
   document.getElementById("bgm").src = path;
   document.getElementById("bgm").play()
   document.getElementById("bgm").volume = 0.5
