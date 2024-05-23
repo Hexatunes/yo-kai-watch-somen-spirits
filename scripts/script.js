@@ -1,5 +1,5 @@
 function actuallySwitchTeambuilder(){
-  location.href = "yo-kai-watch-somen-spirits/teambuilder.html";
+  location.href = "/teambuilder.html";
 }
 
 function intoFinished(){
