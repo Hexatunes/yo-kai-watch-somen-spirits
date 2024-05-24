@@ -1,3 +1,8 @@
+@font-face {
+  font-family: ykw;
+  src: url('/yo-kai-watch-somen-spirits/ChangaOne-Regular.ttf');
+}
+
 html {
   height: 100%;
   width: 100%;
@@ -34,4 +39,42 @@ body {
   width: 5%;
   top: 90%;
   left: 2%;
+}
+
+#homeButton{
+  position: absolute;
+  top: 4%;
+  left: 2%;
+  height: 10%;
+  width: 5%;
+}
+
+#yokaiGif{
+  position: absolute;
+  height: 40%;
+  width: 22%;
+  top: 5%;
+  left: 15%;
+}
+
+#yokaiName{
+  font-family: ykw;
+  color: #fff;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;
+  position: absolute;
+  font-size: 3vw;
+  top: 40%;
+  left: 15%;
+}
+
+#yokaiWheel{
+  position: absolute;
+  height: 45%;
+  width: 25%;
+  top: 53%;
+  left: 14%;
 }
