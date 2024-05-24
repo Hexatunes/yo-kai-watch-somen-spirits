@@ -41,7 +41,7 @@ function toggleMusic(){
   }
 }
 
-const songs = ["Harrisville.mp3", "Springdale.mp3", "Blossom.mp3"]
+const songs = ["Harrisville.mp3", "Springdale.mp3", "Blossom.mp3", "SoAlone.mp3", "Uptown.mp3", "SanFantastico.mp3", "OldHarrisville.mp3", "Sakura.mp3"]
 
 function setUp(){
   const randomSong = Math.floor(Math.random() * songs.length);
@@ -69,3 +69,11 @@ function setUp(){
   document.getElementById("padTrans").style.animation = "fadeOut 1s";
   setTimeout(intoFinished, 1000)
 }
+
+document.getElementById("bgm").addEventListener("ended", function(){
+  document.getElementById("bgm").currentTime = 0;
+  const randomSong = Math.floor(Math.random() * songs.length);
+  const path = "./audios/music/" + songs[randomSong];
+  document.getElementById("bgm").src = path;
+  document.getElementById("bgm").play()
+});
