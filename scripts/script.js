@@ -36,6 +36,7 @@ function startGame(){
   const path = "./audios/music/" + songs[randomSong];
   document.getElementById("bgm").src = path;
   document.getElementById("bgm").play()
+  document.getElementById("beachSFX").play()
 
   var musicToggle = getCookie("BGMute")
 
@@ -43,13 +44,16 @@ function startGame(){
   if(musicToggle == "true"){
     document.getElementById("toggleMusic").src = "./images/musicON.png";
     document.getElementById("bgm").volume = 0.5;
+    document.getElementById("beachSFX").volume = 0.2;
 
   }else if(musicToggle == "false"){
     document.getElementById("toggleMusic").src = "./images/musicOFF.png";
     document.getElementById("bgm").volume = 0.0;
+    document.getElementById("beachSFX").volume = 0.0;
   }else{
     document.getElementById("toggleMusic").src = "./images/musicON.png";
     document.getElementById("bgm").volume = 0.5;
+    document.getElementById("beachSFX").volume = 0.2;
     document.cookie = "BGMute=true";
   }
 }
@@ -59,11 +63,13 @@ function toggleMusic(){
   if(musicToggle == "true"){
     document.getElementById("toggleMusic").src = "./images/musicOFF.png";
     document.getElementById("bgm").volume = 0.0;
+    document.getElementById("beachSFX").volume = 0.0;
     document.cookie = "BGMute=false";
 
   }else{
     document.getElementById("toggleMusic").src = "./images/musicON.png";
     document.getElementById("bgm").volume = 0.5;
+    document.getElementById("beachSFX").volume = 0.3;
     document.cookie = "BGMute=true";
   }
 }
