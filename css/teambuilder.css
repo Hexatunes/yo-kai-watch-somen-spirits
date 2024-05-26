@@ -1,6 +1,6 @@
 @font-face {
   font-family: ykw;
-  src: url('/yo-kai-watch-somen-spirits/ChangaOne-Regular.ttf');
+  src: url('/ChangaOne-Regular.ttf');
 }
 
 html {
@@ -8,8 +8,12 @@ html {
   width: 100%;
 }
 
+p{
+  font-family: ykw;
+}
+
 body {
-  background-image: url('/yo-kai-watch-somen-spirits/images/teambuilder/padBG.png');
+  background-image: url('/images/teambuilder/padBG.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -54,7 +58,7 @@ body {
   height: 40%;
   width: 22%;
   top: 5%;
-  left: 15%;
+  left: 6%;
 }
 
 #yokaiName{
@@ -68,7 +72,7 @@ body {
   position: absolute;
   font-size: 3vw;
   top: 40%;
-  left: 15%;
+  left: 6%;
 }
 
 #yokaiWheel{
@@ -76,5 +80,51 @@ body {
   height: 45%;
   width: 25%;
   top: 53%;
-  left: 14%;
+  left: 5%;
+}
+
+#yokaiList{
+  position: absolute;
+  height: 40%;
+  width: 50%;
+  left: 35%;
+  top: 60%;
+  background-color: rgba(255, 255, 255, 0.5);
+  overflow: scroll;
+  outline: 2px solid black;
+}
+
+#itemList{
+  position: absolute;
+  height: 40%;
+  width: 50%;
+  left: 35%;
+  top: 60%;
+  background-color: rgba(255, 255, 255, 0.5);
+  overflow: scroll;
+  outline: 2px solid black;
+}
+
+#currentInfo{
+  position: absolute;
+  height: 50%;
+  width: 50%;
+  left: 35%;
+  top: 10%;
+  background-color: rgba(255, 255, 255, 0.5);
+  overflow: scroll;
+  outline: 2px solid black;
+}
+
+.medalList{
+  height: 15%;
+  width: 7%;
+  float: left;
+}
+
+.yokaiOption{
+  font-family: ykw;
+  font-size: 1vw;
+  height: 15%;
+  width: 83%
 }
