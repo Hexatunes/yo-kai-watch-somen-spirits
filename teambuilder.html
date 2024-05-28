@@ -22,7 +22,7 @@
 
   <img id = "yokaiWheel" src = "./images/teambuilder/yokaiWheel.webp">
 
-  <img id = "slot1">
+  <img id = "slot1" src = "">
   <img id = "slot2">
   <img id = "slot3">
   <img id = "slot4">
@@ -35,7 +35,15 @@
   <img src = "./images/padTrans.png" id = "padTrans">
 
   <audio id = "bgm" src = ""></audio>
-  
+
+  <select id = "teamSelect" onclick="loadTeam()">
+    
+  </select>
+
+  <input type = "text" id = "nameTeam" placeholder="Type a name for a new team or to rename the current one!">
+  <button id = "teamCreate" onclick = "createTeam()">Create New Team</button>
+  <button id = "teamRename" onclick = "renameTeam()">Rename This Team</button>
+  <button id = "teamDelete" onclick = "deleteTeam()">Delete This Team</button>
 
   <script type="text/javascript" src="./scripts/YOKAI_DATABASE.js"></script> 
   <script src="./scripts/teambuilder.js"></script>
