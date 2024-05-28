@@ -47,6 +47,9 @@ const songs = ["Harrisville.mp3", "Springdale.mp3", "Blossom.mp3", "SoAlone.mp3"
 
 
 
+var currentTeam = 0;
+var teams = []
+
 function intoFinished(){
   document.getElementById("padTrans").style.display = "none";
 }
@@ -78,14 +81,14 @@ function setUp(){
   for (const [key, value] of Object.entries(YOKAI_DATABASE)) {
     var icon = document.createElement("input")
     icon.type = "image"
-    icon.src = value["m"]
+    icon.src = value["medal"]
     icon.setAttribute("class", "medalList")
     document.getElementById("yokaiList").appendChild(icon)
 
     var nameInfo = document.createElement("button")
-    nameInfo.innerHTML = value["display"] + " | HP: " + value["hp"] + " | STR: " + value["str"] + " | SPR: " + value["spr"] + " | DEF: " + value["def"] + " | SPD: " + value["spd"] + " | Rank: " + value["rank"]
+    nameInfo.innerHTML = value["displayName"] + " | Rank: " + value["rank"]
     nameInfo.setAttribute("class", "yokaiOption")
-    nameInfo.setAttribute("onclick", `appendYokai('Selected Yokai: ${value["display"]}')`)
+    nameInfo.setAttribute("onclick", `appendYokai('Selected Yokai: ${value["displayName"]}')`)
 
     var br = document.createElement("br")
 
@@ -96,11 +99,68 @@ function setUp(){
   
   document.getElementById("padTrans").style.animation = "fadeOut 1s";
   setTimeout(intoFinished, 1000)
+
+  teams = JSON.parse(getCookie("teams"))
+  if(!teams){
+    document.cookie = `teams=${JSON.stringify([["Untitled Team"]])}`
+    teams = [["Untitled Team"]]
+  }
+  document.getElementById("teamSelect").selectedIndex = 0
+  refreshTeamList()
+  loadTeam()
 }
 
+function refreshTeamList(){
+  document.getElementById("teamSelect").innerHTML = ""
+  for(var i = 0; i < teams.length; i++){
+    var addOption = document.createElement("option");
+    addOption.innerHTML = teams[i][0];
+    document.getElementById("teamSelect").appendChild(addOption)
+  }
+}
+
+function loadTeam(){
+  //code to refresh and load in yokais
+  currentTeam = document.getElementById("teamSelect").selectedIndex
+}
+
+function createTeam(){
+  if(teams.length == 0){
+    teams.push([document.getElementById("nameTeam").value])
+    document.cookie = `teams=${JSON.stringify(teams)}`
+    refreshTeamList()
+    document.getElementById("nameTeam").value = ""
+    document.getElementById("teamSelect").selectedIndex = 0
+    currentTeam = 0
+  }else if(teams.length <= 10){
+    teams.push([document.getElementById("nameTeam").value])
+    document.cookie = `teams=${JSON.stringify(teams)}`
+    refreshTeamList()
+    document.getElementById("nameTeam").value = ""
+  }
+  else{
+    alert("Too many teams! Why do you need 51 of them?")
+  }
+}
+
+function renameTeam(){
+  teams[currentTeam][0] = document.getElementById("nameTeam").value
+  document.getElementById("nameTeam").value = ""
+  refreshTeamList()
+  document.getElementById("teamSelect").selectedIndex = currentTeam
+  document.cookie = `teams=${JSON.stringify(teams)}`
+}
+
+function deleteTeam(){
+  teams.splice(currentTeam, 1)
+  document.cookie = `teams=${JSON.stringify(teams)}`
+  refreshTeamList()
+  document.getElementById("teamSelect").selectedIndex = 0
+  currentTeam = 0
+}
 
 function appendYokai(toAppend){
-  alert(toAppend)
+  
 }
 
 
