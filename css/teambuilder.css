@@ -1,6 +1,6 @@
 @font-face {
   font-family: ykw;
-  src: url('/ChangaOne-Regular.ttf');
+  src: url('/yo-kai-watch-somen-spirits/ChangaOne-Regular.ttf');
 }
 
 html {
@@ -13,7 +13,7 @@ p{
 }
 
 body {
-  background-image: url('/images/teambuilder/padBG.png');
+  background-image: url('/yo-kai-watch-somen-spirits/images/teambuilder/padBG.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -127,4 +127,48 @@ body {
   font-size: 1vw;
   height: 15%;
   width: 83%
+}
+
+#teamSelect{
+  font-family: ykw;
+  position: absolute;
+  height: 7%;
+  width: 25%;
+  left: 34.9%;
+  top: 1.5%;
+}
+
+#nameTeam{
+  position: absolute;
+  height: 6.35%;
+  width: 24.8%;
+  left: 59.9%;
+  top: 1.5%;
+  font-family: ykw;
+}
+
+#teamCreate{
+  position: absolute;
+  height: 5%;
+  width: 10%;
+  left: 88%;
+  top: 1.5%;
+  font-family: ykw;
+}
+#teamRename{
+  position: absolute;
+  height: 5%;
+  width: 10%;
+  left: 88%;
+  top: 7%;
+  font-family: ykw;
+}
+
+#teamDelete{
+  position: absolute;
+  height: 5%;
+  width: 10%;
+  left: 88%;
+  top: 12.5%;
+  font-family: ykw;
 }

@@ -1,6 +1,6 @@
 @font-face {
   font-family: ykw;
-  src: url('/ChangaOne-Regular.ttf');
+  src: url('/yo-kai-watch-somen-spirits/ChangaOne-Regular.ttf');
 }
 
 p{
@@ -13,7 +13,7 @@ html {
 }
 
 body {
-    background-image: url('/images/home/beach1.jpg'); 
+    background-image: url('/yo-kai-watch-somen-spirits/images/home/beach1.jpg'); 
     background-repeat: no-repeat;
     background-position: center;
 }
