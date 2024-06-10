@@ -21,7 +21,11 @@ function intoFinished() {
 
 function hidePad() {
     teams = JSON.parse(getCookie("teams"))
-    refreshTeamList()
+    if(teams){
+        refreshTeamList()
+    }else{
+        alert("You have no teams! Go make at least one in the teambuilder!")
+    }
     document.getElementById("padTrans").style.animation = "fadeOut 1s";
     setTimeout(intoFinished, 1000)
 }
@@ -34,6 +38,10 @@ function switchHome() {
     document.getElementById("padTrans").style.display = "block";
     document.getElementById("padTrans").style.animation = "fadeIn 1s";
     setTimeout(actuallySwitchHome, 1000)
+}
+
+function loadTeam(){
+    currentTeam = document.getElementById("teamSelect").selectedIndex
 }
 
 
