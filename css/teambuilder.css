@@ -80,7 +80,7 @@ body {
   height: 45%;
   width: 25%;
   top: 53%;
-  left: 5%;
+  left: 5.5%;
 }
 
 #yokaiList{
@@ -154,6 +154,7 @@ body {
   left: 88%;
   top: 1.5%;
   font-family: ykw;
+  font-size: 1vw;
 }
 #teamRename{
   position: absolute;
@@ -162,6 +163,7 @@ body {
   left: 88%;
   top: 7%;
   font-family: ykw;
+  font-size: 1vw;
 }
 
 #teamDelete{
@@ -171,4 +173,64 @@ body {
   left: 88%;
   top: 12.5%;
   font-family: ykw;
+  font-size: 1vw;
 }
+
+#slot1{
+  position: absolute;
+  height: 10%;
+  width: 6%;
+  top: 63.5%;
+  left: 8.25%;
+}
+
+#slot2{
+  position: absolute;
+  height: 10%;
+  width: 6%;
+  top: 56.7%;
+  left: 15.1%;
+}
+
+#slot3{
+  position: absolute;
+  height: 10%;
+  width: 6%;
+  top: 63.7%;
+  left: 21.7%;
+}
+
+#slot4{
+  position: absolute;
+  height: 10%;
+  width: 6%;
+  top: 77.2%;
+  left: 21.7%;
+}
+
+#slot5{
+  position: absolute;
+  height: 10%;
+  width: 6%;
+  top: 84.4%;
+  left: 15.1%;
+}
+
+#slot6{
+  position: absolute;
+  height: 10%;
+  width: 6%;
+  top: 77.2%;
+  left: 8.25%;
+}
+
+#deleteYokai{
+  position: absolute;
+  height: 5%;
+  width: 10%;
+  left: 0.5%;
+  top: 52.5%;
+  font-family: ykw;
+  font-size: 1vw;
+}
+
