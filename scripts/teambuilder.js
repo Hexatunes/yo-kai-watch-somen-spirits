@@ -48,6 +48,7 @@ const songs = ["Harrisville.mp3", "Springdale.mp3", "Blossom.mp3", "SoAlone.mp3"
 
 
 var currentTeam = 0;
+var selectedYokai = -1;
 var teams = []
 
 function intoFinished(){
@@ -88,7 +89,7 @@ function setUp(){
     var nameInfo = document.createElement("button")
     nameInfo.innerHTML = value["displayName"] + " | Rank: " + value["rank"]
     nameInfo.setAttribute("class", "yokaiOption")
-    nameInfo.setAttribute("onclick", `appendYokai('Selected Yokai: ${value["displayName"]}')`)
+    nameInfo.setAttribute("onclick", `appendYokai("${key}")`)
 
     var br = document.createElement("br")
 
@@ -104,7 +105,11 @@ function setUp(){
   if(!teams){
     document.cookie = `teams=${JSON.stringify([["Untitled Team"]])}`
     teams = [["Untitled Team"]]
+  }else if(teams.length == 0){
+    teams = [["Untitled Team"]]
+    document.cookie = `teams=${JSON.stringify(teams)}`
   }
+  console.log(teams)
   document.getElementById("teamSelect").selectedIndex = 0
   refreshTeamList()
   loadTeam()
@@ -122,6 +127,15 @@ function refreshTeamList(){
 function loadTeam(){
   //code to refresh and load in yokais
   currentTeam = document.getElementById("teamSelect").selectedIndex
+  document.getElementById("slot1").src = ""
+  document.getElementById("slot2").src = ""
+  document.getElementById("slot3").src = ""
+  document.getElementById("slot4").src = ""
+  document.getElementById("slot5").src = ""
+  document.getElementById("slot6").src = ""
+  for(let i = 0; i < teams[currentTeam].length - 1; i++){
+    document.getElementById("slot" + (i + 1)).src = YOKAI_DATABASE[teams[currentTeam][i + 1]["code"]]["medal"]
+  }
 }
 
 function createTeam(){
@@ -132,7 +146,7 @@ function createTeam(){
     document.getElementById("nameTeam").value = ""
     document.getElementById("teamSelect").selectedIndex = 0
     currentTeam = 0
-  }else if(teams.length <= 10){
+  }else if(teams.length <= 50){
     teams.push([document.getElementById("nameTeam").value])
     document.cookie = `teams=${JSON.stringify(teams)}`
     refreshTeamList()
@@ -157,10 +171,46 @@ function deleteTeam(){
   refreshTeamList()
   document.getElementById("teamSelect").selectedIndex = 0
   currentTeam = 0
+  selectedYokai = -1
+  document.getElementById("yokaiName").innerHTML = "Select a Yokai!"
+  document.getElementById("yokaiGif").src = "./images/teambuilder/whisperPlaceholder.webp"
+  if(teams.length == 0){
+    teams = [["Untitled Team"]]
+    document.cookie = `teams=${JSON.stringify(teams)}`
+  }
+  loadTeam()
 }
 
 function appendYokai(toAppend){
-  
+  if(teams[currentTeam].length <= 6){
+    teams[currentTeam].push({
+      code: toAppend,
+      displayName: YOKAI_DATABASE[toAppend]["displayName"],
+    })
+    document.cookie = `teams=${JSON.stringify(teams)}`
+    loadTeam()
+  }else{
+    alert("Team full! Remove a Yokai!")
+  }
+}
+
+function selectYokai(index){
+  if(index <= teams[currentTeam].length){
+    selectedYokai = index
+    document.getElementById("yokaiName").innerHTML = teams[currentTeam][index]["displayName"]
+    document.getElementById("yokaiGif").src = YOKAI_DATABASE[teams[currentTeam][index]["code"]]["front"]
+  }
+}
+
+function deleteYokai(){
+  if(teams[currentTeam].length > 1 && selectedYokai > -1){
+    teams[currentTeam].splice(selectedYokai, 1)
+    loadTeam()
+    selectedYokai = -1
+    document.getElementById("yokaiName").innerHTML = "Select a Yokai!"
+    document.getElementById("yokaiGif").src = "./images/teambuilder/whisperPlaceholder.webp"
+    document.cookie = `teams=${JSON.stringify(teams)}`
+  }
 }
 
 

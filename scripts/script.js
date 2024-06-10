@@ -18,6 +18,10 @@ function actuallySwitchTeambuilder(){
   location.href = "./teambuilder.html";
 }
 
+function actuallySwitchMatchmaking(){
+  location.href = "./matchmaking.html";
+}
+
 function intoFinished(){
   document.getElementById("padTrans").style.display = "none";
 }
@@ -26,6 +30,12 @@ function switchTeambuilder(){
   document.getElementById("padTrans").style.display = "block";
   document.getElementById("padTrans").style.animation = "fadeIn 1s";
   setTimeout(actuallySwitchTeambuilder, 1000)
+}
+
+function switchBattle(){
+  document.getElementById("padTrans").style.display = "block";
+  document.getElementById("padTrans").style.animation = "fadeIn 1s";
+  setTimeout(actuallySwitchMatchmaking, 1000)
 }
 
 const songs = ["Harrisville.mp3", "Springdale.mp3", "Blossom.mp3", "SoAlone.mp3", "Uptown.mp3", "SanFantastico.mp3", "OldHarrisville.mp3", "Sakura.mp3"]
