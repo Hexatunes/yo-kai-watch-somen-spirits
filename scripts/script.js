@@ -13,6 +13,13 @@ function getCookie(name) {
     return null;
 }
 
+function clearBattle(){
+  document.cookie = "myTeam=null"
+  document.cookie = "myUsername=null"
+  document.cookie = "otherTeam=null"
+  document.cookie = "otherUsername=null"
+}
+
 
 function actuallySwitchTeambuilder(){
   location.href = "./teambuilder.html";
@@ -41,6 +48,7 @@ function switchBattle(){
 const songs = ["Harrisville.mp3", "Springdale.mp3", "Blossom.mp3", "SoAlone.mp3", "Uptown.mp3", "SanFantastico.mp3", "OldHarrisville.mp3", "Sakura.mp3"]
 
 function startGame(){
+  clearBattle()
   document.getElementById("startMenu").style.display = "none";
   const randomSong = Math.floor(Math.random() * songs.length);
   const path = "./audios/music/" + songs[randomSong];

@@ -10,6 +10,18 @@
 </head>
 
 <body onload = "setUp()">
+  <style>
+    @font-face {
+      font-family: ykw;
+      src: url('./ChangaOne-Regular.ttf');
+    }
+    body {
+      background-image: url('./images/teambuilder/padBG.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  </style>
   <input id="homeButton" type="image" src="./images/teambuilder/padIcon.png" onclick="switchHome()">
 
   <input id = "toggleMusic" type = "image" src = "./images/musicON.png" onclick = "toggleMusic()">
@@ -32,7 +44,48 @@
   <button id = "deleteYokai" onclick = "deleteYokai()">Remove Selected Yokai</button>
 
   <div id = "itemList"></div>
-  <div id = "currentInfo"></div>
+  <div id = "currentInfo">
+    <p id = "currentText">⸻IVs⸻EVs⸻Gym⸻</p>
+    <br>
+    <p id = "hpDisplay">HP: </p> <input id = "ivHP" type = "number" oninput = "updateStat('ivHP')"> <input id = "evHP" type = "number" oninput = "updateStat('evHP')"> <br>
+    <p id = "strDisplay">STR: </p> <input id = "ivSTR" type = "number" oninput = "updateStat('ivSTR')"> <input id = "evSTR" type = "number" oninput = "updateStat('evSTR')"> <input id = "gpSTR" type = "number" oninput = "updateStat('gpSTR')"> <br>
+    <p id = "sprDisplay">SPR: </p> <input id = "ivSPR" type = "number" oninput = "updateStat('ivSPR')"> <input id = "evSPR" type = "number" oninput = "updateStat('evSPR')"> <input id = "gpSPR" type = "number" oninput = "updateStat('gpSPR')"> <br>
+    <p id = "defDisplay">DEF: </p> <input id = "ivDEF" type = "number" oninput = "updateStat('ivDEF')"> <input id = "evDEF" type = "number" oninput = "updateStat('evDEF')"> <input id = "gpDEF" type = "number" oninput = "updateStat('gpDEF')"> <br>
+    <p id = "spdDisplay">SPD: </p> <input id = "ivSPD" type = "number" oninput = "updateStat('ivSPD')"> <input id = "evSPD" type = "number" oninput = "updateStat('evSPD')"> <input id = "gpSPD" type = "number" oninput = "updateStat('gpSPD')"> <br>
+    <br>
+    <p>Attitude: </p> <select id = "selectAttitude" onchange = "setAttitude(this.value)">
+      <option value = "rough">Rough</option>
+      <option value = "brainy">Brainy</option>
+      <option value = "cruel">Cruel</option>
+      <option value = "devoted">Devoted</option>
+      <option value = "tender">Tender</option>
+      <option value = "calm">Calm</option>
+      <option value = "grouchy">Grouchy</option>
+      <option value = "logical">Logical</option>
+      <option value = "twisted">Twisted</option>
+      <option value = "helpful">Helpful</option>
+      <option value = "gentle">Gentle</option>
+      <option value = "careful">Careful</option>
+    </select> <select id = "selectLoafAttitude" onchange = "setLoafAttitude(this.value)"">
+      <option value = "serious">Serious</option>
+      <option value = "stiff">Stiff</option>
+      <option value = "casual">Casual</option>
+      <option value = "carefree">Carefree</option>
+      <option value = "sloppy">Sloppy</option>
+      <option value = "clumsy">Clumsy</option>
+    </select>
+    <br>
+    <br>
+    <p id = "remainingIVs">Remaining IVs: </p>
+    <br>
+    <p id = "remainingEVs">Remaining EVs:</p>
+    <br>
+    <br>
+    <br>
+    <p id = "equipText">Equipped item(s): </p> <p id = "equipName"></p> 
+    <br>
+    <button id = "clearItems" onclick = "clearItems()">Clear items</button>
+  </div>
 
   <audio id = "bgm" src = ""></audio>
 
@@ -45,12 +98,56 @@
   <button id = "teamRename" onclick = "renameTeam()">Rename This Team</button>
   <button id = "teamDelete" onclick = "deleteTeam()">Delete This Team</button>
 
+  <button id = "addYokai" onclick = "toYokai()">Add Yokai</button>
+  <button id = "addItems" onclick = "toItems()">Add Items</button>
+
+  <div id = "statsChart">
+    <progress id = "chartHP" value = "0" max = "500" class = "chartBar"></progress>
+    <br>
+    <progress id = "chartSTR" value = "0" max = "350" class = "chartBar"></progress>
+    <br>
+    <progress id = "chartSPR" value = "0" max = "350" class = "chartBar"></progress>
+    <br>
+    <progress id = "chartDEF" value = "0" max = "350" class = "chartBar"></progress>
+    <br>
+    <progress id = "chartSPD" value = "0" max = "350" class = "chartBar"></progress>
+  </div>
+
+  <div id = "probChart">
+    <p id = "probAtk" class = "probText">Chance to attack: --%</p>
+    <br>
+    <p id = "probTech" class = "probText">Chance to use technique: --%</p>
+    <br>
+    <p id = "probInsp" class = "probText">Chance to inspirit: --%</p>
+    <br>
+    <p id = "probGuard" class = "probText">Chance to guard: --%</p>
+    <br>
+    <br>
+    <p id = "probLoaf" class = "probText">Loaf chance: --%</p>
+  </div>
+
+  <p id = "apDisplay">AP: </p>
+
+  <button id = "setBony" onclick = "setBony()">Bony</button>
+  <button id = "setFleshy" onclick = "setFleshy()">Fleshy</button>
+
+  <button id = "importTeam" onclick = "importTeam()">Import Team From Paste</button>
+  <button id = "exportTeam" onclick = "exportTeam()">Export Team Into a Paste</button>
+
+  <div id = "pasteOutput">
+    <button id = "closePaste" onclick = "closePaste()">X</button>
+    <p>Here is your paste:</p>
+    <br>
+    <p id = "pasteText"></p>
+  </div>
 
 
   <img src = "./images/padTrans.png" id = "padTrans">
 
   <script type="text/javascript" src="./scripts/YOKAI_DATABASE.js"></script> 
+  <script type="text/javascript" src="./scripts/ITEM_DATABASE.js"></script> 
   <script src="./scripts/teambuilder.js"></script>
+  
 </body>
 
 </html>

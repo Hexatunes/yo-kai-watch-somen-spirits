@@ -1,6 +1,6 @@
 @font-face {
   font-family: ykw;
-  src: url('/yo-kai-watch-somen-spirits/ChangaOne-Regular.ttf');
+  src: url('/ChangaOne-Regular.ttf');
 }
 
 html {
@@ -13,7 +13,7 @@ p{
 }
 
 body {
-  background-image: url('/yo-kai-watch-somen-spirits/images/matchmaking/matchmaking.jpg');
+  background-image: url('/images/matchmaking/matchmaking.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -59,6 +59,131 @@ body {
   height: 10%;
   width: 45%;
   left: 50%;
-  top: 60%;
+  top: 35%;
   font-size: 2vw;
+}
+
+#tierSelect{
+  font-family: ykw;
+  position: absolute;
+  height: 10%;
+  width: 45%;
+  left: 50%;
+  top: 15%;
+  font-size: 2vw;
+}
+
+#tierLabel{
+  font-size: 2vw;
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  color: #fff;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;  
+}
+
+#teamLabel{
+  font-size: 2vw;
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  color: #fff;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;  
+}
+
+#battleButton{
+  font-size: 2vw;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 10%;
+  width: 45%;
+  font-family: ykw;
+}
+
+#tokoSprite{
+  position: absolute;
+  height: 110%;
+  width: 65%;
+  left: -5%;
+  top: 0%;
+  pointer-events: none;
+}
+
+#dialogBox{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+}
+
+#matchDialog{
+  position: absolute;
+  font-size: 2vw;
+  left: 15%;
+  top: 65%;
+  color: #fff;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;  
+}
+
+#dialogName{
+  position: absolute;
+  font-size: 3vw;
+  left: 17%;
+  top: 54%;
+  color: #fff;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;  
+}
+
+#matchmakingMenu{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+#lookingText{
+  position: absolute;
+  font-size: 3vw;
+  left: 15%;
+  top: 40%;
+  color: #ffffff;
+  text-shadow:
+  -2px -2px 0 #000,
+  2px -2px 0 #000,
+  -2px 2px 0 #000,
+  2px 2px 0 #000;  
+}
+
+#usernameInput{
+  position: absolute;
+  height: 5%;
+  width: 20%;
+  top: 1%;
+  left: 70%;
+  font-family: ykw;
+}
+
+em {
+  color: #7ac6ff
 }

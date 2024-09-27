@@ -1,6 +1,6 @@
 @font-face {
   font-family: ykw;
-  src: url('/yo-kai-watch-somen-spirits/ChangaOne-Regular.ttf');
+  src: url('/ChangaOne-Regular.ttf');
 }
 
 html {
@@ -8,12 +8,46 @@ html {
   width: 100%;
 }
 
-p{
+button{
+  background-color: #fff;
   font-family: ykw;
 }
 
+p{
+  font-family: ykw;
+  font-size: 1.5vw;
+  color: #fff;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;
+  display: inline
+}
+
+em{
+  color: #a01818;
+  text-shadow:
+  -1px -1px 0 #fff,
+  1px -1px 0 #fff,
+  -1px 1px 0 #fff,
+  1px 1px 0 #fff;
+}
+
+input{
+  font-family: ykw;
+  font-size: 1vw;
+  width: 13%;
+  height: 5%
+}
+
+select{
+  font-family: ykw;
+  font-size: 1vw;
+}
+
 body {
-  background-image: url('/yo-kai-watch-somen-spirits/images/teambuilder/padBG.png');
+  background-image: url('/images/teambuilder/padBG.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -234,3 +268,159 @@ body {
   font-size: 1vw;
 }
 
+#currentText{
+  font-size: 1.5vw;
+}
+
+#addYokai{
+  position: absolute;
+  height: 5%;
+  width: 10%;
+  left: 88%;
+  top: 60%;
+  font-family: ykw;
+  font-size: 1vw;
+}
+
+#addItems{
+  position: absolute;
+  height: 5%;
+  width: 10%;
+  left: 88%;
+  top: 66%;
+  font-family: ykw;
+  font-size: 1vw;
+}
+
+#equipText{
+  color: #8095ff;
+}
+
+#clearItems{
+  height: 10%;
+  width: 15%;
+  font-family: ykw;
+  font-size: 1vw;
+}
+
+#statsChart{
+  position: absolute;
+  width: 50%;
+  height: 70%;
+  left: 65%;
+  top: 12%;
+  pointer-events: none;
+}
+
+.chartBar{
+  height: 5%;
+  width: 30%;
+}
+
+#probChart{
+  position: absolute;
+  width: 25%;
+  height: 15%;
+  left: 60%;
+  top: 31%;
+}
+
+.probText{
+  font-size: 1vw;
+  color: #fff;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;
+}
+
+#apDisplay{
+  position: absolute;
+  top: 50%;
+  left: 73%;
+  color: #80ffbd;
+  font-size: 2.5vw;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;
+}
+
+#setBony{
+  position: absolute;
+  height: 5%;
+  width: 10%;
+  left: 50%;
+  top: 55%;
+  font-family: ykw;
+  font-size: 2vw;
+  color: #ff8080;
+  background-color: rgba(255, 255, 255, 0);
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;
+}
+
+#setFleshy{
+  position: absolute;
+  height: 5%;
+  width: 10%;
+  left: 60%;
+  top: 55%;
+  font-family: ykw;
+  font-size: 2vw;
+  color: #80c8ff;
+  background-color: rgba(255, 255, 255, 0);
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;
+}
+
+#pasteOutput{
+  overflow: scroll;
+  position: absolute;
+  height: 35%;
+  width: 35%;
+  top: 30%;
+  left: 35%;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+#pasteText{
+  font-size: 1vw;
+  color: #cdb3ff;
+}
+
+#closePaste{
+  position: absolute;
+  left: 85%;
+  top: 0%;
+  width: 10%;
+  height: 10%;
+}
+
+#importTeam{
+  position: absolute;
+  height: 5%;
+  width: 10%;
+  left: 88%;
+  top: 35%;
+  font-family: ykw;
+  font-size: 1vw;
+}
+
+#exportTeam{
+  position: absolute;
+  height: 5%;
+  width: 10%;
+  left: 88%;
+  top: 41%;
+  font-family: ykw;
+  font-size: 1vw;
+}

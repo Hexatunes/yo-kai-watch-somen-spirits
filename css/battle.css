@@ -1,0 +1,1015 @@
+@font-face {
+  font-family: ykw;
+  src: url('/ChangaOne-Regular.ttf');
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+p{
+  font-family: ykw;
+  font-size: 2vw;
+}
+
+#myMessage{
+  color: #006bbd;
+}
+
+#otherMessage{
+  color: #cc0058;
+}
+
+body {
+  background-image: url('/images/battle/battleBG.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow: none;
+}
+
+#battleViewport{
+  background-image: url('/images/matchmaking/matchmaking.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  height: 58%;
+  width: 58%;
+  top: 0%;
+  left: 0%;
+  overflow: hidden;
+}
+
+#wheelBG{
+  position: absolute;
+  height: 42vmin;
+  width: 42vmin;
+  top: 58vmin;
+  left: 30vmin;
+  border-radius: 50%; 
+}
+
+#wheelLines{
+  position: absolute;
+  height: 42vmin;
+  width: 42vmin;
+  top: 58vmin;
+  left: 30vmin;
+  border-radius: 50%; 
+}
+
+#wheelShadow{
+  position: absolute;
+  height: 44vmin;
+  width: 42vmin;
+  top: 79vmin;
+  left: 30vmin;
+  pointer-events: none;
+}
+
+#wheelViewport{
+  position: absolute;
+  height: 42vmin;
+  width: 42vmin;
+  top: 58vmin;
+  left: 30vmin;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  border-radius: 50%; 
+}
+
+#soultimateButton{
+  position: absolute;
+  height: 21vmin;
+  width: 21vmin;
+  top: 58.2vmin;
+  left: 24vmin;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#targetButton{
+  position: absolute;
+  height: 21vmin;
+  width: 21vmin;
+  top: 58.2vmin;
+  left: 56.5vmin;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#itemButton{
+  position: absolute;
+  height: 21vmin;
+  width: 21vmin;
+  top: 79vmin;
+  left: 56.5vmin;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#purifyButton{
+  position: absolute;
+  height: 21vmin;
+  width: 21vmin;
+  top: 79vmin;
+  left: 24vmin;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#toggleMid{
+  position: absolute;
+  height: 22vmin;
+  width: 22vmin;
+  top: 68vmin;
+  left: 40vmin;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#slot1{
+  position: absolute;
+  height: 23%;
+  width: 23%;
+  top: 20%;
+  left: 5.5%;
+  transform: rotate(-60deg);
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#slot2{
+  position: absolute;
+  height: 23%;
+  width: 23%;
+  top: 0.3%;
+  left: 38%;
+  transform: rotate(0deg);
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#slot3{
+  position: absolute;
+  height: 23;
+  width: 23%;
+  top: 20%;
+  left: 72%;
+  transform: rotate(60deg);
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#slot4{
+  position: absolute;
+  height: 23%;
+  width: 23%;
+  top: 57.5%;
+  left: 72%;
+  transform: rotate(120deg);
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#slot5{
+  position: absolute;
+  height: 23%;
+  width: 23%;
+  top: 77%;
+  left: 37.5%;
+  transform: rotate(180deg);
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#slot6{
+  position: absolute;
+  height: 23%;
+  width: 23%;
+  top: 58%;
+  left: 5.5%;
+  transform: rotate(-120deg);
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  
+}
+
+#chatBox{
+  position: absolute;
+  left: 58%;
+  top: 0%;
+  height: 90%;
+  width: 42%;
+  background-color: rgba(255, 255, 255, 0.7);
+  overflow: scroll;
+}
+
+#messageInput{
+  position: absolute;
+  left: 58%;
+  top: 90%;
+  height: 10%;
+  width: 42%;
+  background-color: rgba(255, 255, 255, 0.7);
+  font-family: ykw;
+}
+
+#myName0{
+  position: absolute;
+  top: 85%;
+  left: 8%;
+  font-size: 1.5vw;
+  color: #fff;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;  
+}
+
+#myName1{
+  position: absolute;
+  top: 85%;
+  left: 43%;
+  font-size: 1.5vw;
+  color: #fff;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;  
+}
+
+#myName2{
+  position: absolute;
+  top: 85%;
+  left: 78%;
+  font-size: 1.5vw;
+  color: #fff;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;  
+}
+
+#otherName0{
+  position: absolute;
+  top: -2%;
+  left: 78%;
+  font-size: 1.5vw;
+  color: #fff;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;  
+  display: none;
+}
+
+#otherName1{
+  position: absolute;
+  top: -2%;
+  left: 43%;
+  font-size: 1.5vw;
+  color: #fff;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;  
+  display: none;
+}
+
+#otherName2{
+  position: absolute;
+  top: -2%;
+  left: 8%;
+  font-size: 1.5vw;
+  color: #fff;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;  
+  display: none;
+}
+
+#myHP0{
+  position: absolute;
+  top: 96%;
+  left: 8%;
+  height: 3%;
+  width: 15%;
+
+  -webkit-appearance: none;
+  appearance: none;
+
+  border-radius: 10px;
+}
+
+#myHP1{
+  position: absolute;
+  top: 96%;
+  left: 43%;
+  height: 3%;
+  width: 15%;
+
+  -webkit-appearance: none;
+  appearance: none;
+
+  border-radius: 10px;
+}
+
+#myHP2{
+  position: absolute;
+  top: 96%;
+  left: 78%;
+  height: 3%;
+  width: 15%;
+
+  -webkit-appearance: none;
+  appearance: none;
+
+  border-radius: 10px;
+}
+
+#otherHP0{
+  position: absolute;
+  top: 8%;
+  left: 78%;
+  height: 3%;
+  width: 15%;
+
+  -webkit-appearance: none;
+  appearance: none;
+
+  border-radius: 10px;
+  display: none;
+}
+
+#otherHP1{
+  position: absolute;
+  top: 8%;
+  left: 43%;
+  height: 3%;
+  width: 15%;
+
+  -webkit-appearance: none;
+  appearance: none;
+
+  border-radius: 10px;
+  display: none;
+}
+
+#otherHP2{
+  position: absolute;
+  top: 8%;
+  left: 8%;
+  height: 3%;
+  width: 15%;
+
+  -webkit-appearance: none;
+  appearance: none;
+
+  border-radius: 10px;
+  display: none;
+}
+
+progress[value] {
+  -webkit-appearance: none;
+   appearance: none;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #240236;
+}
+
+progress::-webkit-progress-bar {
+  /* Change the background color of the progress bar */
+  background-color: #240236;
+
+  /* Add border-radius to make edges curved */
+  border-radius: 10px;
+
+}
+
+progress::-webkit-progress-value {
+  /* Change the fill color */
+  background-color: #c46bff;
+  border-radius: 10px;
+}
+
+#mySoul0{
+  position: absolute;
+  top: 93%;
+  left: 4%;
+  height: 4%;
+  width: 4%;
+
+  -webkit-appearance: none;
+  appearance: none;
+
+  border-radius: 10px;
+  transform: rotate(-90deg)
+}
+
+#mySoul1{
+  position: absolute;
+  top: 93%;
+  left: 39%;
+  height: 4%;
+  width: 4%;
+
+  -webkit-appearance: none;
+  appearance: none;
+
+  border-radius: 10px;
+  transform: rotate(-90deg)
+}
+
+#mySoul2{
+  position: absolute;
+  top: 93%;
+  left: 74%;
+  height: 4%;
+  width: 4%;
+
+  -webkit-appearance: none;
+  appearance: none;
+
+  border-radius: 10px;
+  transform: rotate(-90deg)
+}
+
+.SOUL::-webkit-progress-bar {
+  background-color: #032345;
+  border-radius: 10px;
+}
+
+.SOUL::-webkit-progress-bar {
+  /* Change the background color of the progress bar */
+  background-color: #032345;
+
+  /* Add border-radius to make edges curved */
+  border-radius: 10px;
+
+}
+
+.SOUL::-webkit-progress-value {
+  /* Change the fill color */
+  background-color: #6bb8ff;
+  border-radius: 10px;
+}
+
+#targetButton {
+  transition: opacity 0.1s; /* This controls the speed of the fade */
+}
+#targetButton:active { /* This selector targets the input when it is being clicked */
+  opacity: 0.5; /* This makes the input fade out */
+}
+#yourInput.fadeIn { /* This class is added when the mouse button is released */
+  opacity: 1; /* This makes the input fade back in */
+}
+
+#targetCursor{
+  position: absolute;
+  height: 11%;
+  width: 7%;
+  pointer-events: none;
+}
+
+#myYokai0 {
+  position: absolute;
+  height: 40%;
+  width: 30%;
+  top: 50%;
+  left: 2.5%;
+}
+
+#myYokai1 {
+  position: absolute;
+  height: 40%;
+  width: 30%;
+  top: 50%;
+  left: 35%;
+}
+
+#myYokai2 {
+  position: absolute;
+  height: 40%;
+  width: 30%;
+  top: 50%;
+  left: 67.5%;
+}
+
+#pin0 {
+  position: absolute;
+  height: 10%;
+  width: 6%;
+  top: 15%;
+  left: 77%;
+}
+
+#pin1 {
+  position: absolute;
+  height: 10%;
+  width: 6%;
+  top: 15%;
+  left: 47%;
+}
+
+#pin2 {
+  position: absolute;
+  height: 10%;
+  width: 6%;
+  top: 15%;
+  left: 17%;
+}
+
+#myYokaiLeft {
+  position: absolute;
+  height: 40%;
+  width: 30%;
+  top: 50%;
+  left: -30%;
+}
+
+#myYokaiRight {
+  position: absolute;
+  height: 40%;
+  width: 30%;
+  top: 50%;
+  left: 100%;
+}
+
+#otherYokai0 {
+  position: absolute;
+  height: 30%;
+  width: 20%;
+  top: 15%;
+  left: 70%;
+}
+
+#otherYokai1 {
+  position: absolute;
+  height: 30%;
+  width: 20%;
+  top: 15%;
+  left: 40%;
+}
+
+#otherYokai2 {
+  position: absolute;
+  height: 30%;
+  width: 20%;
+  top: 15%;
+  left: 10%;
+}
+
+#otherYokaiLeft {
+  position: absolute;
+  height: 30%;
+  width: 20%;
+  top: 15%;
+  left: 100%;
+}
+
+#otherYokaiRight {
+  position: absolute;
+  height: 30%;
+  width: 20%;
+  top: 15%;
+  left: -20%;
+}
+
+#mpreload0{
+  position: absolute;
+  height: 5%;
+  width: 5%;
+  top: 150%;
+}
+
+#mpreload1{
+  position: absolute;
+  height: 5%;
+  width: 5%;
+  top: 150%;
+}
+
+#mpreload2{
+  position: absolute;
+  height: 5%;
+  width: 5%;
+  top: 150%;
+}
+
+#mpreload3{
+  position: absolute;
+  height: 5%;
+  width: 5%;
+  top: 150%;
+}
+
+#mpreload4{
+  position: absolute;
+  height: 5%;
+  width: 5%;
+  top: 150%;
+}
+
+#mpreload5{
+  position: absolute;
+  height: 5%;
+  width: 5%;
+  top: 150%;
+}
+
+#opreload0{
+  position: absolute;
+  height: 5%;
+  width: 5%;
+  top: 150%;
+}
+
+#opreload1{
+  position: absolute;
+  height: 5%;
+  width: 5%;
+  top: 150%;
+}
+
+#opreload2{
+  position: absolute;
+  height: 5%;
+  width: 5%;
+  top: 150%;
+}
+
+#opreload3{
+  position: absolute;
+  height: 5%;
+  width: 5%;
+  top: 150%;
+}
+
+#opreload4{
+  position: absolute;
+  height: 5%;
+  width: 5%;
+  top: 150%;
+}
+
+#opreload5{
+  position: absolute;
+  height: 5%;
+  width: 5%;
+  top: 150%;
+}
+
+@keyframes slideLeft {
+  0% { transform: translateX(0%); opacity: 1; }
+  100% { transform: translateX(-109%); opacity: 1; }
+}
+
+.animateLeft {
+  position: relative;
+  animation: slideLeft 0.5s none;
+}
+
+@keyframes slideRight {
+  0% { transform: translateX(0%); opacity: 1; }
+  100% { transform: translateX(109%); opacity: 1; }
+}
+
+.animateRight {
+  position: relative;
+  animation: slideRight 0.5s none;
+}
+
+@keyframes OslideLeft {
+  0% { transform: translateX(0%); opacity: 1; }
+  100% { transform: translateX(-150%); opacity: 1; }
+}
+
+.OanimateLeft {
+  position: relative;
+  animation: OslideLeft 0.5s none;
+}
+
+@keyframes OslideRight {
+  0% { transform: translateX(0%); opacity: 1; }
+  100% { transform: translateX(150%); opacity: 1; }
+}
+
+.OanimateRight {
+  position: relative;
+  animation: OslideRight 0.5s none;
+}
+
+#advanceTurn{
+  position: absolute;
+  height: 10%;
+  width: 10%;
+  top: 75%;
+}
+
+.systemMessage{
+  color: #fff;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;  
+}
+
+#startMenu{
+  background-color: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  left: 0%;
+}
+
+#startText{
+  font-family: ykw;
+  font-size: 4vw;
+  position: absolute;
+  left: 28%;
+  top: 70%;
+}
+
+#toggleMusic{
+  position: absolute;
+  height: 10%;
+  width: 5%;
+  top: 90%;
+  left: 2%;
+}
+
+#switchingText{
+  color: #fff;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;  
+  font-size: 3vw;
+  position: absolute;
+  top: 50%;
+  left: 15%;
+}
+
+#switchCooldown{
+  position: absolute;
+  height: 42vmin;
+  width: 42vmin;
+  top: 58vmin;
+  left: 30vmin;
+  border-radius: 50%; 
+  background-color: rgb(255, 148, 148, 0.7);
+}
+
+#cooldownCount{
+  color: #fff;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;  
+  font-size: 5vw;
+  position: absolute;
+  top: 10%;
+  left: 43%;
+}
+
+#switchTimer{
+  position: absolute;
+  height: 42vmin;
+  width: 42vmin;
+  top: 58vmin;
+  left: 30vmin;
+  border-radius: 50%; 
+  pointer-events: none;
+}
+
+#timerCount{
+  color: #fff;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;  
+  font-size: 5vw;
+  position: absolute;
+  top: 10%;
+  left: 43%;
+  pointer-events: none;
+}
+
+#moveDisplay{
+  color: #fff;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;  
+  font-size: 5vw;
+  position: absolute;
+  top: 10%;
+  left: 43%;
+  pointer-events: none;
+}
+
+#infoDisplay{
+  position: absolute;
+  height: 40%;
+  width: 25%;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.infoText{
+  font-size: 1vw;
+  color: #fff;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;  
+}
+
+#damage{
+  color: #ff809f;
+}
+
+#na{
+  color: #ff9c66;
+}
+
+#tech{
+  color: #85c4ff;
+}
+
+#heal{
+  color: #61ff73;
+}
+
+#drain{
+  color: #b366ff;
+}
+
+#results{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+#resultsImage{
+  position: absolute;
+  width: 70%;
+  height: 60%;
+  left: 15%;
+  top: 20%;
+  display: none;
+}
+
+.victory{
+  color: #ffad61;
+}
+
+.defeat{
+  color: #9670ff;
+}
+
+#pro1{
+  position: absolute;
+  height: 3%;
+  width: 28%;
+  top: 23.5%;
+  left: 36%;
+}
+
+#pro2{
+  position: absolute;
+  height: 3%;
+  width: 28%;
+  top: 36.5%;
+  left: 57%;
+  transform: rotate(60deg)
+}
+
+#pro3{
+  position: absolute;
+  height: 3%;
+  width: 28%;
+  top: 61%;
+  left: 57%;
+  transform: rotate(120deg)
+}
+
+#pro4{
+  position: absolute;
+  height: 3%;
+  width: 28%;
+  top: 74%;
+  left: 36%;
+  transform: rotate(180deg)
+}
+
+#pro5{
+  position: absolute;
+  height: 3%;
+  width: 28%;
+  top: 61%;
+  left: 15%;
+  transform: rotate(240deg)
+}
+
+
+#pro0{
+  position: absolute;
+  height: 3%;
+  width: 28%;
+  top: 36.5%;
+  left: 15%;
+  transform: rotate(300deg)
+}
+
+#allDown{
+  position: absolute;
+  height: 58%;
+  width: 58%;
+  top: 0%;
+  left: 0%;
+  overflow: hidden;
+  background-color: rgba(255, 100, 100, 0.7);
+}
+
+#allDownWarning{
+  position: absolute;
+  font-size: 2vw;
+  top: 20%;
+  left: 10%;
+  color: #fff;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;  
+}
+

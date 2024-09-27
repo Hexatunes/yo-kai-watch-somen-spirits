@@ -11,6 +11,7 @@
 </head>
 
 <body onload = "hidePad()">
+  <img id = "tokoSprite" src = "./images/dialogPortraits/hime.png">
   
   <input id="homeButton" type="image" src="./images/teambuilder/padIcon.png" onclick="switchHome()">
 
@@ -18,10 +19,29 @@
 
   <audio id = "bgm" src = ""></audio>
 
+  <p id = "tierLabel">Select a format!</p>
+
   <select id = "teamSelect" onclick="loadTeam()" onload="refreshTeamList()">
     
   </select>
 
+  <p id = "teamLabel">Choose a team!</p>
+
+  <select id = "tierSelect">
+    <option>OU</option>
+  </select>
+
+  <button id = "battleButton" onclick = "startMatchmaking()">Battle!</button>
+
+  <input type = "text" id = "usernameInput" placeholder = "Enter username" oninput="updateUsername()">
+  
+  <img id = "dialogBox" src = "./images/dialog.png">
+  <p id = "dialogName">Tokonatsu-Hime</p>
+  <p id = "matchDialog">I've saved this spot of the beach for people who want one-off battles <br> outside of the tournament! Battle to your hearts content~! ♥</p>
+
+  <div id = "matchmakingMenu" onclick = "cancelMatchmaking()">
+    <p id = "lookingText">Looking for opponents... (click anywhere to cancel)</p>
+  </div>
 
   <img src = "./images/padTrans.png" id = "padTrans">
   
