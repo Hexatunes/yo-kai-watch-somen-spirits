@@ -238,7 +238,7 @@ var connectUsername = ""
 var looking = true
 
 function switchBattle() {
-    location.href = "/battle.html"
+    location.href = "./battle.html"
 }
 
 // Add a listener to a channel and subscribe to it
