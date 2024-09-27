@@ -11,7 +11,19 @@
 </head>
 
 <body onload = "setUp()" onkeydown="keyDetected(event)" id = "mainBody" onclick = "selectTarget()">
-  
+  <style>
+    @font-face {
+      font-family: ykw;
+      src: url('./ChangaOne-Regular.ttf');
+    }
+    body {
+      background-image: url('./images/battle/battleBG.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      overflow: none;
+    }
+  </style>
 
   <div id = "battleViewport">
     <p id = "myName0">Placeholder</p>
