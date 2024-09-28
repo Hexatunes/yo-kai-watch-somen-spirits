@@ -162,8 +162,8 @@ function setUp() {
     document.getElementById("allDown").style.display = "none"
     otherTeam = getCookie("otherTeam")
     if (otherTeam == "none" || !otherTeam) {
-        alert("Error! Data failed to load or you're not in a battle!")
-        location.href = "/matchmaking.html"
+        alert("Error! Data failed to load or you're not in a battle! Data received: " + otherTeam)
+        location.href = "./matchmaking.html"
     }
 
     myTeam = JSON.parse(getCookie("myTeam"))
