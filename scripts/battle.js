@@ -482,253 +482,6 @@ var otherYokai1 = document.getElementById('otherYokai1');
 var otherYokai2 = document.getElementById('otherYokai2');
 var otherYokaiRight = document.getElementById('otherYokaiRight');
 
-// Function to start the animation
-function shiftLeft(side, amount) {
-    if (side == "my") {
-        // Remove the 'animate' class
-        myYokaiLeft.classList.remove("animateLeft");
-        myYokai0.classList.remove("animateLeft");
-        myYokai1.classList.remove("animateLeft");
-        myYokai2.classList.remove("animateLeft");
-        myYokaiRight.classList.remove("animateLeft");
-
-        myYokaiLeft.classList.remove("animateRight");
-        myYokai0.classList.remove("animateRight");
-        myYokai1.classList.remove("animateRight");
-        myYokai2.classList.remove("animateRight");
-        myYokaiRight.classList.remove("animateRight");
-
-        // Trigger reflow to reset animation
-        void myYokaiLeft.offsetWidth;
-        void myYokai0.offsetWidth;
-        void myYokai1.offsetWidth;
-        void myYokai2.offsetWidth;
-        void myYokaiRight.offsetWidth;
-
-        // Add the 'animate' class
-        myYokaiLeft.classList.add("animateLeft");
-        myYokai0.classList.add("animateLeft");
-        myYokai1.classList.add("animateLeft");
-        myYokai2.classList.add("animateLeft");
-        myYokaiRight.classList.add("animateLeft");
-
-        setTimeout(() => {
-            if (myCurrent[5]["down"]) {
-                document.getElementById("myYokaiLeft").src = "./images/battle/Spirit.webp"
-            } else {
-                document.getElementById("myYokaiLeft").src = YOKAI_DATABASE[myCurrent[5]["code"]]["backIdle"]
-            }
-
-            if (myCurrent[0]["down"]) {
-                document.getElementById("myYokai0").src = "./images/battle/Spirit.webp"
-            } else {
-                document.getElementById("myYokai0").src = YOKAI_DATABASE[myCurrent[0]["code"]]["backIdle"]
-            }
-
-            if (myCurrent[1]["down"]) {
-                document.getElementById("myYokai1").src = "./images/battle/Spirit.webp"
-            } else {
-                document.getElementById("myYokai1").src = YOKAI_DATABASE[myCurrent[1]["code"]]["backIdle"]
-            }
-
-            if (myCurrent[2]["down"]) {
-                document.getElementById("myYokai2").src = "./images/battle/Spirit.webp"
-            } else {
-                document.getElementById("myYokai2").src = YOKAI_DATABASE[myCurrent[2]["code"]]["backIdle"]
-            }
-
-            if (myCurrent[3]["down"]) {
-                document.getElementById("myYokaiRight").src = "./images/battle/Spirit.webp"
-            } else {
-                document.getElementById("myYokaiRight").src = YOKAI_DATABASE[myCurrent[3]["code"]]["backIdle"]
-            }
-        }, 500);
-    } else {
-        // Remove the 'animate' class
-        otherYokaiLeft.classList.remove("OanimateLeft");
-        otherYokai0.classList.remove("OanimateLeft");
-        otherYokai1.classList.remove("OanimateLeft");
-        otherYokai2.classList.remove("OanimateLeft");
-        otherYokaiRight.classList.remove("OanimateLeft");
-
-        otherYokaiLeft.classList.remove("OanimateRight");
-        otherYokai0.classList.remove("OanimateRight");
-        otherYokai1.classList.remove("OanimateRight");
-        otherYokai2.classList.remove("OanimateRight");
-        otherYokaiRight.classList.remove("OanimateRight");
-
-        // Trigger reflow to reset animation
-        void otherYokaiLeft.offsetWidth;
-        void otherYokai0.offsetWidth;
-        void otherYokai1.offsetWidth;
-        void otherYokai2.offsetWidth;
-        void otherYokaiRight.offsetWidth;
-
-        // Add the 'animate' class
-        otherYokaiLeft.classList.add("OanimateLeft");
-        otherYokai0.classList.add("OanimateLeft");
-        otherYokai1.classList.add("OanimateLeft");
-        otherYokai2.classList.add("OanimateLeft");
-        otherYokaiRight.classList.add("OanimateLeft");
-
-        setTimeout(() => {
-            if (otherCurrent[5]["down"]) {
-                document.getElementById("otherYokaiLeft").src = "./images/battle/Spirit.webp"
-            } else {
-                document.getElementById("otherYokaiLeft").src = YOKAI_DATABASE[otherCurrent[5]["code"]]["frontIdle"]
-            }
-
-            if (otherCurrent[0]["down"]) {
-                document.getElementById("otherYokai0").src = "./images/battle/Spirit.webp"
-            } else {
-                document.getElementById("otherYokai0").src = YOKAI_DATABASE[otherCurrent[0]["code"]]["frontIdle"]
-            }
-
-            if (otherCurrent[1]["down"]) {
-                document.getElementById("otherYokai1").src = "./images/battle/Spirit.webp"
-            } else {
-                document.getElementById("otherYokai1").src = YOKAI_DATABASE[otherCurrent[1]["code"]]["frontIdle"]
-            }
-
-            if (otherCurrent[2]["down"]) {
-                document.getElementById("otherYokai2").src = "./images/battle/Spirit.webp"
-            } else {
-                document.getElementById("otherYokai2").src = YOKAI_DATABASE[otherCurrent[2]["code"]]["frontIdle"]
-            }
-
-            if (otherCurrent[3]["down"]) {
-                document.getElementById("otherYokaiRight").src = "./images/battle/Spirit.webp"
-            } else {
-                document.getElementById("otherYokaiRight").src = YOKAI_DATABASE[otherCurrent[3]["code"]]["frontIdle"]
-            }
-        }, 500);
-    }
-
-}
-
-// Function to start the animation
-function shiftRight(side, amount) {
-    if (side == "my") {
-        // Remove the 'animate' class
-        myYokaiLeft.classList.remove("animateRight");
-        myYokai0.classList.remove("animateRight");
-        myYokai1.classList.remove("animateRight");
-        myYokai2.classList.remove("animateRight");
-        myYokaiRight.classList.remove("animateRight");
-
-        myYokaiLeft.classList.remove("animateLeft");
-        myYokai0.classList.remove("animateLeft");
-        myYokai1.classList.remove("animateLeft");
-        myYokai2.classList.remove("animateLeft");
-        myYokaiRight.classList.remove("animateLeft");
-
-        // Trigger reflow to reset animation
-        void myYokaiLeft.offsetWidth;
-        void myYokai0.offsetWidth;
-        void myYokai1.offsetWidth;
-        void myYokai2.offsetWidth;
-        void myYokaiRight.offsetWidth;
-
-        // Add the 'animate' class
-        myYokaiLeft.classList.add("animateRight");
-        myYokai0.classList.add("animateRight");
-        myYokai1.classList.add("animateRight");
-        myYokai2.classList.add("animateRight");
-        myYokaiRight.classList.add("animateRight");
-
-        setTimeout(() => {
-            if (myCurrent[5]["down"]) {
-                document.getElementById("myYokaiLeft").src = "./images/battle/Spirit.webp"
-            } else {
-                document.getElementById("myYokaiLeft").src = YOKAI_DATABASE[myCurrent[5]["code"]]["backIdle"]
-            }
-
-            if (myCurrent[0]["down"]) {
-                document.getElementById("myYokai0").src = "./images/battle/Spirit.webp"
-            } else {
-                document.getElementById("myYokai0").src = YOKAI_DATABASE[myCurrent[0]["code"]]["backIdle"]
-            }
-
-            if (myCurrent[1]["down"]) {
-                document.getElementById("myYokai1").src = "./images/battle/Spirit.webp"
-            } else {
-                document.getElementById("myYokai1").src = YOKAI_DATABASE[myCurrent[1]["code"]]["backIdle"]
-            }
-
-            if (myCurrent[2]["down"]) {
-                document.getElementById("myYokai2").src = "./images/battle/Spirit.webp"
-            } else {
-                document.getElementById("myYokai2").src = YOKAI_DATABASE[myCurrent[2]["code"]]["backIdle"]
-            }
-
-            if (myCurrent[3]["down"]) {
-                document.getElementById("myYokaiRight").src = "./images/battle/Spirit.webp"
-            } else {
-                document.getElementById("myYokaiRight").src = YOKAI_DATABASE[myCurrent[3]["code"]]["backIdle"]
-            }
-        }, 500);
-    } else {
-        // Remove the 'animate' class
-        otherYokaiLeft.classList.remove("OanimateRight");
-        otherYokai0.classList.remove("OanimateRight");
-        otherYokai1.classList.remove("OanimateRight");
-        otherYokai2.classList.remove("OanimateRight");
-        otherYokaiRight.classList.remove("OanimateRight");
-
-        otherYokaiLeft.classList.remove("OanimateLeft");
-        otherYokai0.classList.remove("OanimateLeft");
-        otherYokai1.classList.remove("OanimateLeft");
-        otherYokai2.classList.remove("OanimateLeft");
-        otherYokaiRight.classList.remove("OanimateLeft");
-
-        // Trigger reflow to reset animation
-        void otherYokaiLeft.offsetWidth;
-        void otherYokai0.offsetWidth;
-        void otherYokai1.offsetWidth;
-        void otherYokai2.offsetWidth;
-        void otherYokaiRight.offsetWidth;
-
-        // Add the 'animate' class
-        otherYokaiLeft.classList.add("OanimateRight");
-        otherYokai0.classList.add("OanimateRight");
-        otherYokai1.classList.add("OanimateRight");
-        otherYokai2.classList.add("OanimateRight");
-        otherYokaiRight.classList.add("OanimateRight");
-
-        setTimeout(() => {
-            if (otherCurrent[5]["down"]) {
-                document.getElementById("otherYokaiLeft").src = "./images/battle/Spirit.webp"
-            } else {
-                document.getElementById("otherYokaiLeft").src = YOKAI_DATABASE[otherCurrent[5]["code"]]["frontIdle"]
-            }
-
-            if (otherCurrent[0]["down"]) {
-                document.getElementById("otherYokai0").src = "./images/battle/Spirit.webp"
-            } else {
-                document.getElementById("otherYokai0").src = YOKAI_DATABASE[otherCurrent[0]["code"]]["frontIdle"]
-            }
-
-            if (otherCurrent[1]["down"]) {
-                document.getElementById("otherYokai1").src = "./images/battle/Spirit.webp"
-            } else {
-                document.getElementById("otherYokai1").src = YOKAI_DATABASE[otherCurrent[1]["code"]]["frontIdle"]
-            }
-
-            if (otherCurrent[2]["down"]) {
-                document.getElementById("otherYokai2").src = "./images/battle/Spirit.webp"
-            } else {
-                document.getElementById("otherYokai2").src = YOKAI_DATABASE[otherCurrent[2]["code"]]["frontIdle"]
-            }
-
-            if (otherCurrent[3]["down"]) {
-                document.getElementById("otherYokaiRight").src = "./images/battle/Spirit.webp"
-            } else {
-                document.getElementById("otherYokaiRight").src = YOKAI_DATABASE[otherCurrent[3]["code"]]["frontIdle"]
-            }
-        }, 500);
-    }
-
-}
 
 let lastRotation = 0;
 var currentFirst = 0;
@@ -753,176 +506,68 @@ function syncArrays(r) {
     console.log("last: " + lastRotation)
 
 
-
-
-
-    var direction = saveR - lastSave;
-    let diff = Math.abs(otherR - lastRotation)
-
-    if (lastRotation < r) {
-        for (let i = lastRotation + 1; i <= r; i++) {
-            console.log("last is lower, going up")
-            setTimeout(function() {
-
-
-
-                myCurrent = []
-                if (i == r) {
-                    currentlyRotating = false
-                }
-                if (i == 0) {
-                    myCurrent.push(myTeam[0])
-                    myCurrent.push(myTeam[1])
-                    myCurrent.push(myTeam[2])
-                    myCurrent.push(myTeam[3])
-                    myCurrent.push(myTeam[4])
-                    myCurrent.push(myTeam[5])
-                    currentFirst = 0
-                } else if (i == Math.floor(Math.PI / 3)) {
-                    myCurrent.push(myTeam[5])
-                    myCurrent.push(myTeam[0])
-                    myCurrent.push(myTeam[1])
-                    myCurrent.push(myTeam[2])
-                    myCurrent.push(myTeam[3])
-                    myCurrent.push(myTeam[4])
-                    currentFirst = 5
-                } else if (i == Math.floor(2 * (Math.PI / 3))) {
-                    myCurrent.push(myTeam[4])
-                    myCurrent.push(myTeam[5])
-                    myCurrent.push(myTeam[0])
-                    myCurrent.push(myTeam[1])
-                    myCurrent.push(myTeam[2])
-                    myCurrent.push(myTeam[3])
-                    currentFirst = 4
-                } else if (i == Math.floor(Math.PI)) {
-                    myCurrent.push(myTeam[3])
-                    myCurrent.push(myTeam[4])
-                    myCurrent.push(myTeam[5])
-                    myCurrent.push(myTeam[0])
-                    myCurrent.push(myTeam[1])
-                    myCurrent.push(myTeam[2])
-                    currentFirst = 3
-                } else if (i == Math.floor(4 * (Math.PI / 3))) {
-                    myCurrent.push(myTeam[2])
-                    myCurrent.push(myTeam[3])
-                    myCurrent.push(myTeam[4])
-                    myCurrent.push(myTeam[5])
-                    myCurrent.push(myTeam[0])
-                    myCurrent.push(myTeam[1])
-                    currentFirst = 2
-                } else if (i == Math.floor(5 * (Math.PI / 3))) {
-                    myCurrent.push(myTeam[1])
-                    myCurrent.push(myTeam[2])
-                    myCurrent.push(myTeam[3])
-                    myCurrent.push(myTeam[4])
-                    myCurrent.push(myTeam[5])
-                    myCurrent.push(myTeam[0])
-                    currentFirst = 1
-                }
-
-                
-
-
-                if (myCurrent[0].currentHP <= 0 && myCurrent[1].currentHP <= 0 && myCurrent[2].currentHP <= 0) {
-                    document.getElementById("allDown").style.display = "block"
-                } else {
-                    document.getElementById("allDown").style.display = "none"
-                }
-
-
-                console.log(i)
-
-                shiftRight("my", diff)
-
-                document.getElementById("myName0").innerHTML = myCurrent[0]["displayName"]
-                document.getElementById("myName1").innerHTML = myCurrent[1]["displayName"]
-                document.getElementById("myName2").innerHTML = myCurrent[2]["displayName"]
-                refreshDisplays()
-            }, 600 * i);
-        }
-    } else if (lastRotation > r) {
-        for (let i = lastRotation - 1; i >= r; i--) {
-            console.log("last is higher, going down")
-            setTimeout(function() {
-
-
-                myCurrent = []
-                if (i == r) {
-                    currentlyRotating = false
-                }
-                if (i == 0) {
-                    myCurrent.push(myTeam[0])
-                    myCurrent.push(myTeam[1])
-                    myCurrent.push(myTeam[2])
-                    myCurrent.push(myTeam[3])
-                    myCurrent.push(myTeam[4])
-                    myCurrent.push(myTeam[5])
-                    currentFirst = 0
-                } else if (i == Math.floor(Math.PI / 3)) {
-                    myCurrent.push(myTeam[5])
-                    myCurrent.push(myTeam[0])
-                    myCurrent.push(myTeam[1])
-                    myCurrent.push(myTeam[2])
-                    myCurrent.push(myTeam[3])
-                    myCurrent.push(myTeam[4])
-                    currentFirst = 5
-                } else if (i == Math.floor(2 * (Math.PI / 3))) {
-                    myCurrent.push(myTeam[4])
-                    myCurrent.push(myTeam[5])
-                    myCurrent.push(myTeam[0])
-                    myCurrent.push(myTeam[1])
-                    myCurrent.push(myTeam[2])
-                    myCurrent.push(myTeam[3])
-                    currentFirst = 4
-                } else if (i == Math.floor(Math.PI)) {
-                    myCurrent.push(myTeam[3])
-                    myCurrent.push(myTeam[4])
-                    myCurrent.push(myTeam[5])
-                    myCurrent.push(myTeam[0])
-                    myCurrent.push(myTeam[1])
-                    myCurrent.push(myTeam[2])
-                    currentFirst = 3
-                } else if (i == Math.floor(4 * (Math.PI / 3))) {
-                    myCurrent.push(myTeam[2])
-                    myCurrent.push(myTeam[3])
-                    myCurrent.push(myTeam[4])
-                    myCurrent.push(myTeam[5])
-                    myCurrent.push(myTeam[0])
-                    myCurrent.push(myTeam[1])
-                    currentFirst = 2
-                } else if (i == Math.floor(5 * (Math.PI / 3))) {
-                    myCurrent.push(myTeam[1])
-                    myCurrent.push(myTeam[2])
-                    myCurrent.push(myTeam[3])
-                    myCurrent.push(myTeam[4])
-                    myCurrent.push(myTeam[5])
-                    myCurrent.push(myTeam[0])
-                    currentFirst = 1
-                }
-
-                if (myCurrent[0].currentHP <= 0 && myCurrent[1].currentHP <= 0 && myCurrent[2].currentHP <= 0) {
-                    document.getElementById("allDown").style.display = "block"
-                } else {
-                    document.getElementById("allDown").style.display = "none"
-                }
-
-                
-
-                console.log(myCurrent)
-
-                shiftLeft("my", diff)
-
-                document.getElementById("myName0").innerHTML = myCurrent[0]["displayName"]
-                document.getElementById("myName1").innerHTML = myCurrent[1]["displayName"]
-                document.getElementById("myName2").innerHTML = myCurrent[2]["displayName"]
-                refreshDisplays()
-            }, 600 * (diff - i));
-        }
+    if (r == lastRotation) {
+        currentlyRotating = false
+    }
+    myCurrent = []
+    if (r == 0) {
+        myCurrent.push(myTeam[0])
+        myCurrent.push(myTeam[1])
+        myCurrent.push(myTeam[2])
+        myCurrent.push(myTeam[3])
+        myCurrent.push(myTeam[4])
+        myCurrent.push(myTeam[5])
+        currentFirst = 0
+    } else if (r == Math.floor(Math.PI / 3)) {
+        myCurrent.push(myTeam[5])
+        myCurrent.push(myTeam[0])
+        myCurrent.push(myTeam[1])
+        myCurrent.push(myTeam[2])
+        myCurrent.push(myTeam[3])
+        myCurrent.push(myTeam[4])
+        currentFirst = 5
+    } else if (r == Math.floor(2 * (Math.PI / 3))) {
+        myCurrent.push(myTeam[4])
+        myCurrent.push(myTeam[5])
+        myCurrent.push(myTeam[0])
+        myCurrent.push(myTeam[1])
+        myCurrent.push(myTeam[2])
+        myCurrent.push(myTeam[3])
+        currentFirst = 4
+    } else if (r == Math.floor(Math.PI)) {
+        myCurrent.push(myTeam[3])
+        myCurrent.push(myTeam[4])
+        myCurrent.push(myTeam[5])
+        myCurrent.push(myTeam[0])
+        myCurrent.push(myTeam[1])
+        myCurrent.push(myTeam[2])
+        currentFirst = 3
+    } else if (r == Math.floor(4 * (Math.PI / 3))) {
+        myCurrent.push(myTeam[2])
+        myCurrent.push(myTeam[3])
+        myCurrent.push(myTeam[4])
+        myCurrent.push(myTeam[5])
+        myCurrent.push(myTeam[0])
+        myCurrent.push(myTeam[1])
+        currentFirst = 2
+    } else if (r == Math.floor(5 * (Math.PI / 3))) {
+        myCurrent.push(myTeam[1])
+        myCurrent.push(myTeam[2])
+        myCurrent.push(myTeam[3])
+        myCurrent.push(myTeam[4])
+        myCurrent.push(myTeam[5])
+        myCurrent.push(myTeam[0])
+        currentFirst = 1
     }
 
+    
 
 
-    console.log(myCurrent)
+    if (myCurrent[0]["down"] && myCurrent[1]["down"] && myCurrent[2]["down"]) {
+        document.getElementById("allDown").style.display = "block"
+    } else {
+        document.getElementById("allDown").style.display = "none"
+    }
 
     if (myCurrent[5]["down"]) {
         document.getElementById("myYokaiLeft").src = "./images/battle/Spirit.webp"
@@ -954,7 +599,20 @@ function syncArrays(r) {
         document.getElementById("myYokaiRight").src = YOKAI_DATABASE[myCurrent[3]["code"]]["backIdle"]
     }
 
+    console.log(myCurrent)
 
+
+    document.getElementById("myName0").innerHTML = myCurrent[0]["displayName"]
+    document.getElementById("myName1").innerHTML = myCurrent[1]["displayName"]
+    document.getElementById("myName2").innerHTML = myCurrent[2]["displayName"]
+    refreshDisplays()
+
+    turnOrder = [myCurrent[0], myCurrent[1], myCurrent[2], otherCurrent[0], otherCurrent[1], otherCurrent[2]]
+    refreshOrder()
+
+
+    var direction = saveR - lastSave;
+    let diff = Math.abs(otherR - lastRotation)
 
 
     pubnub.publish({
@@ -1756,206 +1414,67 @@ pubnub.addListener({
 
             let Odiff = Math.abs(OotherR - OlastRotation)
 
+            otherCurrent = []
 
-
-            if (OlastRotation < Or) {
-                for (let i = OlastRotation + 1; i <= Or; i++) {
-                    console.log("last is lower, going up")
-                    setTimeout(function() {
-
-                        if (otherCurrent[5]["down"]) {
-                            document.getElementById("otherYokaiLeft").src = "./images/battle/Spirit.webp"
-                        } else {
-                            document.getElementById("otherYokaiLeft").src = YOKAI_DATABASE[otherCurrent[5]["code"]]["frontIdle"]
-                        }
-
-                        if (otherCurrent[0]["down"]) {
-                            document.getElementById("otherYokai0").src = "./images/battle/Spirit.webp"
-                        } else {
-                            document.getElementById("otherYokai0").src = YOKAI_DATABASE[otherCurrent[0]["code"]]["frontIdle"]
-                        }
-
-                        if (otherCurrent[1]["down"]) {
-                            document.getElementById("otherYokai1").src = "./images/battle/Spirit.webp"
-                        } else {
-                            document.getElementById("otherYokai1").src = YOKAI_DATABASE[otherCurrent[1]["code"]]["frontIdle"]
-                        }
-
-                        if (otherCurrent[2]["down"]) {
-                            document.getElementById("otherYokai2").src = "./images/battle/Spirit.webp"
-                        } else {
-                            document.getElementById("otherYokai2").src = YOKAI_DATABASE[otherCurrent[2]["code"]]["frontIdle"]
-                        }
-
-                        if (otherCurrent[3]["down"]) {
-                            document.getElementById("otherYokaiRight").src = "./images/battle/Spirit.webp"
-                        } else {
-                            document.getElementById("otherYokaiRight").src = YOKAI_DATABASE[otherCurrent[3]["code"]]["frontIdle"]
-                        }
-
-
-                        otherCurrent = []
-                        if (i == Or) {
-                            currentlyRotating = false
-                        }
-                        if (i == 0) {
-                            otherCurrent.push(otherTeam[0])
-                            otherCurrent.push(otherTeam[1])
-                            otherCurrent.push(otherTeam[2])
-                            otherCurrent.push(otherTeam[3])
-                            otherCurrent.push(otherTeam[4])
-                            otherCurrent.push(otherTeam[5])
-                            currentFirst = 0
-                        } else if (i == Math.floor(Math.PI / 3)) {
-                            otherCurrent.push(otherTeam[5])
-                            otherCurrent.push(otherTeam[0])
-                            otherCurrent.push(otherTeam[1])
-                            otherCurrent.push(otherTeam[2])
-                            otherCurrent.push(otherTeam[3])
-                            otherCurrent.push(otherTeam[4])
-                            currentFirst = 5
-                        } else if (i == Math.floor(2 * (Math.PI / 3))) {
-                            otherCurrent.push(otherTeam[4])
-                            otherCurrent.push(otherTeam[5])
-                            otherCurrent.push(otherTeam[0])
-                            otherCurrent.push(otherTeam[1])
-                            otherCurrent.push(otherTeam[2])
-                            otherCurrent.push(otherTeam[3])
-                            currentFirst = 4
-                        } else if (i == Math.floor(Math.PI)) {
-                            otherCurrent.push(otherTeam[3])
-                            otherCurrent.push(otherTeam[4])
-                            otherCurrent.push(otherTeam[5])
-                            otherCurrent.push(otherTeam[0])
-                            otherCurrent.push(otherTeam[1])
-                            otherCurrent.push(otherTeam[2])
-                            currentFirst = 3
-                        } else if (i == Math.floor(4 * (Math.PI / 3))) {
-                            otherCurrent.push(otherTeam[2])
-                            otherCurrent.push(otherTeam[3])
-                            otherCurrent.push(otherTeam[4])
-                            otherCurrent.push(otherTeam[5])
-                            otherCurrent.push(otherTeam[0])
-                            otherCurrent.push(otherTeam[1])
-                            currentFirst = 2
-                        } else if (i == Math.floor(5 * (Math.PI / 3))) {
-                            otherCurrent.push(otherTeam[1])
-                            otherCurrent.push(otherTeam[2])
-                            otherCurrent.push(otherTeam[3])
-                            otherCurrent.push(otherTeam[4])
-                            otherCurrent.push(otherTeam[5])
-                            otherCurrent.push(otherTeam[0])
-                            currentFirst = 1
-                        }
-
-                        console.log(i)
-
-                        shiftLeft("other", Odiff)
-
-                        document.getElementById("otherName0").innerHTML = otherCurrent[0]["displayName"]
-                        document.getElementById("otherName1").innerHTML = otherCurrent[1]["displayName"]
-                        document.getElementById("otherName2").innerHTML = otherCurrent[2]["displayName"]
-                        refreshDisplays()
-                    }, 600 * i);
-                }
-            } else if (OlastRotation > Or) {
-                for (let i = OlastRotation - 1; i >= Or; i--) {
-                    console.log("last is higher, going down")
-                    setTimeout(function() {
-                        if (otherCurrent[5]["down"]) {
-                            document.getElementById("otherYokaiLeft").src = "./images/battle/Spirit.webp"
-                        } else {
-                            document.getElementById("otherYokaiLeft").src = YOKAI_DATABASE[otherCurrent[5]["code"]]["frontIdle"]
-                        }
-
-                        if (otherCurrent[0]["down"]) {
-                            document.getElementById("otherYokai0").src = "./images/battle/Spirit.webp"
-                        } else {
-                            document.getElementById("otherYokai0").src = YOKAI_DATABASE[otherCurrent[0]["code"]]["frontIdle"]
-                        }
-
-                        if (otherCurrent[1]["down"]) {
-                            document.getElementById("otherYokai1").src = "./images/battle/Spirit.webp"
-                        } else {
-                            document.getElementById("otherYokai1").src = YOKAI_DATABASE[otherCurrent[1]["code"]]["frontIdle"]
-                        }
-
-                        if (otherCurrent[2]["down"]) {
-                            document.getElementById("otherYokai2").src = "./images/battle/Spirit.webp"
-                        } else {
-                            document.getElementById("otherYokai2").src = YOKAI_DATABASE[otherCurrent[2]["code"]]["frontIdle"]
-                        }
-
-                        if (otherCurrent[3]["down"]) {
-                            document.getElementById("otherYokaiRight").src = "./images/battle/Spirit.webp"
-                        } else {
-                            document.getElementById("otherYokaiRight").src = YOKAI_DATABASE[otherCurrent[3]["code"]]["frontIdle"]
-                        }
-                        otherCurrent = []
-                        if (i == Or) {
-                            currentlyRotating = false
-                        }
-                        if (i == 0) {
-                            otherCurrent.push(otherTeam[0])
-                            otherCurrent.push(otherTeam[1])
-                            otherCurrent.push(otherTeam[2])
-                            otherCurrent.push(otherTeam[3])
-                            otherCurrent.push(otherTeam[4])
-                            otherCurrent.push(otherTeam[5])
-                            currentFirst = 0
-                        } else if (i == Math.floor(Math.PI / 3)) {
-                            otherCurrent.push(otherTeam[5])
-                            otherCurrent.push(otherTeam[0])
-                            otherCurrent.push(otherTeam[1])
-                            otherCurrent.push(otherTeam[2])
-                            otherCurrent.push(otherTeam[3])
-                            otherCurrent.push(otherTeam[4])
-                            currentFirst = 5
-                        } else if (i == Math.floor(2 * (Math.PI / 3))) {
-                            otherCurrent.push(otherTeam[4])
-                            otherCurrent.push(otherTeam[5])
-                            otherCurrent.push(otherTeam[0])
-                            otherCurrent.push(otherTeam[1])
-                            otherCurrent.push(otherTeam[2])
-                            otherCurrent.push(otherTeam[3])
-                            currentFirst = 4
-                        } else if (i == Math.floor(Math.PI)) {
-                            otherCurrent.push(otherTeam[3])
-                            otherCurrent.push(otherTeam[4])
-                            otherCurrent.push(otherTeam[5])
-                            otherCurrent.push(otherTeam[0])
-                            otherCurrent.push(otherTeam[1])
-                            otherCurrent.push(otherTeam[2])
-                            currentFirst = 3
-                        } else if (i == Math.floor(4 * (Math.PI / 3))) {
-                            otherCurrent.push(otherTeam[2])
-                            otherCurrent.push(otherTeam[3])
-                            otherCurrent.push(otherTeam[4])
-                            otherCurrent.push(otherTeam[5])
-                            otherCurrent.push(otherTeam[0])
-                            otherCurrent.push(otherTeam[1])
-                            currentFirst = 2
-                        } else if (i == Math.floor(5 * (Math.PI / 3))) {
-                            otherCurrent.push(otherTeam[1])
-                            otherCurrent.push(otherTeam[2])
-                            otherCurrent.push(otherTeam[3])
-                            otherCurrent.push(otherTeam[4])
-                            otherCurrent.push(otherTeam[5])
-                            otherCurrent.push(otherTeam[0])
-                            currentFirst = 1
-                        }
-
-                        console.log(i)
-
-                        shiftRight("other", Odiff)
-
-                        document.getElementById("otherName0").innerHTML = otherCurrent[0]["displayName"]
-                        document.getElementById("otherName1").innerHTML = otherCurrent[1]["displayName"]
-                        document.getElementById("otherName2").innerHTML = otherCurrent[2]["displayName"]
-                        refreshDisplays()
-                    }, 600 * (Odiff - i));
-                }
+            if (Or == OlastRotation) {
+                currentlyRotating = false
             }
+            if (Or == 0) {
+                otherCurrent.push(otherTeam[0])
+                otherCurrent.push(otherTeam[1])
+                otherCurrent.push(otherTeam[2])
+                otherCurrent.push(otherTeam[3])
+                otherCurrent.push(otherTeam[4])
+                otherCurrent.push(otherTeam[5])
+                currentFirst = 0
+            } else if (Or == Math.floor(Math.PI / 3)) {
+                otherCurrent.push(otherTeam[5])
+                otherCurrent.push(otherTeam[0])
+                otherCurrent.push(otherTeam[1])
+                otherCurrent.push(otherTeam[2])
+                otherCurrent.push(otherTeam[3])
+                otherCurrent.push(otherTeam[4])
+                currentFirst = 5
+            } else if (Or == Math.floor(2 * (Math.PI / 3))) {
+                otherCurrent.push(otherTeam[4])
+                otherCurrent.push(otherTeam[5])
+                otherCurrent.push(otherTeam[0])
+                otherCurrent.push(otherTeam[1])
+                otherCurrent.push(otherTeam[2])
+                otherCurrent.push(otherTeam[3])
+                currentFirst = 4
+            } else if (Or == Math.floor(Math.PI)) {
+                otherCurrent.push(otherTeam[3])
+                otherCurrent.push(otherTeam[4])
+                otherCurrent.push(otherTeam[5])
+                otherCurrent.push(otherTeam[0])
+                otherCurrent.push(otherTeam[1])
+                otherCurrent.push(otherTeam[2])
+                currentFirst = 3
+            } else if (Or == Math.floor(4 * (Math.PI / 3))) {
+                otherCurrent.push(otherTeam[2])
+                otherCurrent.push(otherTeam[3])
+                otherCurrent.push(otherTeam[4])
+                otherCurrent.push(otherTeam[5])
+                otherCurrent.push(otherTeam[0])
+                otherCurrent.push(otherTeam[1])
+                currentFirst = 2
+            } else if (Or == Math.floor(5 * (Math.PI / 3))) {
+                otherCurrent.push(otherTeam[1])
+                otherCurrent.push(otherTeam[2])
+                otherCurrent.push(otherTeam[3])
+                otherCurrent.push(otherTeam[4])
+                otherCurrent.push(otherTeam[5])
+                otherCurrent.push(otherTeam[0])
+                currentFirst = 1
+            }
+
+            console.log(Or)
+
+            document.getElementById("otherName0").innerHTML = otherCurrent[0]["displayName"]
+            document.getElementById("otherName1").innerHTML = otherCurrent[1]["displayName"]
+            document.getElementById("otherName2").innerHTML = otherCurrent[2]["displayName"]
+            refreshDisplays()
 
             if (otherCurrent[5]["down"]) {
                 document.getElementById("otherYokaiLeft").src = "./images/battle/Spirit.webp"
@@ -1988,6 +1507,9 @@ pubnub.addListener({
             }
 
             console.log(otherCurrent)
+
+            turnOrder = [myCurrent[0], myCurrent[1], myCurrent[2], otherCurrent[0], otherCurrent[1], otherCurrent[2]]
+            refreshOrder()
 
             document.getElementById("switchingText").style.display = "none"
             currentlyRotating = false
