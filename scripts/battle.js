@@ -509,8 +509,9 @@ function syncArrays(r) {
     if (r == lastRotation) {
         currentlyRotating = false
     }
-    myCurrent = []
+    
     if (r == 0) {
+        myCurrent = []
         myCurrent.push(myTeam[0])
         myCurrent.push(myTeam[1])
         myCurrent.push(myTeam[2])
@@ -519,6 +520,7 @@ function syncArrays(r) {
         myCurrent.push(myTeam[5])
         currentFirst = 0
     } else if (r == Math.floor(Math.PI / 3)) {
+        myCurrent = []
         myCurrent.push(myTeam[5])
         myCurrent.push(myTeam[0])
         myCurrent.push(myTeam[1])
@@ -527,6 +529,7 @@ function syncArrays(r) {
         myCurrent.push(myTeam[4])
         currentFirst = 5
     } else if (r == Math.floor(2 * (Math.PI / 3))) {
+        myCurrent = []
         myCurrent.push(myTeam[4])
         myCurrent.push(myTeam[5])
         myCurrent.push(myTeam[0])
@@ -535,6 +538,7 @@ function syncArrays(r) {
         myCurrent.push(myTeam[3])
         currentFirst = 4
     } else if (r == Math.floor(Math.PI)) {
+        myCurrent = []
         myCurrent.push(myTeam[3])
         myCurrent.push(myTeam[4])
         myCurrent.push(myTeam[5])
@@ -543,6 +547,7 @@ function syncArrays(r) {
         myCurrent.push(myTeam[2])
         currentFirst = 3
     } else if (r == Math.floor(4 * (Math.PI / 3))) {
+        myCurrent = []
         myCurrent.push(myTeam[2])
         myCurrent.push(myTeam[3])
         myCurrent.push(myTeam[4])
@@ -551,6 +556,7 @@ function syncArrays(r) {
         myCurrent.push(myTeam[1])
         currentFirst = 2
     } else if (r == Math.floor(5 * (Math.PI / 3))) {
+        myCurrent = []
         myCurrent.push(myTeam[1])
         myCurrent.push(myTeam[2])
         myCurrent.push(myTeam[3])
@@ -1414,12 +1420,13 @@ pubnub.addListener({
 
             let Odiff = Math.abs(OotherR - OlastRotation)
 
-            otherCurrent = []
+            
 
             if (Or == OlastRotation) {
                 currentlyRotating = false
             }
             if (Or == 0) {
+                otherCurrent = []
                 otherCurrent.push(otherTeam[0])
                 otherCurrent.push(otherTeam[1])
                 otherCurrent.push(otherTeam[2])
@@ -1428,6 +1435,7 @@ pubnub.addListener({
                 otherCurrent.push(otherTeam[5])
                 currentFirst = 0
             } else if (Or == Math.floor(Math.PI / 3)) {
+                otherCurrent = []
                 otherCurrent.push(otherTeam[5])
                 otherCurrent.push(otherTeam[0])
                 otherCurrent.push(otherTeam[1])
@@ -1436,6 +1444,7 @@ pubnub.addListener({
                 otherCurrent.push(otherTeam[4])
                 currentFirst = 5
             } else if (Or == Math.floor(2 * (Math.PI / 3))) {
+                otherCurrent = []
                 otherCurrent.push(otherTeam[4])
                 otherCurrent.push(otherTeam[5])
                 otherCurrent.push(otherTeam[0])
@@ -1444,6 +1453,7 @@ pubnub.addListener({
                 otherCurrent.push(otherTeam[3])
                 currentFirst = 4
             } else if (Or == Math.floor(Math.PI)) {
+                otherCurrent = []
                 otherCurrent.push(otherTeam[3])
                 otherCurrent.push(otherTeam[4])
                 otherCurrent.push(otherTeam[5])
@@ -1452,6 +1462,7 @@ pubnub.addListener({
                 otherCurrent.push(otherTeam[2])
                 currentFirst = 3
             } else if (Or == Math.floor(4 * (Math.PI / 3))) {
+                otherCurrent = []
                 otherCurrent.push(otherTeam[2])
                 otherCurrent.push(otherTeam[3])
                 otherCurrent.push(otherTeam[4])
@@ -1460,6 +1471,7 @@ pubnub.addListener({
                 otherCurrent.push(otherTeam[1])
                 currentFirst = 2
             } else if (Or == Math.floor(5 * (Math.PI / 3))) {
+                otherCurrent = []
                 otherCurrent.push(otherTeam[1])
                 otherCurrent.push(otherTeam[2])
                 otherCurrent.push(otherTeam[3])

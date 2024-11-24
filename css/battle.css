@@ -13,12 +13,12 @@ p{
   font-size: 2vw;
 }
 
-#myMessage{
-  color: #006bbd;
+#otherMessage{
+  color: #52acf0;
 }
 
-#otherMessage{
-  color: #cc0058;
+#myMessage{
+  color: #ff7cc4;
 }
 
 body {
@@ -447,7 +447,7 @@ progress::-webkit-progress-bar {
 
 progress::-webkit-progress-value {
   /* Change the fill color */
-  background-color: #c46bff;
+  background-color: #f8a9ff;
   border-radius: 10px;
 }
 
@@ -509,7 +509,7 @@ progress::-webkit-progress-value {
 
 .SOUL::-webkit-progress-value {
   /* Change the fill color */
-  background-color: #6bb8ff;
+  background-color: #93cbff;
   border-radius: 10px;
 }
 
