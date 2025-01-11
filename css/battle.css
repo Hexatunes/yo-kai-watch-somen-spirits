@@ -30,7 +30,7 @@ body {
 }
 
 #battleViewport{
-  background-image: url('/images/matchmaking/matchmaking.jpg');
+  background-image: url('./images/matchmaking/matchmaking.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

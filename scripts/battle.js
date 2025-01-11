@@ -367,10 +367,12 @@ function countdown() {
                     console.log(turnOrder)
 
                     if (parseInt(turnOrder[0].UID.replace(/"/g, ''), 10) == myUID) {
-                        console.log("I'm taking a turn!")
+                        console.log("* It's my turn! " + turnIDX)
                         setTimeout(function() {
                             advanceTurn()
                         }, 1000)
+                    }else{
+                        console.log("* Not my turn. Waiting for opponent. " + turnIDX)
                     }
                 } else {
                     console.log("My UID is lower. Waiting for APs.")
@@ -815,30 +817,12 @@ function advanceTurn() {
 
 
     if (!currentlyRotating && parseInt(turnOrder[0].UID.replace(/"/g, ''), 10) == myUID) {
-        if (turnOrder[0].down) {
-            turnOrder.push(turnOrder[0])
-            turnOrder.splice(0, 1)
-            pubnub.publish({
-                channel: getCookie("battleChannel"),
-                message: {
-                    type: "skipTurn",
-                    UID: "" + myUID,
-                }
-            })
-            if (parseInt(turnOrder[0].UID.replace(/"/g, ''), 10) == myUID) {
-                setTimeout(function() {
-                    advanceTurn()
-                }, 100)
-                console.log("skipping...")
-            }
-            return
-        }
 
         console.log("deciding")
         // Usage:
         let decisions = {
-            "attack": 0.5,  // 10% chance
-            "technique": 0.5,  // 30% chance
+            "attack": 1,  // 10% chance
+            "technique": 0,  // 30% chance
         };
 
         var choice = weightedRandom(decisions)
@@ -994,16 +978,26 @@ function advanceTurn() {
         refreshDisplays()
         subtractAP()
         calcAP(0, 1)
-
+        console.log(turnOrder)
         refreshOrder()
-    }
-    if (parseInt(turnOrder[0].UID.replace(/"/g, ''), 10) == myUID) {
         turnIDX += 1
-        console.log("It's my turn! Turn IDX: " + turnIDX)
-        setTimeout(function() {
-            advanceTurn()
-        }, 10000)
+        if (parseInt(turnOrder[0].UID.replace(/"/g, ''), 10) == myUID) {
+            console.log("* It's my turn! " + turnIDX)
+            setTimeout(function() {
+                advanceTurn()
+            }, 1000)
+        }else{
+            console.log("* Not my turn. " + turnIDX)
+        }
+    }else{
+        if (parseInt(turnOrder[0].UID.replace(/"/g, ''), 10) == myUID) {
+            console.log("* Action failed. Retrying..." + turnIDX)
+            setTimeout(function() {
+                advanceTurn()
+            }, 1000)
+        }
     }
+    
 }
 
 function technique(bp, element, target, type) {
@@ -1189,19 +1183,6 @@ pubnub.addListener({
 
 
 
-        if (m.message.type == "skipTurn" && mUID == oUID) {
-            turnOrder.push(turnOrder[0])
-            turnOrder.splice(0, 1)
-            if (parseInt(turnOrder[0].UID.replace(/"/g, ''), 10) == myUID) {
-                setTimeout(function() {
-                    advanceTurn()
-                }, 100)
-                console.log("skipping...")
-            }
-        }
-
-
-
         if (m.message.type == "defeat" && mUID == oUID) {
             document.getElementById("bgm").src = "audios/music/Victory.mp3"
             document.getElementById("bgm").play()
@@ -1213,11 +1194,6 @@ pubnub.addListener({
                 location.href = "/matchmaking.html"
             }, 60000)
         }
-
-
-
-
-
 
 
 
@@ -1247,9 +1223,10 @@ pubnub.addListener({
 
                 refreshOrder()
             }
+            turnIDX += 1
             if (parseInt(turnOrder[0].UID.replace(/"/g, ''), 10) == myUID) {
-                turnIDX += 1
-                console.log("It's my turn! Turn IDX: " + turnIDX)
+               
+                console.log("* It's my turn! " + turnIDX)
                 setTimeout(function() {
                     advanceTurn()
                 }, 10000)
@@ -1359,20 +1336,20 @@ pubnub.addListener({
 
             refreshDisplays()
 
-            if (!currentlyRotating) {
-                refreshDisplays()
-                subtractAP()
-                calcAP(0, 1)
-
-                refreshOrder()
-            }
+            subtractAP()
+            calcAP(0, 1)
+            console.log(turnOrder)
+            refreshOrder()
+            turnIDX += 1
             if (parseInt(turnOrder[0].UID.replace(/"/g, ''), 10) == myUID) {
+                console.log("* I'm taking a turn! " + turnIDX)
                 setTimeout(function() {
                     advanceTurn()
                 }, 10000)
+            }else{
+                console.log("* Not my turn. " + turnIDX)
             }
-            turnIDX += 1
-            console.log("The opponent took a turn! Turn IDX: " + turnIDX)
+            
         }
         if (m.message.type == "endMod" && mUID == oUID) {
             console.log("Got Mods!")
@@ -1391,11 +1368,14 @@ pubnub.addListener({
             refreshOrder()
             console.log("After mods: ")
             console.log(turnOrder)
+
             if (parseInt(turnOrder[0].UID.replace(/"/g, ''), 10) == myUID) {
-                console.log("I'm taking a turn!")
+                console.log("* I'm taking a turn! " + turnIDX)
                 setTimeout(function() {
                     advanceTurn()
                 }, 10000)
+            }else{
+                console.log("* Not my turn. Waiting for opponent. " + turnIDX)
             }
         }
         if (m.message.type == "draggingWheel" && mUID == oUID) {
@@ -1522,7 +1502,7 @@ pubnub.addListener({
 
             turnOrder = [myCurrent[0], myCurrent[1], myCurrent[2], otherCurrent[0], otherCurrent[1], otherCurrent[2]]
             refreshOrder()
-
+            console.log(turnOrder)
             document.getElementById("switchingText").style.display = "none"
             currentlyRotating = false
 
