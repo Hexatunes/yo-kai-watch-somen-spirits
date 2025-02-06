@@ -68,6 +68,8 @@ socket.on('initialize_data', (data) => {
 });
 
 function refreshDisplays() {
+    console.log(myTeam)
+
     for (var i = 0; i < myTeam.length; i++) {
         document.getElementById("slot" + (myTeam[i]["order"])).src = YOKAI_DATABASE[myTeam[i]["code"]]["medal"]
     }

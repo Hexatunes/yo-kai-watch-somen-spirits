@@ -202,6 +202,10 @@ function loadTeam(){
     document.getElementById("slot" + (i + 1)).src = YOKAI_DATABASE[teams[currentTeam][i + 1]["code"]]["medal"]
   }
 
+  for (var i = 1; i < teams[currentTeam].length; i++) {
+    teams[currentTeam][i]["order"] = i
+  }
+
   document.getElementById("currentInfo").style.display = "none"
   document.getElementById("statsChart").style.display = "none"
   document.getElementById("probChart").style.display = "none"
@@ -328,9 +332,7 @@ function appendYokai(toAppend){
     console.log(teams)
     console.log(document.cookie)
 
-    for (var i = 0; i < teams[currentTeam].length; i++) {
-      teams[currentTeam][i]["order"] = i
-    }
+    
 
     loadTeam()
   }else{

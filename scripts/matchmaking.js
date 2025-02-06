@@ -137,6 +137,7 @@ document.getElementById("bgm").addEventListener("ended", function() {
 });
 
 function startMatchmaking() {
+    console.log(teams[currentTeam])
     UID = Math.floor( Math.random() * 1000)
     document.cookie = `uid=${UID}`;
     for(var i = 0; i < teams[currentTeam].length; i++){
