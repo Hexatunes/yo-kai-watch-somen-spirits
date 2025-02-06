@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Socket.IO Client</title>
+</head>
+<body>
+  <h1>Socket.IO Client</h1>
+  <input type="text" id="messageInput" placeholder="Enter a message">
+  <button id="sendButton">Send</button>
+  <ul id="messages"></ul>
+
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  <script>
+    // Connect to the Glitch server
+    const socket = io('https://somen-spirits-server.glitch.me');
+
+    // Handle sending messages
+    const messageInput = document.getElementById('messageInput');
+    const sendButton = document.getElementById('sendButton');
+    const messagesList = document.getElementById('messages');
+
+    sendButton.addEventListener('click', () => {
+      const message = messageInput.value;
+      if (message) {
+        socket.emit('message', message); // Send message to the server
+        messageInput.value = ''; // Clear input
+      }
+    });
+
+    // Handle receiving messages
+    socket.on('message', (data) => {
+      const li = document.createElement('li');
+      li.textContent = data;
+      messagesList.appendChild(li);
+    });
+  </script>
+</body>
+</html>

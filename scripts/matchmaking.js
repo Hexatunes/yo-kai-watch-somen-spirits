@@ -1,3 +1,4 @@
+//Cookie retreival
 function getCookie(name) {
     let cookieArr = document.cookie.split(";");
 
@@ -12,6 +13,11 @@ function getCookie(name) {
     // Return null if the cookie by name does not exist
     return null;
 }
+
+//DO NOT CHANGE THIS LINK UNLESS YOU KNOW WHAT YOU ARE DOING!!!
+//YOU WILL BE CONNECTING TO A 3RD PARTY SERVER
+//I AM NOT RESPONSIBLE FOR ANYTHING THAT HAPPENS BY USING AN UNOFFICIAL SERVER
+const socket = io('https://somen-spirits-server.glitch.me');
 
 var teams = []
 var currentTeam = 0
@@ -48,7 +54,7 @@ function toggleMusic() {
 
 function updateUsername() {
     console.log("Username update")
-    UID = document.getElementById("usernameInput").value
+    
     document.cookie = `username=${document.getElementById("usernameInput").value}`;
 }
 
@@ -104,6 +110,10 @@ function switchHome() {
     setTimeout(actuallySwitchHome, 1000)
 }
 
+function switchBattle() {
+    location.href = "./battle.html"
+}
+
 function loadTeam() {
     currentTeam = document.getElementById("teamSelect").selectedIndex
 }
@@ -126,82 +136,20 @@ document.getElementById("bgm").addEventListener("ended", function() {
     document.getElementById("bgm").play()
 });
 
-var searching = false
-var pinging = false
-
-var intervalID
-
 function startMatchmaking() {
+    UID = Math.floor( Math.random() * 1000)
+    document.cookie = `uid=${UID}`;
     for(var i = 0; i < teams[currentTeam].length; i++){
         teams[currentTeam][i].UID = UID
     }
     if (!document.getElementById("usernameInput").value) {
         alert("No username! Please enter a username!")
     } else {
-        var isValid = validateTeam(teams[currentTeam])
-        if (isValid == "valid") {
-            username = document.getElementById("usernameInput").value
-            document.getElementById("matchmakingMenu").style.display = "block"
-            document.getElementById("matchmakingMenu").style.animation = "fadeIn 0.5s"
-            document.getElementById("bgm").src = "./audios/music/matchmaking.mp3"
-            document.getElementById("bgm").play()
-            document.getElementById("bgm").currentTime = 0;
-
-            searching = true
-            pinging = true
-            setInterval(sendPing, Math.random() * 10000 + 5000)
-        } else {
-            alert("Team validation failed! Here are the problems: " + isValid)
-        }
+        socket.emit('lfg', UID, teams[currentTeam], document.getElementById("usernameInput").value)
     }
 }
 
-function validateTeam(sentTeam) {
-    var problems = []
 
-    console.log("Validating team...")
-    console.log(sentTeam)
-    console.log(teams[currentTeam])
-
-    for (var i = 1; i < sentTeam.length; i++) {
-        var yokai = sentTeam[i]
-        console.log(yokai.displayName)
-        yokai.UID = UID
-
-        var totalIVs = parseInt(yokai.ivHP) + parseInt(yokai.ivSTR) + parseInt(yokai.ivSPR) + parseInt(yokai.ivDEF) + parseInt(yokai.ivSPD)
-        var totalEVs = parseInt(yokai.evHP) + parseInt(yokai.evSTR) + parseInt(yokai.evSPR) + parseInt(yokai.evDEF) + parseInt(yokai.evSPD)
-
-        if (40 - totalIVs < 0) {
-            problems.push(" " + yokai.displayName + " has too many IVs!")
-        }
-        if (26 - totalEVs < 0) {
-            problems.push(" " + yokai.displayName + " has too many EVs!")
-        }
-
-        var noGP = 0
-        var statsCAPS = ["STR", "SPR", "DEF", "SPD"]
-        
-        for (var j = 0; j < 4; j++) {
-            if (yokai["gp" + statsCAPS[j]] > 0) {
-                noGP += 1
-            }
-            if (yokai["gp" + statsCAPS[j]] > 5) {
-                problems.push(" " + yokai.displayName + " has too many GP in " + statsCAPS[i] + "! (Max is 5)")
-            }
-        }
-        
-        if (noGP > 1) {
-            problems.push(" " + yokai.displayName + " has multiple stats with gp boosts!")
-        }
-        
-    }
-
-    if (problems.length == 0) {
-        return "valid"
-    } else {
-        return problems
-    }
-}
 
 function hideMatchmaking() {
     document.getElementById("matchmakingMenu").style.display = "none"
@@ -216,133 +164,38 @@ function cancelMatchmaking() {
     document.getElementById("bgm").play()
     pinging = false
     setTimeout(hideMatchmaking, 1000)
+
+    socket.emit("cancel_lfg", UID)
 }
 
 var UID = "UID error LOL"
     //"" + (Math.floor(Math.random() * 10000))
 
-var pubnub = new PubNub({
-    publishKey: 'pub-c-fb886fc2-4f06-4160-ad01-d1389c03aeac',
-    subscribeKey: 'sub-c-9baf1ae9-df96-468a-97b3-b8f13b04e96f',
-    userId: UID
+
+
+
+// Handle receiving messages
+socket.on('lfg_validity', (data) => {
+    if(data == "valid"){
+        document.getElementById("matchmakingMenu").style.display = "block"
+        document.getElementById("matchmakingMenu").style.animation = "fadeIn 0.5s"
+        document.getElementById("bgm").src = "./audios/music/matchmaking.mp3"
+        document.getElementById("bgm").play()
+        document.getElementById("bgm").currentTime = 0;
+    }else{
+        alert("Team validation failed! Here are the problems: " + data)
+    }
 });
 
 
-var channel = 'matchmaking';
-pubnub.subscribe({ channels: [channel] });
+// Opponent found
+socket.on('lfg_found', (data) => {
+    document.getElementById("lookingText").innerHTML = "<em>" + data.username + "</em> would like to battle!"
+    document.cookie = `oUsername=${data.username}`;
+    document.cookie = `BATTLE_ID=${data.BATTLE_ID}`;
+    setTimeout(switch_battle, 3000)
+});
 
-
-var connectUID = 0
-var connectTeam = []
-var connectUsername = ""
-var looking = true
-
-function switchBattle() {
+function switch_battle() {
     location.href = "./battle.html"
 }
-
-// Add a listener to a channel and subscribe to it
-pubnub.addListener({
-    message: function(m) {
-        if (searching) {
-            console.log("Ping from " + m.message.username + " of type " + m.message.type + " with UID " + m.message.UID + " and my UID is " + UID)
-            if (m.message.type == "request" && !(m.message.UID == UID) && looking) {
-                console.log(username + " receieved a request from " + m.message.username + "!")
-                console.log(username + " Returning...")
-                pinging = false
-                pubnub.publish({
-                    channel: channel,
-                    message: {
-                        type: "return",
-                        UID: UID,
-                        toConnect: m.message.UID,
-                        team: teams[currentTeam],
-                        username: username,
-                    }
-                })
-            } else if (m.message.type == "return") {
-                if (m.message.toConnect == UID  && looking) {
-                    looking = false
-                    console.log(username + " Got return from " + m.message.username + "!")
-                    console.log(username + " Confirming to " + m.message.username + "!")
-                    connectUID = m.message.UID
-                    connectTeam = m.message.team
-                    connectUsername = m.message.username
-                    var connectChannel = "battleChannel" + (Math.floor(Math.random() * 1000))
-                    pubnub.publish({
-                        channel: channel,
-                        message: {
-                            type: "confirm",
-                            UID: UID,
-                            sentTeam: teams[currentTeam],
-                            username: document.getElementById("usernameInput").value,
-                            toConnect: m.message.UID,
-                            newChannel: connectChannel
-                        }
-                    })
-                    document.getElementById("lookingText").innerHTML = m.username + " wants to battle! Confirming..."
-                    document.cookie = `otherTeam=${JSON.stringify(connectTeam)}`
-                    document.cookie = `otherUID=${JSON.stringify(connectUID)}`
-                    document.cookie = `otherUsername=${JSON.stringify(connectUsername)}`
-                    document.cookie = `battleChannel=${connectChannel}`
-                    document.cookie = `myTeam=${JSON.stringify(teams[currentTeam])}`
-                    document.cookie = `myUsername=${JSON.stringify(username)}`
-                    document.cookie = `myUID=${JSON.stringify(UID)}`
-                }
-            } else if (m.message.type == "confirm") {
-                if (m.message.toConnect == UID) {
-                    looking = false
-                    console.log(username + " Confirmed for " + m.message.username + "!")
-                    console.log(username + " Ready!")
-                    connectUID = m.message.UID
-                    connectTeam = m.message.sentTeam
-                    connectUsername = m.message.username
-                    pubnub.publish({
-                        channel: channel,
-                        message: {
-                            type: "ready",
-                            username: username,
-                            toConnect: m.message.UID
-                        }
-                    })
-                    document.getElementById("lookingText").innerHTML = "<em>" + m.message.username + "   </em> accepted your battle! Get ready!"
-                    document.cookie = `otherTeam=${JSON.stringify(connectTeam)}`
-                    document.cookie = `otherUID=${JSON.stringify(connectUID)}`
-                    document.cookie = `otherUsername=${JSON.stringify(connectUsername)}`
-                    document.cookie = `battleChannel=${m.message.newChannel}`
-                    document.cookie = `myTeam=${JSON.stringify(teams[currentTeam])}`
-                    document.cookie = `myUsername=${JSON.stringify(username)}`
-                    document.cookie = `myUID=${UID}`
-                    pubnub.unsubscribe({ channels: [channel] });
-                    setTimeout(switchBattle, 5000)
-                } else if(looking) {
-                    console.log(username + " was rejected by " + m.message.username + "!")
-                    pinging = true
-                }
-            } else if (m.message.type == "ready") {
-                if (m.message.toConnect == UID) {
-                    document.getElementById("lookingText").innerHTML = "<em>" + m.message.username + "   </em> confirmed! Get ready!"
-                    pubnub.unsubscribe({ channels: [channel] });
-                    setTimeout(switchBattle, 5000)
-                }
-            }
-        }
-    }
-});
-
-
-
-function sendPing() {
-    if (pinging) {
-        console.log("Sent request ping!")
-        pubnub.publish({
-            channel: channel,
-            message: {
-                type: "request",
-                UID: UID,
-                username: username,
-            },
-        });
-    }
-}
-

@@ -287,7 +287,7 @@ function appendYokai(toAppend){
       
     teams[currentTeam].push({
       code: toAppend,
-      order: teams[currentTeam].length,
+      order: -1,
       displayName: YOKAI_DATABASE[toAppend]["displayName"],
       army: "bony",
       attitude: "rough",
@@ -327,6 +327,11 @@ function appendYokai(toAppend){
     localStorage.setItem('teams', JSON.stringify(teams));
     console.log(teams)
     console.log(document.cookie)
+
+    for (var i = 0; i < teams[currentTeam].length; i++) {
+      teams[currentTeam][i]["order"] = i
+    }
+
     loadTeam()
   }else{
     alert("Team full! Remove a Yokai!")
