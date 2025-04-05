@@ -16,21 +16,21 @@
       src: url('./ChangaOne-Regular.ttf');
     }
     body {
-      background-image: url('./images/home/beach1.jpg'); 
+      background-image: url('./images/home/home.png'); 
       background-repeat: no-repeat;
       background-position: center;
     }
   </style>
-  <img src = "./images/dialogPortraits/hime.png" id = "dialogPortrait">
+  <img src = "./images/Tokonatsu-Hime-Upscaled.png" id = "dialogPortrait">
 
-  <img src = "./images/dialog.png" id = "dialogBG">
-  <p id = "dialogName">Tokonatsu Hime</p>
-  <p id = "dialogText">Welcome welcome! What would you like to do?</p>
-  
-  
-  <input id="battleButton" type="image" src="./images/home/battleIcon.png" onclick="switchBattle()">
+  <img src = "./images/home/homePanel.png" id = "homePanel">
+  <img src = "./images/home/Logo.png" id = "logo">
 
-  <input id="teambuilderButton" type="image" src="./images/home/medalsIcon.png" onclick="switchTeambuilder()">
+ 
+  
+  <button id="battleButton" onclick="switchBattle()" >Battle!</button>
+
+  <button id="teambuilderButton" onclick="switchTeambuilder()">Teambuilder</button>
 
   <input id = "toggleMusic" type = "image" src = "./images/musicON.png" onclick = "toggleMusic()">
   

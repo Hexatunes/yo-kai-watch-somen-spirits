@@ -12,28 +12,39 @@ html {
   width: 100%;
 }
 
+
 body {
-    background-image: url('./images/home/beach1.jpg'); 
+    background-image: url('./images/home/home.png'); 
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     overflow: none;
 }
 
+button {
+  font-family: ykw;
+  font-size: 3vw;
+  border: 4px solid transparent;
+  border-image: linear-gradient(45deg, #FFB8E0, #80c6ff);
+  border-image-slice: 1;
+  background-color: rgb(255, 255, 255); /* or any bg color */
+  color: rgb(40, 24, 76);
+}
+
 #battleButton{
   position: absolute;
-  height: 20%;
-  width: 10%;
-  left: 10%;
-  top: 25%;
+  height: 10%;
+  width: 25%;
+  left: 9%;
+  top: 50%;
 }
 
 #teambuilderButton{
   position: absolute;
-  height: 20%;
-  width: 10%;
-  left: 25%;
-  top: 25%;
+  height: 10%;
+  width: 25%;
+  left: 9%;
+  top: 65%;
 }
 
 #startMenu{
@@ -53,12 +64,20 @@ body {
   top: 70%;
 }
 
-#dialogBG{
+#logo{
+  position: absolute;
+  top: 0%;
+  left: 1.5%;
+  height: 50%;
+  width: 40%;
+}
+
+#homePanel{
   position: absolute;
   top: 0%;
   left: 0%;
   height: 100%;
-  width: 100%;
+  width: 60%;
 }
 
 #dialogText{
@@ -89,9 +108,9 @@ body {
 
 #dialogPortrait{
   position: absolute;
-  height: 80%;
-  width: 50%;
-  left: 45%;
+  height: 90%;
+  width: 60%;
+  left: 40%;
   top: 10%;
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);

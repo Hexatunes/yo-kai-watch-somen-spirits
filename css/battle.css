@@ -10,7 +10,7 @@ html {
 
 p{
   font-family: ykw;
-  font-size: 2vw;
+  font-size: 1.5vw;
 }
 
 #otherMessage{
@@ -26,11 +26,11 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  overflow: none;
+  overflow: hidden;
 }
 
 #battleViewport{
-  background-image: url('./images/matchmaking/matchmaking.jpg');
+  background-image: url('/images/battle/viewportBG.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -64,7 +64,7 @@ body {
   position: absolute;
   height: 44vmin;
   width: 42vmin;
-  top: 79vmin;
+  top: 35vmin;
   left: 30vmin;
   pointer-events: none;
 }
@@ -103,7 +103,7 @@ body {
   height: 21vmin;
   width: 21vmin;
   top: 58.2vmin;
-  left: 56.5vmin;
+  left: 57.5vmin;
   user-drag: none;
   -webkit-user-drag: none;
   user-select: none;
@@ -117,7 +117,7 @@ body {
   height: 21vmin;
   width: 21vmin;
   top: 79vmin;
-  left: 56.5vmin;
+  left: 57.5vmin;
   user-drag: none;
   -webkit-user-drag: none;
   user-select: none;
@@ -245,14 +245,30 @@ body {
   
 }
 
+#chatBG{
+  position: absolute;
+  left: 57.5%;
+  top: -1.5%;
+  height: 103%;
+  width: 43%;
+  overflow: scroll;
+}
+
 #chatBox{
   position: absolute;
-  left: 58%;
+  left: 59%;
   top: 0%;
   height: 90%;
   width: 42%;
-  background-color: rgba(255, 255, 255, 0.7);
   overflow: scroll;
+}
+
+#enterBattle {
+  min-width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  top: 0%;
+  left: 0%;
 }
 
 #messageInput{
@@ -261,8 +277,8 @@ body {
   top: 90%;
   height: 10%;
   width: 42%;
-  background-color: rgba(255, 255, 255, 0.7);
   font-family: ykw;
+  overflow: hidden;
 }
 
 #myName0{
@@ -348,7 +364,7 @@ body {
 
 #myHP0{
   position: absolute;
-  top: 96%;
+  top: 94.5%;
   left: 8%;
   height: 3%;
   width: 15%;
@@ -361,7 +377,7 @@ body {
 
 #myHP1{
   position: absolute;
-  top: 96%;
+  top: 94.5%;
   left: 43%;
   height: 3%;
   width: 15%;
@@ -374,7 +390,7 @@ body {
 
 #myHP2{
   position: absolute;
-  top: 96%;
+  top: 94.5%;
   left: 78%;
   height: 3%;
   width: 15%;
@@ -521,6 +537,11 @@ progress::-webkit-progress-value {
 }
 #yourInput.fadeIn { /* This class is added when the mouse button is released */
   opacity: 1; /* This makes the input fade back in */
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 #targetCursor{
@@ -910,6 +931,10 @@ progress::-webkit-progress-value {
   color: #b366ff;
 }
 
+#inspirit{
+  color: #ff63d0;
+}
+
 #results{
   position: absolute;
   top: 0%;
@@ -935,6 +960,8 @@ progress::-webkit-progress-value {
 .defeat{
   color: #9670ff;
 }
+
+
 
 #pro1{
   position: absolute;
@@ -990,6 +1017,60 @@ progress::-webkit-progress-value {
   transform: rotate(300deg)
 }
 
+#soul1{
+  position: absolute;
+  height: 1%;
+  width: 27%;
+  top: 26.5%;
+  left: 36%;
+}
+
+#soul2{
+  position: absolute;
+  height: 1%;
+  width: 27%;
+  top: 38%;
+  left: 55.5%;
+  transform: rotate(60deg)
+}
+
+#soul3{
+  position: absolute;
+  height: 1%;
+  width: 27%;
+  top: 61.5%;
+  left: 56%;
+  transform: rotate(120deg)
+}
+
+#soul4{
+  position: absolute;
+  height: 1%;
+  width: 27%;
+  top: 73%;
+  left: 36.5%;
+  transform: rotate(180deg)
+}
+
+#soul5{
+  position: absolute;
+  height: 1%;
+  width: 27%;
+  top: 61%;
+  left: 16.5%;
+  transform: rotate(240deg)
+}
+
+
+#soul0{
+  position: absolute;
+  height: 1%;
+  width: 27%;
+  top: 38%;
+  left: 16.5%;
+  transform: rotate(300deg)
+}
+
 #allDown{
   position: absolute;
   height: 58%;
@@ -1013,3 +1094,123 @@ progress::-webkit-progress-value {
   1px 1px 0 #000;  
 }
 
+#skillAlert{
+  color: #ffec7e;
+  text-shadow:
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;  
+  font-size: 2vw;
+  position: absolute;
+  top: 50%;
+}
+
+#myPosInsp0 {
+  position: absolute;
+  height: 50%;
+  width: 30%;
+  top: 45%;
+  left: 2.5%;
+}
+
+#myPosInsp1 {
+  position: absolute;
+  height: 50%;
+  width: 30%;
+  top: 45%;
+  left: 35%;
+}
+
+#myPosInsp2 {
+  position: absolute;
+  height: 50%;
+  width: 30%;
+  top: 45%;
+  left: 67.5%;
+}
+
+#myNegInsp0 {
+  position: absolute;
+  height: 50%;
+  width: 30%;
+  top: 45%;
+  left: 4.5%;
+}
+
+#myNegInsp1 {
+  position: absolute;
+  height: 50%;
+  width: 30%;
+  top: 45%;
+  left: 37%;
+}
+
+#myNegInsp2 {
+  position: absolute;
+  height: 50%;
+  width: 30%;
+  top: 45%;
+  left: 69.5%;
+}
+
+#otherPosInsp0 {
+  position: absolute;
+  height: 30%;
+  width: 20%;
+  top: 15%;
+  left: 70%;
+}
+
+#otherPosInsp1 {
+  position: absolute;
+  height: 30%;
+  width: 20%;
+  top: 15%;
+  left: 40%;
+}
+
+#otherPosInsp2 {
+  position: absolute;
+  height: 30%;
+  width: 20%;
+  top: 15%;
+  left: 10%;
+}
+
+#otherNegInsp0 {
+  position: absolute;
+  height: 30%;
+  width: 20%;
+  top: 15%;
+  left: 68%;
+}
+
+#otherNegInsp1 {
+  position: absolute;
+  height: 30%;
+  width: 20%;
+  top: 15%;
+  left: 38%;
+}
+
+#otherNegInsp2 {
+  position: absolute;
+  height: 30%;
+  width: 20%;
+  top: 15%;
+  left: 8%;
+}
+
+.spin {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}

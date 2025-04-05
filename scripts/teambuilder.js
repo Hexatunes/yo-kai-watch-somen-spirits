@@ -202,9 +202,7 @@ function loadTeam(){
     document.getElementById("slot" + (i + 1)).src = YOKAI_DATABASE[teams[currentTeam][i + 1]["code"]]["medal"]
   }
 
-  for (var i = 1; i < teams[currentTeam].length; i++) {
-    teams[currentTeam][i]["order"] = i
-  }
+  
 
   document.getElementById("currentInfo").style.display = "none"
   document.getElementById("statsChart").style.display = "none"
@@ -300,6 +298,8 @@ function appendYokai(toAppend){
       tech: YOKAI_DATABASE[toAppend]["technique"],
       soult: YOKAI_DATABASE[toAppend]["soultimate"],
       insp: YOKAI_DATABASE[toAppend]["inspirit"],
+      skill: YOKAI_DATABASE[toAppend]["skill"],
+      skillData: 0,
       hp: calcHP,
       str: calcSTR,
       spr: calcSPR,
@@ -327,10 +327,18 @@ function appendYokai(toAppend){
       currentHP: 0,
       soul: 0,
       guard: 1,
+      currentInspirits: [],
     })
+
+    for (var i = 1; i < teams[currentTeam].length; i++) {
+      teams[currentTeam][i]["order"] = i
+    }
+
     localStorage.setItem('teams', JSON.stringify(teams));
+    console.log("--------")
     console.log(teams)
-    console.log(document.cookie)
+    console.log(localStorage.getItem('teams'))
+    console.log("--------")
 
     
 
@@ -559,6 +567,7 @@ function importTeam(){
 function exportTeam(){
   document.getElementById("pasteText").innerHTML = JSON.stringify(teams[currentTeam])
   document.getElementById("pasteOutput").style.display = "block"
+  console.log(localStorage.getItem('teams'))
 }
 
 function closePaste(){

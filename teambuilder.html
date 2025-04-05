@@ -30,7 +30,7 @@
 
   <p id = "yokaiName">Select a Yo-kai!</p>
 
-  <div id = "yokaiList"></div>
+  <div id = "yokaiList" class = "uiBG"></div>
 
   <img id = "yokaiWheel" src = "./images/teambuilder/yokaiWheel.webp">
 
@@ -43,8 +43,8 @@
 
   <button id = "deleteYokai" onclick = "deleteYokai()">Remove Selected Yokai</button>
 
-  <div id = "itemList"></div>
-  <div id = "currentInfo">
+  <div id = "itemList" class = "uiBG"></div>
+  <div id = "currentInfo" class = "uiBG">
     <p id = "currentText">⸻IVs⸻EVs⸻Gym⸻</p>
     <br>
     <p id = "hpDisplay">HP: </p> <input id = "ivHP" type = "number" oninput = "updateStat('ivHP')"> <input id = "evHP" type = "number" oninput = "updateStat('evHP')"> <br>
@@ -89,11 +89,11 @@
 
   <audio id = "bgm" src = ""></audio>
 
-  <select id = "teamSelect" onclick="loadTeam()">
+  <select id = "teamSelect" onclick="loadTeam()" class = "uiBG">
     
   </select>
 
-  <input type = "text" id = "nameTeam" placeholder="Type a name for a new team or to rename the current one!">
+  <input type = "text" id = "nameTeam" placeholder="Type a name for a new team or to rename the current one!" class = "uiBG">
   <button id = "teamCreate" onclick = "createTeam()">Create New Team</button>
   <button id = "teamRename" onclick = "renameTeam()">Rename This Team</button>
   <button id = "teamDelete" onclick = "deleteTeam()">Delete This Team</button>

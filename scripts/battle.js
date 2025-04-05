@@ -67,11 +67,6 @@ var otherReady = false;
 var checkInterval
 var countingDown = false
 
-var pubnub = new PubNub({
-    publishKey: 'pub-c-fb886fc2-4f06-4160-ad01-d1389c03aeac',
-    subscribeKey: 'sub-c-9baf1ae9-df96-468a-97b3-b8f13b04e96f',
-    userId: myUID
-});
 
 var cursor = document.getElementById('targetCursor');
 

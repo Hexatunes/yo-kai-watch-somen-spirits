@@ -47,14 +47,26 @@
     <img id = "myYokai0" src = "./images/teambuilder/whisperPlaceholder.webp" onmouseover="showInfo('my', 0)" onmouseleave="hideInfo()">
     <img id = "myYokai1" src = "./images/teambuilder/whisperPlaceholder.webp" onmouseover="showInfo('my', 1)" onmouseleave="hideInfo()">
     <img id = "myYokai2" src = "./images/teambuilder/whisperPlaceholder.webp" onmouseover="showInfo('my', 2)" onmouseleave="hideInfo()">
-    <img id = "myYokaiLeft" src = "./images/teambuilder/whisperPlaceholder.webp">
-    <img id = "myYokaiRight" src = "./images/teambuilder/whisperPlaceholder.webp">
+    
+    <img id = "myPosInsp0" class="spin" src = "./images/battle/positive_inspirit.png">
+    <img id = "myPosInsp1" class="spin" src = "./images/battle/positive_inspirit.png">
+    <img id = "myPosInsp2" class="spin" src = "./images/battle/positive_inspirit.png">
+
+    <img id = "myNegInsp0" class="spin" src = "./images/battle/negative_inspirit.png">
+    <img id = "myNegInsp1" class="spin" src = "./images/battle/negative_inspirit.png">
+    <img id = "myNegInsp2" class="spin" src = "./images/battle/negative_inspirit.png">
 
     <img id = "otherYokai0" src = "./images/teambuilder/whisperPlaceholder.webp" onmouseover="showInfo('other', 0)" onmouseleave="hideInfo()">
     <img id = "otherYokai1" src = "./images/teambuilder/whisperPlaceholder.webp" onmouseover="showInfo('other', 1)" onmouseleave="hideInfo()">
     <img id = "otherYokai2" src = "./images/teambuilder/whisperPlaceholder.webp" onmouseover="showInfo('other', 2)" onmouseleave="hideInfo()">
-    <img id = "otherYokaiLeft" src = "./images/teambuilder/whisperPlaceholder.webp">
-    <img id = "otherYokaiRight" src = "./images/teambuilder/whisperPlaceholder.webp">
+    
+    <img id = "otherPosInsp0" class="spin" src = "./images/battle/positive_inspirit.png">
+    <img id = "otherPosInsp1" class="spin" src = "./images/battle/positive_inspirit.png">
+    <img id = "otherPosInsp2" class="spin" src = "./images/battle/positive_inspirit.png">
+
+    <img id = "otherNegInsp0" class="spin" src = "./images/battle/negative_inspirit.png">
+    <img id = "otherNegInsp1" class="spin" src = "./images/battle/negative_inspirit.png">
+    <img id = "otherNegInsp2" class="spin" src = "./images/battle/negative_inspirit.png">
 
     <img id = "pin0" src = "./images/battle/pin.png">
     <img id = "pin1" src = "./images/battle/pin.png">
@@ -77,6 +89,7 @@
   <img id = "opreload4">
   <img id = "opreload5">
 
+  <img id = "chatBG" src = "./images/panelBG.png">
   <div id = "chatBox">
 
   </div>
@@ -86,10 +99,10 @@
 
   <input type = "image" src = "./images/battle/wheelMidHexagon.png" id = "toggleMid" onclick = "toggleWatch()">
 
-  <input type = "image" src = "./images/battle/soultimateButton.png" id = "soultimateButton" onclick = "toggleSoultimate()">
-  <input type = "image" src = "./images/battle/targetButton.png" id = "targetButton" onclick = "toggleTarget()">
-  <img type = "image" src = "./images/battle/itemButton.png" id = "itemButton">
-  <input type = "image" src = "./images/battle/purifyButton.png" id = "purifyButton" onclick = "togglePurify()">
+  <input type = "image" src = "./images/battle/soultimateButtonNew.png" id = "soultimateButton" onclick = "toggleSoultimate()">
+  <input type = "image" src = "./images/battle/targetButtonNew.png" id = "targetButton" onclick = "toggleTarget()">
+  <img type = "image" src = "./images/battle/modeButton.png" id = "itemButton">
+  <input type = "image" src = "./images/battle/purifyButtonNew.png" id = "purifyButton" onclick = "togglePurify()">
 
   <img id = "wheelBG" src = "./images/battle/wheelBGHexagon.png">
   <img id = "wheelShadow" src = "./images/battle/wheelShadowHexagon.png">
@@ -112,6 +125,13 @@
     <progress id = "pro3" class = "HP" value = "50" max = "100"></progress>
     <progress id = "pro4" class = "HP" value = "50" max = "100"></progress>
     <progress id = "pro5" class = "HP" value = "50" max = "100"></progress>
+
+    <progress id = "soul0" class = "SOUL" value = "50" max = "100"></progress>
+    <progress id = "soul1" class = "SOUL" value = "50" max = "100"></progress>
+    <progress id = "soul2" class = "SOUL" value = "50" max = "100"></progress>
+    <progress id = "soul3" class = "SOUL" value = "50" max = "100"></progress>
+    <progress id = "soul4" class = "SOUL" value = "50" max = "100"></progress>
+    <progress id = "soul5" class = "SOUL" value = "50" max = "100"></progress>
   </div>
 
   <div id = "switchCooldown">
@@ -163,7 +183,7 @@
   </div>
 
   
-  
+  <video src = "videos/matchmaking/enterBattle.mp4" id = "enterBattle"></video>
   
 </body>
 

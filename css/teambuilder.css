@@ -8,40 +8,41 @@ html {
   width: 100%;
 }
 
-button{
-  background-color: #fff;
-  font-family: ykw;
-}
 
-p{
+p {
   font-family: ykw;
   font-size: 1.5vw;
-  color: #fff;
-  text-shadow:
-  -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-  1px 1px 0 #000;
+  color: rgb(40, 24, 76);
   display: inline
 }
 
-em{
-  color: #a01818;
-  text-shadow:
-  -1px -1px 0 #fff,
-  1px -1px 0 #fff,
-  -1px 1px 0 #fff,
-  1px 1px 0 #fff;
+button {
+  border: 4px solid transparent;
+  border-image: linear-gradient(45deg, #FFB8E0, #80c6ff);
+  border-image-slice: 1;
+  background-color: rgb(255, 255, 255); /* or any bg color */
+  color: rgb(40, 24, 76);
+  cursor: pointer;
+  font-size: 1.5vw;
 }
 
-input{
+em {
+  color: #a01818;
+  text-shadow:
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px 1px 0 #fff;
+}
+
+input {
   font-family: ykw;
   font-size: 1vw;
   width: 13%;
   height: 5%
 }
 
-select{
+select {
   font-family: ykw;
   font-size: 1vw;
 }
@@ -62,16 +63,26 @@ body {
 }
 
 @keyframes fadeOut {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
-#toggleMusic{
+#toggleMusic {
   position: absolute;
   height: 10%;
   width: 5%;
@@ -79,7 +90,7 @@ body {
   left: 2%;
 }
 
-#homeButton{
+#homeButton {
   position: absolute;
   top: 4%;
   left: 2%;
@@ -87,7 +98,7 @@ body {
   width: 5%;
 }
 
-#yokaiGif{
+#yokaiGif {
   position: absolute;
   height: 40%;
   width: 22%;
@@ -95,21 +106,31 @@ body {
   left: 6%;
 }
 
-#yokaiName{
+#yokaiName {
   font-family: ykw;
   color: #fff;
   text-shadow:
-  -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-  1px 1px 0 #000;
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
   position: absolute;
   font-size: 3vw;
   top: 40%;
   left: 6%;
 }
 
-#yokaiWheel{
+.uiBG {
+  font-size: 1rem;
+  border: 4px solid transparent;
+  border-image: linear-gradient(45deg, #FFB8E0, #80c6ff);
+  border-image-slice: 1;
+  background-color: rgba(255, 255, 255, 0.948); /* or any bg color */
+  color: rgb(40, 24, 76);
+  cursor: pointer;
+}
+
+#yokaiWheel {
   position: absolute;
   height: 45%;
   width: 25%;
@@ -117,53 +138,47 @@ body {
   left: 5.5%;
 }
 
-#yokaiList{
+#yokaiList {
   position: absolute;
   height: 40%;
   width: 50%;
   left: 35%;
   top: 60%;
-  background-color: rgba(255, 255, 255, 0.5);
   overflow: scroll;
-  outline: 2px solid black;
 }
 
-#itemList{
+#itemList {
   position: absolute;
   height: 40%;
   width: 50%;
   left: 35%;
   top: 60%;
-  background-color: rgba(255, 255, 255, 0.5);
   overflow: scroll;
-  outline: 2px solid black;
 }
 
-#currentInfo{
+#currentInfo {
   position: absolute;
   height: 50%;
   width: 50%;
   left: 35%;
   top: 10%;
-  background-color: rgba(255, 255, 255, 0.5);
   overflow: scroll;
-  outline: 2px solid black;
 }
 
-.medalList{
+.medalList {
   height: 15%;
   width: 7%;
   float: left;
 }
 
-.yokaiOption{
+.yokaiOption {
   font-family: ykw;
   font-size: 1vw;
   height: 15%;
   width: 83%
 }
 
-#teamSelect{
+#teamSelect {
   font-family: ykw;
   position: absolute;
   height: 7%;
@@ -172,7 +187,7 @@ body {
   top: 1.5%;
 }
 
-#nameTeam{
+#nameTeam {
   position: absolute;
   height: 6.35%;
   width: 24.8%;
@@ -181,7 +196,7 @@ body {
   font-family: ykw;
 }
 
-#teamCreate{
+#teamCreate {
   position: absolute;
   height: 5%;
   width: 10%;
@@ -190,7 +205,8 @@ body {
   font-family: ykw;
   font-size: 1vw;
 }
-#teamRename{
+
+#teamRename {
   position: absolute;
   height: 5%;
   width: 10%;
@@ -200,7 +216,7 @@ body {
   font-size: 1vw;
 }
 
-#teamDelete{
+#teamDelete {
   position: absolute;
   height: 5%;
   width: 10%;
@@ -210,7 +226,7 @@ body {
   font-size: 1vw;
 }
 
-#slot1{
+#slot1 {
   position: absolute;
   height: 10%;
   width: 6%;
@@ -218,7 +234,7 @@ body {
   left: 8.25%;
 }
 
-#slot2{
+#slot2 {
   position: absolute;
   height: 10%;
   width: 6%;
@@ -226,7 +242,7 @@ body {
   left: 15.1%;
 }
 
-#slot3{
+#slot3 {
   position: absolute;
   height: 10%;
   width: 6%;
@@ -234,7 +250,7 @@ body {
   left: 21.7%;
 }
 
-#slot4{
+#slot4 {
   position: absolute;
   height: 10%;
   width: 6%;
@@ -242,7 +258,7 @@ body {
   left: 21.7%;
 }
 
-#slot5{
+#slot5 {
   position: absolute;
   height: 10%;
   width: 6%;
@@ -250,7 +266,7 @@ body {
   left: 15.1%;
 }
 
-#slot6{
+#slot6 {
   position: absolute;
   height: 10%;
   width: 6%;
@@ -258,7 +274,7 @@ body {
   left: 8.25%;
 }
 
-#deleteYokai{
+#deleteYokai {
   position: absolute;
   height: 5%;
   width: 10%;
@@ -268,11 +284,11 @@ body {
   font-size: 1vw;
 }
 
-#currentText{
+#currentText {
   font-size: 1.5vw;
 }
 
-#addYokai{
+#addYokai {
   position: absolute;
   height: 5%;
   width: 10%;
@@ -282,7 +298,7 @@ body {
   font-size: 1vw;
 }
 
-#addItems{
+#addItems {
   position: absolute;
   height: 5%;
   width: 10%;
@@ -292,18 +308,18 @@ body {
   font-size: 1vw;
 }
 
-#equipText{
+#equipText {
   color: #8095ff;
 }
 
-#clearItems{
+#clearItems {
   height: 10%;
   width: 15%;
   font-family: ykw;
   font-size: 1vw;
 }
 
-#statsChart{
+#statsChart {
   position: absolute;
   width: 50%;
   height: 70%;
@@ -312,12 +328,12 @@ body {
   pointer-events: none;
 }
 
-.chartBar{
+.chartBar {
   height: 5%;
   width: 30%;
 }
 
-#probChart{
+#probChart {
   position: absolute;
   width: 25%;
   height: 15%;
@@ -325,64 +341,56 @@ body {
   top: 31%;
 }
 
-.probText{
+.probText {
   font-size: 1vw;
-  color: #fff;
-  text-shadow:
-  -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-  1px 1px 0 #000;
 }
 
-#apDisplay{
+#apDisplay {
   position: absolute;
   top: 50%;
   left: 73%;
   color: #80ffbd;
   font-size: 2.5vw;
   text-shadow:
-  -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-  1px 1px 0 #000;
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
-#setBony{
+#setBony {
   position: absolute;
   height: 5%;
   width: 10%;
   left: 50%;
   top: 55%;
   font-family: ykw;
-  font-size: 2vw;
+  font-size: 1.5vw;
   color: #ff8080;
-  background-color: rgba(255, 255, 255, 0);
   text-shadow:
-  -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-  1px 1px 0 #000;
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
-#setFleshy{
+#setFleshy {
   position: absolute;
   height: 5%;
   width: 10%;
   left: 60%;
   top: 55%;
   font-family: ykw;
-  font-size: 2vw;
+  font-size: 1.5vw;
   color: #80c8ff;
-  background-color: rgba(255, 255, 255, 0);
   text-shadow:
-  -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-  1px 1px 0 #000;
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
-#pasteOutput{
+#pasteOutput {
   overflow: scroll;
   position: absolute;
   height: 35%;
@@ -392,12 +400,12 @@ body {
   background-color: rgba(255, 255, 255, 1);
 }
 
-#pasteText{
+#pasteText {
   font-size: 1vw;
   color: #cdb3ff;
 }
 
-#closePaste{
+#closePaste {
   position: absolute;
   left: 85%;
   top: 0%;
@@ -405,7 +413,7 @@ body {
   height: 10%;
 }
 
-#importTeam{
+#importTeam {
   position: absolute;
   height: 5%;
   width: 10%;
@@ -415,7 +423,7 @@ body {
   font-size: 1vw;
 }
 
-#exportTeam{
+#exportTeam {
   position: absolute;
   height: 5%;
   width: 10%;

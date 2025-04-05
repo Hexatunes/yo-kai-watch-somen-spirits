@@ -12,6 +12,29 @@ function getCookie(name) {
     // Return null if the cookie by name does not exist
     return null;
 }
+const songs = ["battle1.mp3", "battle2.mp3", "battle3.mp3", "battle4.mp3", "battle5.mp3", "battle6.mp3", "battle7.mp3"]
+
+function toggleMusic() {
+    var musicToggle = getCookie("BGMute")
+    if (musicToggle == "true") {
+        document.getElementById("toggleMusic").src = "./images/musicOFF.png";
+        document.getElementById("bgm").volume = 0.0;
+        document.cookie = "BGMute=false";
+
+    } else {
+        document.getElementById("toggleMusic").src = "./images/musicON.png";
+        document.getElementById("bgm").volume = 0.5;
+        document.cookie = "BGMute=true";
+    }
+}
+
+document.getElementById("bgm").addEventListener("ended", function() {
+    document.getElementById("bgm").currentTime = 0;
+    const randomSong = Math.floor(Math.random() * songs.length);
+    const path = "./audios/music/battleBGMs/" + songs[randomSong];
+    document.getElementById("bgm").src = path;
+    document.getElementById("bgm").play()
+});
 
 //DO NOT CHANGE THIS LINK UNLESS YOU KNOW WHAT YOU ARE DOING!!!
 //YOU WILL BE CONNECTING TO A 3RD PARTY SERVER
@@ -32,8 +55,37 @@ var cursor = document.getElementById('targetCursor');
 
 var battling = true
 
+function hideTransition() {
+    document.getElementById("enterBattle").style.display = "none"
+}
+
 // Determine the conductor and initialize battle
 function set_up() {
+    const randomSong = Math.floor(Math.random() * songs.length);
+    const path = "./audios/music/battleBGMs/" + songs[randomSong];
+    document.getElementById("bgm").src = path;
+
+    document.getElementById("enterBattle").play()
+    document.getElementById("enterBattle").style.animation = "fadeOut 1.4s"
+    document.getElementById("enterBattle").volume = 0.0
+    setTimeout(hideTransition, 1000)
+
+    var musicToggle = getCookie("BGMute")
+
+    if (musicToggle == "true") {
+        document.getElementById("toggleMusic").src = "./images/musicON.png";
+        document.getElementById("bgm").volume = 0.5;
+
+    } else if (musicToggle == "false") {
+        document.getElementById("toggleMusic").src = "./images/musicOFF.png";
+        document.getElementById("bgm").volume = 0.0;
+    } else {
+        document.getElementById("toggleMusic").src = "./images/musicON.png";
+        document.getElementById("bgm").volume = 0.5;
+        document.cookie = "BGMute=true";
+    }
+
+    document.getElementById("bgm").play()
 
     document.getElementById("pin0").style.display = "none"
     document.getElementById("pin1").style.display = "none"
@@ -44,6 +96,20 @@ function set_up() {
     document.getElementById("switchCooldown").style.display = "none"
     document.getElementById("infoDisplay").style.display = "none";
     document.getElementById("allDown").style.display = "none"
+
+    document.getElementById("myPosInsp0").style.display = "none"
+    document.getElementById("myPosInsp1").style.display = "none"
+    document.getElementById("myPosInsp2").style.display = "none"
+    document.getElementById("otherPosInsp0").style.display = "none"
+    document.getElementById("otherPosInsp1").style.display = "none"
+    document.getElementById("otherPosInsp2").style.display = "none"
+
+    document.getElementById("myNegInsp0").style.display = "none"
+    document.getElementById("myNegInsp1").style.display = "none"
+    document.getElementById("myNegInsp2").style.display = "none"
+    document.getElementById("otherNegInsp0").style.display = "none"
+    document.getElementById("otherNegInsp1").style.display = "none"
+    document.getElementById("otherNegInsp2").style.display = "none"
 
     socket.emit("determine_conductor", myUID, BATTLE_ID)
 }
@@ -70,8 +136,72 @@ socket.on('initialize_data', (data) => {
 function refreshDisplays() {
     console.log(myTeam)
 
+    document.getElementById("myPosInsp0").style.display = "none"
+    document.getElementById("myPosInsp1").style.display = "none"
+    document.getElementById("myPosInsp2").style.display = "none"
+    document.getElementById("otherPosInsp0").style.display = "none"
+    document.getElementById("otherPosInsp1").style.display = "none"
+    document.getElementById("otherPosInsp2").style.display = "none"
+
+    document.getElementById("myNegInsp0").style.display = "none"
+    document.getElementById("myNegInsp1").style.display = "none"
+    document.getElementById("myNegInsp2").style.display = "none"
+    document.getElementById("otherNegInsp0").style.display = "none"
+    document.getElementById("otherNegInsp1").style.display = "none"
+    document.getElementById("otherNegInsp2").style.display = "none"
+
+    document.getElementById("mySoul0").value = myTeam[0]["soul"]
+    document.getElementById("mySoul1").value = myTeam[1]["soul"]
+    document.getElementById("mySoul2").value = myTeam[2]["soul"]
+
     for (var i = 0; i < myTeam.length; i++) {
         document.getElementById("slot" + (myTeam[i]["order"])).src = YOKAI_DATABASE[myTeam[i]["code"]]["medal"]
+    }
+
+    for (var i = 0; i < 3; i++) {
+        var posCount = 0
+        var negCount = 0
+
+        var currentInspirits =  myTeam[i]["currentInspirits"]
+
+        for (var x = 0; x < currentInspirits.length; x++) {
+            if ( currentInspirits[x]["type"] == "positive" ) {
+                posCount++
+            } else {
+                negCount++
+            }
+        }
+
+        if ( posCount > 0 ) {
+            document.getElementById("myPosInsp" + i).style.display = "block"
+        }
+
+        if ( negCount > 0 ) {
+            document.getElementById("myNegInsp" + i).style.display = "block"
+        }
+    }
+
+    for (var i = 0; i < 3; i++) {
+        var posCount = 0
+        var negCount = 0
+
+        var currentInspirits =  otherTeam[i]["currentInspirits"]
+
+        for (var x = 0; x < currentInspirits.length; x++) {
+            if ( currentInspirits[x]["type"] == "positive" ) {
+                posCount++
+            } else {
+                negCount++
+            }
+        }
+
+        if ( posCount > 0 ) {
+            document.getElementById("otherPosInsp" + i).style.display = "block"
+        }
+
+        if ( negCount > 0 ) {
+            document.getElementById("otherNegInsp" + i).style.display = "block"
+        }
     }
 
     document.getElementById("myHP0").max = myTeam[0].hp
@@ -92,6 +222,10 @@ function refreshDisplays() {
 
     for ( var i = 0; i < myTeam.length; i++ ) {
         document.getElementById("pro" + (myTeam[i]["order"] - 1)).value = myTeam[i]["currentHP"]
+    }
+
+    for ( var i = 0; i < myTeam.length; i++ ) {
+        document.getElementById("soul" + (myTeam[i]["order"] - 1)).value = myTeam[i]["soul"]
     }
 
     document.getElementById("myName0").innerHTML = myTeam[0]["displayName"]
@@ -160,6 +294,21 @@ function ping_server() {
 socket.on('turn_advanced', (data) => {
     myTeam = data.myTeam
     otherTeam = data.otherTeam
+
+    if ( data.crits > 0 ){
+        var newMessage = document.createElement("p")
+        newMessage.innerHTML = "<em id = 'damage'> Critical hit(s): " + data.crits
+        document.getElementById("chatBox").appendChild(newMessage)
+        document.getElementById("chatBox").scrollTop = document.getElementById("chatBox").scrollHeight
+    }
+
+    if ( data.misses > 0 ){
+        var newMessage = document.createElement("p")
+        newMessage.innerHTML = "<em id = 'tech'> Miss(es): " + data.misses
+        document.getElementById("chatBox").appendChild(newMessage)
+        document.getElementById("chatBox").scrollTop = document.getElementById("chatBox").scrollHeight
+    }
+    
 
     var newMessage = document.createElement("p")
     newMessage.innerHTML = data.chatMessage

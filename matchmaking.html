@@ -24,7 +24,10 @@
       background-size: cover;
     }
   </style>
-  <img id = "tokoSprite" src = "./images/dialogPortraits/hime.png">
+
+  <img id = "bgSprite" src = "./images/matchmaking/spriteBG.png">
+
+  <img id = "menuBG" src = "./images/panelBG.png">
   
   <input id="homeButton" type="image" src="./images/teambuilder/padIcon.png" onclick="switchHome()">
 
@@ -34,27 +37,27 @@
 
   <p id = "tierLabel">Select a format!</p>
 
-  <select id = "teamSelect" onclick="loadTeam()" onload="refreshTeamList()">
+  <select id = "teamSelect" onclick="loadTeam()" onload="refreshTeamList()" class = "uiBG">
     
   </select>
 
   <p id = "teamLabel">Choose a team!</p>
 
-  <select id = "tierSelect">
+  <select id = "tierSelect" class = "uiBG">
     <option>OU</option>
   </select>
 
-  <button id = "battleButton" onclick = "startMatchmaking()">Battle!</button>
+  <button id = "battleButton" onclick = "startMatchmaking()" class = "uiBG">Battle!</button>
 
-  <input type = "text" id = "usernameInput" placeholder = "Enter username" oninput="updateUsername()">
+  <input type = "text" id = "usernameInput" placeholder = "Enter username" oninput="updateUsername()" class = "uiBG">
   
-  <img id = "dialogBox" src = "./images/dialog.png">
-  <p id = "dialogName">Tokonatsu-Hime</p>
-  <p id = "matchDialog">I've saved this spot of the beach for people who want one-off battles <br> outside of the tournament! Battle to your hearts content~! ♥</p>
+  
 
   <div id = "matchmakingMenu" onclick = "cancelMatchmaking()">
     <p id = "lookingText">Looking for opponents... (click anywhere to cancel)</p>
   </div>
+
+  <video src = "videos/matchmaking/enterBattle.mp4" id = "enterBattle"></video>
 
   <img src = "./images/padTrans.png" id = "padTrans">
   
