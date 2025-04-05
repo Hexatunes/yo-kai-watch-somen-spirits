@@ -55,9 +55,6 @@ var cursor = document.getElementById('targetCursor');
 
 var battling = true
 
-function hideTransition() {
-    document.getElementById("enterBattle").style.display = "none"
-}
 
 // Determine the conductor and initialize battle
 function set_up() {
@@ -65,10 +62,6 @@ function set_up() {
     const path = "./audios/music/battleBGMs/" + songs[randomSong];
     document.getElementById("bgm").src = path;
 
-    document.getElementById("enterBattle").play()
-    document.getElementById("enterBattle").style.animation = "fadeOut 1.4s"
-    document.getElementById("enterBattle").volume = 0.0
-    setTimeout(hideTransition, 1000)
 
     var musicToggle = getCookie("BGMute")
 

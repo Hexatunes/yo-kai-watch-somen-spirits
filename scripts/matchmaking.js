@@ -59,7 +59,6 @@ function updateUsername() {
 }
 
 function hidePad() {
-    document.getElementById("enterBattle").style.display = "none"
     clearBattle()
     document.getElementById("matchmakingMenu").style.display = "none"
     teams = JSON.parse(localStorage.getItem("teams"))
@@ -200,14 +199,6 @@ socket.on('lfg_found', (data) => {
 });
 
 function switch_battle() {
-    document.getElementById("enterBattle").style.display = "block"
-    document.getElementById("enterBattle").style.animation = "fadeIn 0.5s";
-    document.getElementById("enterBattle").play()
-
-    setTimeout(actuallySwitchBattle, 1400)
-    
-}
-
-function actuallySwitchBattle() {
     location.href = "./battle.html"
+    
 }
