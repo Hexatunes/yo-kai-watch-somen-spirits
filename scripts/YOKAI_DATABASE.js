@@ -221,10 +221,10 @@ const YOKAI_DATABASE = {
     tribe: "Brave",
     tier: "OU",
     attribute: "lightning",
-    probAtk: 0.1,
-    probTech: 0.1,
+    probAtk: 0.7,
+    probTech: 0.15,
     probInsp: 0.1,
-    probGuard: 0.1,
+    probGuard: 0.05,
     probLoaf: 0.1,
   },
   "dumm": {

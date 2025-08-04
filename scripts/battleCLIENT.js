@@ -586,7 +586,7 @@ socket.on('defeat', (data) => {
 });
 
 function backToMatchmaking() {
-    location.href = "/matchmaking.html"
+    location.href = "./matchmaking.html"
 }
 
 var inSoult = false
