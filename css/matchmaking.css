@@ -114,7 +114,7 @@ body {
   height: 100%;
   width: 100%;
   left: 0%;
-  top: 0%;
+  top: 10%;
   pointer-events: none;
 }
 
@@ -147,7 +147,7 @@ body {
   left: 0%;
   height: 100%;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 #lookingText{
@@ -168,4 +168,16 @@ body {
 
 em {
   color: #7ac6ff
+}
+
+#bg {
+  position: absolute;
+  width: 110%;
+  height: 110%;
+}
+
+#fullPanelBG {
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }

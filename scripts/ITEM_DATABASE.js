@@ -21,17 +21,6 @@ const ITEM_DATABASE = {
     spd: -40,
     icon: "./images/teambuilder/items/Cursed_Staff.webp",
   },
-  "tenguFan": {
-    displayName: "Tengu Fan",
-    description: "+100SPR, +100 SPD (Tengu and Flengu ONLY!)",
-    type: "stat",
-    hp: 0,
-    str: 0,
-    spr: 100,
-    def: 0,
-    spd: 100,
-    icon: "./images/teambuilder/items/Tengu_Fan.webp",
-  },
   "beefyBell": {
     displayName: "Beefy Bell",
     description: "+50 STR (Nyan Yokai ONLY!)",

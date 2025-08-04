@@ -17,7 +17,8 @@ function getCookie(name) {
 //DO NOT CHANGE THIS LINK UNLESS YOU KNOW WHAT YOU ARE DOING!!!
 //YOU WILL BE CONNECTING TO A 3RD PARTY SERVER
 //I AM NOT RESPONSIBLE FOR ANYTHING THAT HAPPENS BY USING AN UNOFFICIAL SERVER
-const socket = io('https://somen-spirits-server.glitch.me');
+const socket = io('https://somen-spirits-server.onrender.com/');
+
 
 var teams = []
 var currentTeam = 0
@@ -30,7 +31,6 @@ function intoFinished() {
 function clearBattle() {
     console.log("Battle cleared!")
     document.cookie = "myTeam=none"
-    document.cookie = "myUsername=none"
     document.cookie = "otherTeam=none"
     document.cookie = "otherUsername=none"
     document.cookie = "battleChannel=none"
@@ -43,22 +43,31 @@ function toggleMusic() {
     if (musicToggle == "true") {
         document.getElementById("toggleMusic").src = "./images/musicOFF.png";
         document.getElementById("bgm").volume = 0.0;
+        document.getElementById("beachSFX").volume = 0.0;
         document.cookie = "BGMute=false";
 
     } else {
         document.getElementById("toggleMusic").src = "./images/musicON.png";
         document.getElementById("bgm").volume = 0.5;
+        document.getElementById("beachSFX").volume = 0.2;
         document.cookie = "BGMute=true";
     }
 }
 
 function updateUsername() {
-    console.log("Username update")
+    console.log("Username update: " + document.getElementById("usernameInput").value)
+    document.getElementById("menuSFX").src = "./audios/SFX/UI/menuButtonClick2.wav"
+    document.getElementById("menuSFX").play()
     
-    document.cookie = `username=${document.getElementById("usernameInput").value}`;
+    document.cookie = `myUsername=${document.getElementById("usernameInput").value}`;
 }
 
 function hidePad() {
+    addParallaxEffect(document.getElementById("bg"), -10)
+    addParallaxEffect(document.getElementById("bgSprite"), -15)
+
+    document.getElementById("beachSFX").play()
+
     clearBattle()
     document.getElementById("matchmakingMenu").style.display = "none"
     teams = JSON.parse(localStorage.getItem("teams"))
@@ -74,23 +83,29 @@ function hidePad() {
     document.getElementById("bgm").src = path;
 
     var musicToggle = getCookie("BGMute")
-    username = getCookie("username")
+    username = getCookie("myUsername")
+    console.log(username)
     UID = username
-    if (!(username == null)) {
+    if (!(username == "null")) {
         document.getElementById("usernameInput").value = username
+    } else {
+       document.getElementById("usernameInput").value = ""
     }
 
     console.log(musicToggle)
     if (musicToggle == "true") {
         document.getElementById("toggleMusic").src = "./images/musicON.png";
         document.getElementById("bgm").volume = 0.5;
+        document.getElementById("beachSFX").volume = 0.3;
 
     } else if (musicToggle == "false") {
         document.getElementById("toggleMusic").src = "./images/musicOFF.png";
         document.getElementById("bgm").volume = 0.0;
+        document.getElementById("beachSFX").volume = 0.0;
     } else {
         document.getElementById("toggleMusic").src = "./images/musicON.png";
         document.getElementById("bgm").volume = 0.5;
+        document.getElementById("beachSFX").volume = 0.3;
         document.cookie = "BGMute=true";
     }
 
@@ -108,6 +123,9 @@ function switchHome() {
     document.getElementById("padTrans").style.display = "block";
     document.getElementById("padTrans").style.animation = "fadeIn 1s";
     setTimeout(actuallySwitchHome, 1000)
+
+    document.getElementById("menuSFX").src = "./audios/SFX/UI/quit.wav"
+  document.getElementById("menuSFX").play()
 }
 
 function switchBattle() {
@@ -148,6 +166,17 @@ function startMatchmaking() {
     } else {
         socket.emit('lfg', UID, teams[currentTeam], document.getElementById("usernameInput").value)
     }
+
+    document.getElementById("menuSFX").src = "./audios/SFX/UI/menuButtonClick.wav"
+    document.getElementById("menuSFX").play()
+
+    document.getElementById("matchmakingMenu").style.display = "block"
+    document.getElementById("matchmakingMenu").style.animation = "fadeIn 0.5s"
+    document.getElementById("bgm").src = "./audios/music/matchmaking.mp3"
+    document.getElementById("bgm").play()
+    document.getElementById("bgm").currentTime = 0;
+
+    document.getElementById("lookingText").innerHTML = "Connecting to the server..."
 }
 
 
@@ -178,11 +207,7 @@ var UID = "UID error LOL"
 // Handle receiving messages
 socket.on('lfg_validity', (data) => {
     if(data == "valid"){
-        document.getElementById("matchmakingMenu").style.display = "block"
-        document.getElementById("matchmakingMenu").style.animation = "fadeIn 0.5s"
-        document.getElementById("bgm").src = "./audios/music/matchmaking.mp3"
-        document.getElementById("bgm").play()
-        document.getElementById("bgm").currentTime = 0;
+        document.getElementById("lookingText").innerHTML = "Looking for an opponent..."
     }else{
         alert("Team validation failed! Here are the problems: " + data)
     }
@@ -202,3 +227,27 @@ function switch_battle() {
     location.href = "./battle.html"
     
 }
+
+
+function addParallaxEffect(element, strength = 20) {
+  const rect = element.getBoundingClientRect();
+
+  window.addEventListener('mousemove', (e) => {
+    const x = e.clientX - (rect.left + rect.width / 2);
+    const y = e.clientY - (rect.top + rect.height / 2);
+
+    const moveX = (x / window.innerWidth) * strength - 100;
+    const moveY = (y / window.innerHeight) * strength - 100;
+
+    element.style.transform = `translate(${moveX}px, ${moveY}px)`;
+  });
+
+  window.addEventListener('mouseleave', () => {
+    element.style.transform = `translate(0px, 0px)`;
+  });
+}
+
+document.getElementById("beachSFX").addEventListener("ended", function(){
+  document.getElementById("beachSFX").currentTime = 0;
+  document.getElementById("beachSFX").play()
+});

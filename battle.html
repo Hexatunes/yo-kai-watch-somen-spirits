@@ -44,9 +44,11 @@
     <progress id = "mySoul1" value = "0" max = "100" class = "SOUL"></progress>
     <progress id = "mySoul2" value = "0" max = "100" class = "SOUL"></progress>
     
-    <img id = "myYokai0" src = "./images/teambuilder/whisperPlaceholder.webp" onmouseover="showInfo('my', 0)" onmouseleave="hideInfo()">
-    <img id = "myYokai1" src = "./images/teambuilder/whisperPlaceholder.webp" onmouseover="showInfo('my', 1)" onmouseleave="hideInfo()">
-    <img id = "myYokai2" src = "./images/teambuilder/whisperPlaceholder.webp" onmouseover="showInfo('my', 2)" onmouseleave="hideInfo()">
+    <img id = "myYokai0" src = "./images/teambuilder/whisperPlaceholder.webp" onclick="showInfo('my', 0)" onmouseleave="hideInfo()">
+    <img id = "myYokai1" src = "./images/teambuilder/whisperPlaceholder.webp" onclick="showInfo('my', 1)" onmouseleave="hideInfo()">
+    <img id = "myYokai2" src = "./images/teambuilder/whisperPlaceholder.webp" onclick="showInfo('my', 2)" onmouseleave="hideInfo()">
+
+    
     
     <img id = "myPosInsp0" class="spin" src = "./images/battle/positive_inspirit.png">
     <img id = "myPosInsp1" class="spin" src = "./images/battle/positive_inspirit.png">
@@ -56,9 +58,9 @@
     <img id = "myNegInsp1" class="spin" src = "./images/battle/negative_inspirit.png">
     <img id = "myNegInsp2" class="spin" src = "./images/battle/negative_inspirit.png">
 
-    <img id = "otherYokai0" src = "./images/teambuilder/whisperPlaceholder.webp" onmouseover="showInfo('other', 0)" onmouseleave="hideInfo()">
-    <img id = "otherYokai1" src = "./images/teambuilder/whisperPlaceholder.webp" onmouseover="showInfo('other', 1)" onmouseleave="hideInfo()">
-    <img id = "otherYokai2" src = "./images/teambuilder/whisperPlaceholder.webp" onmouseover="showInfo('other', 2)" onmouseleave="hideInfo()">
+    <img id = "otherYokai0" src = "./images/teambuilder/whisperPlaceholder.webp" onclick="showInfo('other', 0)" onmouseleave="hideInfo()">
+    <img id = "otherYokai1" src = "./images/teambuilder/whisperPlaceholder.webp" onclick="showInfo('other', 1)" onmouseleave="hideInfo()">
+    <img id = "otherYokai2" src = "./images/teambuilder/whisperPlaceholder.webp" onclick="showInfo('other', 2)" onmouseleave="hideInfo()">
     
     <img id = "otherPosInsp0" class="spin" src = "./images/battle/positive_inspirit.png">
     <img id = "otherPosInsp1" class="spin" src = "./images/battle/positive_inspirit.png">
@@ -72,8 +74,34 @@
     <img id = "pin1" src = "./images/battle/pin.png">
     <img id = "pin2" src = "./images/battle/pin.png">
 
+    
+
+    <p id = "myGuard0" class = "viewText">Guarding</p>
+    <p id = "myGuard1" class = "viewText">Guarding</p>
+    <p id = "myGuard2" class = "viewText">Guarding</p>
+
+    <p id = "otherGuard0" class = "viewText">Guarding</p>
+    <p id = "otherGuard1" class = "viewText">Guarding</p>
+    <p id = "otherGuard2" class = "viewText">Guarding</p>
+
+    <p id = "myLoaf0" class = "viewText">Loafing...</p>
+    <p id = "myLoaf1" class = "viewText">Loafing...</p>
+    <p id = "myLoaf2" class = "viewText">Loafing...</p>
+
+    <p id = "otherLoaf0" class = "viewText">Loafing...</p>
+    <p id = "otherLoaf1" class = "viewText">Loafing...</p>
+    <p id = "otherLoaf2" class = "viewText">Loafing...</p>
+
+    <p id = "otherCharge0" class = "viewText">Charging Soultimate!!!</p>
+    <p id = "otherCharge1" class = "viewText">Charging Soultimate!!!</p>
+    <p id = "otherCharge2" class = "viewText">Charging Soultimate!!!</p>
+
+    
+
     <p id = "switchingText">Opponent is switching Yokai!</p>
   </div>
+
+  <video id = "soultimateVideo"></video>
 
   <img id = "mpreload0">
   <img id = "mpreload1">
@@ -94,20 +122,23 @@
 
   </div>
 
-  <input type = "text" id = "messageInput" onfocus="setTyping('true')" onblur="setTyping('false')">
+  <input type = "text" id = "messageInput" onfocus="setChatting(true)" onblur="setChatting(false)" autocomplete="off">
+  
+  <img src = "./images/battle/wheelMidHexagon.png" id = "wheelMid">
   
 
-  <input type = "image" src = "./images/battle/wheelMidHexagon.png" id = "toggleMid" onclick = "toggleWatch()">
-
-  <input type = "image" src = "./images/battle/soultimateButtonNew.png" id = "soultimateButton" onclick = "toggleSoultimate()">
+  <input type = "image" src = "./images/battle/soultimateButtonNew.png" id = "soultimateButton" onclick = "selectSoultimate()">
   <input type = "image" src = "./images/battle/targetButtonNew.png" id = "targetButton" onclick = "toggleTarget()">
-  <img type = "image" src = "./images/battle/modeButton.png" id = "itemButton">
+  <input type = "image" src = "./images/battle/checkButton.png" id = "checkButton" onclick = "toggleCheck()">
   <input type = "image" src = "./images/battle/purifyButtonNew.png" id = "purifyButton" onclick = "togglePurify()">
 
   <img id = "wheelBG" src = "./images/battle/wheelBGHexagon.png">
+  
   <img id = "wheelShadow" src = "./images/battle/wheelShadowHexagon.png">
+  
   <img id = "wheelLines" src = "./images/battle/wheelLinesHexagon.png">
 
+  
   
 
   <div id = "wheelViewport">
@@ -119,6 +150,13 @@
     <img id = "slot5" src = "">
     <img id = "slot6" src = "">
 
+    <img id = "soulStatus0" src = "./images/battle/mSkillReady.png">
+    <img id = "soulStatus1" src = "./images/battle/mSkillReady.png">
+    <img id = "soulStatus2" src = "./images/battle/mSkillReady.png">
+    <img id = "soulStatus3" src = "./images/battle/mSkillReady.png">
+    <img id = "soulStatus4" src = "./images/battle/mSkillReady.png">
+    <img id = "soulStatus5" src = "./images/battle/mSkillReady.png">
+
     <progress id = "pro0" class = "HP" value = "50" max = "100"></progress>
     <progress id = "pro1" class = "HP" value = "50" max = "100"></progress>
     <progress id = "pro2" class = "HP" value = "50" max = "100"></progress>
@@ -126,13 +164,23 @@
     <progress id = "pro4" class = "HP" value = "50" max = "100"></progress>
     <progress id = "pro5" class = "HP" value = "50" max = "100"></progress>
 
-    <progress id = "soul0" class = "SOUL" value = "50" max = "100"></progress>
-    <progress id = "soul1" class = "SOUL" value = "50" max = "100"></progress>
-    <progress id = "soul2" class = "SOUL" value = "50" max = "100"></progress>
-    <progress id = "soul3" class = "SOUL" value = "50" max = "100"></progress>
-    <progress id = "soul4" class = "SOUL" value = "50" max = "100"></progress>
-    <progress id = "soul5" class = "SOUL" value = "50" max = "100"></progress>
+    <progress id = "soul0" class = "SOUL" value = "100" max = "100"></progress>
+    <progress id = "soul1" class = "SOUL" value = "100" max = "100"></progress>
+    <progress id = "soul2" class = "SOUL" value = "100" max = "100"></progress>
+    <progress id = "soul3" class = "SOUL" value = "100" max = "100"></progress>
+    <progress id = "soul4" class = "SOUL" value = "100" max = "100"></progress>
+    <progress id = "soul5" class = "SOUL" value = "100" max = "100"></progress>
+
+    
   </div>
+
+  <img id = "soultimateBG" src = "./images/battle/soultimateBG.png">
+  <img id = "yokaiThumbnail" src = "./images/teambuilder/whisperPlaceholder.webp">
+
+  <progress id = "soultCharge" class = "SOUL" value = "0" max = "100"></progress>  
+
+  <progress id = "pokeDamageCharge" class = "DAMAGE" value = "0" max = "100"></progress>  
+  <progress id = "pokeSoulCharge" class = "SOUL" value = "0" max = "100"></progress>  
 
   <div id = "switchCooldown">
     <p id = "cooldownCount">3</p>
@@ -143,43 +191,71 @@
   </div>
 
   
-
+  
   
 
   <img src = "./images/battle/targetCursor.png" id = "targetCursor">
+  <img src = "./images/battle/magnifyCursor.png" id = "checkCursor">
+
+  <div id = "infoDisplay">
+    <p id = "nameLabel" class = "infoText">Name: </p>
+    <p id = "hpLabel" class = "infoText">HP: ---%</p>
+    <p id = "inspiritsLabel" class = "infoText">Active inspirits:</p>
+  </div>
+  
+
+  <input type="button" id = "toggleMid" onclick = "toggleWatch()">
 
   
 
-   <audio id = "bgm" src = ""></audio>
+  <audio id = "bgm" src = ""></audio>
   
   <input id = "toggleMusic" type = "image" src = "./images/musicON.png" onclick = "toggleMusic()">
 
   
-  <div id = "infoDisplay">
-    <p id = "nameLabel" class = "infoText">Name: </p>
-    <p id = "hpLabel" class = "infoText">HP: ---%</p>
-    <p id = "fireLabel" class = "infoText">Fire Res: -</p>
-    <p id = "waterLabel" class = "infoText">Water Res: -</p>
-    <p id = "lightningLabel" class = "infoText">Electric Res: -</p>
-    <p id = "earthLabel" class = "infoText">Earth Res: -</p>
-    <p id = "windLabel" class = "infoText">Wind Res: -</p>
-    <p id = "iceLabel" class = "infoText">Ice Res: -</p>
-    <p id = "apLabel" class = "infoText">AP Range: --- to ---</p>
-  </div>
+  
+
+   
+  <img id = "soultSelect" src = "./images/battle/selectSoult.png">
+  <p id = "cancelSoult">Click the soultimate button again to cancel!</p>
+
+  <img id = "purifySelect" src = "./images/battle/selectPurify.png">
+  <p id = "cancelPurify">Click the purify button again to cancel!</p>
+
+  <p id = "chargedLabel">Charged!</p>
+ 
+
+  <p id = "minigameTypeLabel">placeholder lol</p>
+  <input id = "minigameTypeInput" type="text" oninput="minigameTypeSubmit()" autocomplete="off">
+
+  <button id = "oneSoult" onclick="startSoult(0)"></button>
+  <button id = "twoSoult" onclick="startSoult(1)"></button>
+  <button id = "threeSoult" onclick="startSoult(2)"></button>
+
+  <button id = "onePurify" onclick="startPurify(5)"></button>
+  <button id = "twoPurify" onclick="startPurify(4)"></button>
+  <button id = "threePurify" onclick="startPurify(3)"></button>
+
+  <button id = "pokeDamageButton" onclick="pokeDamage()"></button>
+  <button id = "pokeSoulButton" onclick="pokeSoul()"></button>
 
   <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
 
   <script type="text/javascript" src="./scripts/YOKAI_DATABASE.js"></script> 
   <script type="text/javascript" src="./scripts/ATTACK_DATABASE.js"></script> 
   <script type="text/javascript" src="./scripts/TECHNIQUE_DATABASE.js"></script>
+  <script type="text/javascript" src="./scripts/INSPIRIT_DATABASE.js"></script>
+  <script type="text/javascript" src="./scripts/SOULTIMATE_DATABASE.js"></script>
   <script src="./scripts/battleCLIENT.js"></script>
 
-  <div id = "allDown">
-    <p id = "allDownWarning">All active front yokai have fainted. Switch to yokai that can battle! If you don't, disqualification in 10...</p>
-  </div>
 
   <div id = "results" onclick = "backToMatchmaking()">
     <img id = 'resultsImage' src = "images/battle/victory.webp">
+  </div>
+
+  <div id = "alertMessage" onclick = "backToMatchmaking()">
+    <img id = "fullPanelBG" src = "./images/fullPanelBG.png">
+    <p id = "alertText1">The server took too long to respond. Please click anywhere to go back to matchmaking. Sorry!</p>
   </div>
   
 </body>

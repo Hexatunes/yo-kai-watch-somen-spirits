@@ -5,7 +5,7 @@ const ATTACK_DATABASE = {
     bp: 33,
     hits: 3,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "beat": {
@@ -13,7 +13,7 @@ const ATTACK_DATABASE = {
     bp: 88,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "bite": {
@@ -21,7 +21,7 @@ const ATTACK_DATABASE = {
     bp: 67,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "bodyBash": {
@@ -29,7 +29,7 @@ const ATTACK_DATABASE = {
     bp: 57,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "boneCrusher": {
@@ -37,7 +37,7 @@ const ATTACK_DATABASE = {
     bp: 150,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "chomp": {
@@ -45,7 +45,7 @@ const ATTACK_DATABASE = {
     bp: 99,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "clobber": {
@@ -53,7 +53,7 @@ const ATTACK_DATABASE = {
     bp: 112,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "chomp": {
@@ -61,7 +61,7 @@ const ATTACK_DATABASE = {
     bp: 99,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "doubleSlice": {
@@ -69,7 +69,7 @@ const ATTACK_DATABASE = {
     bp: 39,
     hits: 2,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "earthsplitter": {
@@ -77,7 +77,7 @@ const ATTACK_DATABASE = {
     bp: 142,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0.5,
   },
   "flatten": {
@@ -85,7 +85,7 @@ const ATTACK_DATABASE = {
     bp: 66,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "flipKick": {
@@ -93,7 +93,7 @@ const ATTACK_DATABASE = {
     bp: 90,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "fullswing": {
@@ -101,7 +101,7 @@ const ATTACK_DATABASE = {
     bp: 120,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "gunsBlazing": {
@@ -109,7 +109,7 @@ const ATTACK_DATABASE = {
     bp: 33,
     hits: 3,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "headbuster": {
@@ -117,7 +117,7 @@ const ATTACK_DATABASE = {
     bp: 195,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0.5,
   },
   "headbutt": {
@@ -125,7 +125,7 @@ const ATTACK_DATABASE = {
     bp: 121,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "headsmack": {
@@ -133,7 +133,7 @@ const ATTACK_DATABASE = {
     bp: 67,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "hit": {
@@ -141,7 +141,7 @@ const ATTACK_DATABASE = {
     bp: 45,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "kaboom": {
@@ -149,7 +149,7 @@ const ATTACK_DATABASE = {
     bp: 110,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "kick": {
@@ -157,7 +157,7 @@ const ATTACK_DATABASE = {
     bp: 67,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "lightningSlash": {
@@ -165,7 +165,7 @@ const ATTACK_DATABASE = {
     bp: 44,
     hits: 3,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "maul": {
@@ -173,7 +173,7 @@ const ATTACK_DATABASE = {
     bp: 120,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "meteorPunch": {
@@ -181,7 +181,7 @@ const ATTACK_DATABASE = {
     bp: 30,
     hits: 3,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "nastyKick": {
@@ -189,7 +189,7 @@ const ATTACK_DATABASE = {
     bp: 150,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "ninjaStar": {
@@ -197,7 +197,7 @@ const ATTACK_DATABASE = {
     bp: 90,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "oneTwoPunch": {
@@ -205,7 +205,7 @@ const ATTACK_DATABASE = {
     bp: 33,
     hits: 2,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "palmStrike": {
@@ -213,7 +213,7 @@ const ATTACK_DATABASE = {
     bp: 90,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "peskyPoke": {
@@ -221,7 +221,7 @@ const ATTACK_DATABASE = {
     bp: 67,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "peskyPokes": {
@@ -229,7 +229,7 @@ const ATTACK_DATABASE = {
     bp: 26,
     hits: 3,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "pinpointPierce": {
@@ -237,7 +237,7 @@ const ATTACK_DATABASE = {
     bp: 66,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "pointyPokes": {
@@ -245,7 +245,7 @@ const ATTACK_DATABASE = {
     bp: 26,
     hits: 3,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "powerPunch": {
@@ -253,7 +253,7 @@ const ATTACK_DATABASE = {
     bp: 110,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "practicedPunch": {
@@ -261,7 +261,7 @@ const ATTACK_DATABASE = {
     bp: 135,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "punch": {
@@ -269,7 +269,7 @@ const ATTACK_DATABASE = {
     bp: 67,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "rocketPunch": {
@@ -277,7 +277,7 @@ const ATTACK_DATABASE = {
     bp: 150,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "sharpClaws": {
@@ -285,7 +285,7 @@ const ATTACK_DATABASE = {
     bp: 52,
     hits: 2,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "shoot": {
@@ -293,7 +293,7 @@ const ATTACK_DATABASE = {
     bp: 45,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "slap": {
@@ -301,7 +301,7 @@ const ATTACK_DATABASE = {
     bp: 45,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "slurp": {
@@ -309,7 +309,7 @@ const ATTACK_DATABASE = {
     bp: 110,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "smackdown": {
@@ -317,7 +317,7 @@ const ATTACK_DATABASE = {
     bp: 44,
     hits: 2,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "sprayGun": {
@@ -325,7 +325,7 @@ const ATTACK_DATABASE = {
     bp: 150,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "squish": {
@@ -333,7 +333,7 @@ const ATTACK_DATABASE = {
     bp: 45,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "stabStorm": {
@@ -341,7 +341,7 @@ const ATTACK_DATABASE = {
     bp: 22,
     hits: 5,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "steamroll": {
@@ -349,7 +349,7 @@ const ATTACK_DATABASE = {
     bp: 90,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "steppingSlice": {
@@ -357,7 +357,7 @@ const ATTACK_DATABASE = {
     bp: 67,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "tackle": {
@@ -365,7 +365,7 @@ const ATTACK_DATABASE = {
     bp: 90,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "tailSlap": {
@@ -373,7 +373,7 @@ const ATTACK_DATABASE = {
     bp: 150,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
   "ventilator": {
@@ -381,8 +381,9 @@ const ATTACK_DATABASE = {
     bp: 110,
     hits: 1,
     targets: "single",
-    element: "none",
+    attribute: "none",
     miss: 0,
   },
 }
 
+module.exports = ATTACK_DATABASE

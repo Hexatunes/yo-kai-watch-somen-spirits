@@ -51,6 +51,15 @@ body {
   border-radius: 50%; 
 }
 
+#soultimateBG{
+  position: absolute;
+  height: 42vmin;
+  width: 42vmin;
+  top: 58vmin;
+  left: 30vmin;
+  border-radius: 50%; 
+}
+
 #wheelLines{
   position: absolute;
   height: 42vmin;
@@ -61,6 +70,24 @@ body {
 }
 
 #wheelShadow{
+  position: absolute;
+  height: 44vmin;
+  width: 42vmin;
+  top: 35vmin;
+  left: 30vmin;
+  pointer-events: none;
+}
+
+#soultSelect{
+  position: absolute;
+  height: 44vmin;
+  width: 42vmin;
+  top: 79vmin;
+  left: 30vmin;
+  pointer-events: none;
+}
+
+#purifySelect{
   position: absolute;
   height: 44vmin;
   width: 42vmin;
@@ -112,7 +139,7 @@ body {
   -ms-user-select: none;
 }
 
-#itemButton{
+#checkButton{
   position: absolute;
   height: 21vmin;
   width: 21vmin;
@@ -140,7 +167,20 @@ body {
   -ms-user-select: none;
 }
 
+
+
 #toggleMid{
+  position: absolute;
+  height: 22vmin;
+  width: 22vmin;
+  top: 68vmin;
+  left: 40vmin;
+  border-radius: 50%;
+  background-color: #00000000;
+  border: none;
+}
+
+#wheelMid{
   position: absolute;
   height: 22vmin;
   width: 22vmin;
@@ -245,6 +285,97 @@ body {
   
 }
 
+#soulStatus0{
+  position: absolute;
+  height: 23%;
+  width: 23%;
+  top: 16%;
+  left: -2%;
+  transform: rotate(-60deg);
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#soulStatus1{
+  position: absolute;
+  height: 23%;
+  width: 23%;
+  top: -7.5%;
+  left: 38%;
+  transform: rotate(0deg);
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#soulStatus2{
+  position: absolute;
+  height: 23;
+  width: 23%;
+  top: 15.5%;
+  left: 78.5%;
+  transform: rotate(60deg);
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#soulStatus3{
+  position: absolute;
+  height: 23%;
+  width: 23%;
+  top: 61.5%;
+  left: 79%;
+  transform: rotate(120deg);
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#soulStatus4{
+  position: absolute;
+  height: 23%;
+  width: 23%;
+  top: 85%;
+  left: 37.5%;
+  transform: rotate(180deg);
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#soulStatus5{
+  position: absolute;
+  height: 23%;
+  width: 23%;
+  top: 62%;
+  left: -2%;
+  transform: rotate(-120deg);
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  
+}
+
 #chatBG{
   position: absolute;
   left: 57.5%;
@@ -272,6 +403,12 @@ body {
   width: 42%;
   font-family: ykw;
   overflow: hidden;
+  border: 4px solid transparent;
+  border-image: linear-gradient(45deg, #FFB8E0, #80c6ff);
+  border-image-slice: 1;
+  background-color: rgba(255, 255, 255, 0.948); /* or any bg color */
+  color: rgb(40, 24, 76);
+  font-size: 2vw;
 }
 
 #myName0{
@@ -281,10 +418,10 @@ body {
   font-size: 1.5vw;
   color: #fff;
   text-shadow:
-  -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-  1px 1px 0 #000;  
+  -1px -1px 0 #000000,
+  1px -1px 0 #000000,
+  -1px 1px 0 #000000,
+  1px 1px 0 #000000;  
 }
 
 #myName1{
@@ -294,10 +431,10 @@ body {
   font-size: 1.5vw;
   color: #fff;
   text-shadow:
-  -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-  1px 1px 0 #000;  
+  -1px -1px 0 #000000,
+  1px -1px 0 #000000,
+  -1px 1px 0 #000000,
+  1px 1px 0 #000000;   
 }
 
 #myName2{
@@ -307,10 +444,10 @@ body {
   font-size: 1.5vw;
   color: #fff;
   text-shadow:
-  -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-  1px 1px 0 #000;  
+  -1px -1px 0 #000000,
+  1px -1px 0 #000000,
+  -1px 1px 0 #000000,
+  1px 1px 0 #000000;    
 }
 
 #otherName0{
@@ -320,10 +457,10 @@ body {
   font-size: 1.5vw;
   color: #fff;
   text-shadow:
-  -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-  1px 1px 0 #000;  
+  -1px -1px 0 #000000,
+  1px -1px 0 #000000,
+  -1px 1px 0 #000000,
+  1px 1px 0 #000000;  
   display: none;
 }
 
@@ -334,10 +471,10 @@ body {
   font-size: 1.5vw;
   color: #fff;
   text-shadow:
-  -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-  1px 1px 0 #000;  
+  -1px -1px 0 #000000,
+  1px -1px 0 #000000,
+  -1px 1px 0 #000000,
+  1px 1px 0 #000000;  
   display: none;
 }
 
@@ -348,10 +485,10 @@ body {
   font-size: 1.5vw;
   color: #fff;
   text-shadow:
-  -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-  1px 1px 0 #000;  
+  -1px -1px 0 #000000,
+  1px -1px 0 #000000,
+  -1px 1px 0 #000000,
+  1px 1px 0 #000000;  
   display: none;
 }
 
@@ -522,13 +659,43 @@ progress::-webkit-progress-value {
   border-radius: 10px;
 }
 
+.DAMAGE::-webkit-progress-bar {
+  background-color: #032345;
+  border-radius: 10px;
+}
+
+.DAMAGE::-webkit-progress-bar {
+  /* Change the background color of the progress bar */
+  background-color: #032345;
+
+  /* Add border-radius to make edges curved */
+  border-radius: 10px;
+
+}
+
+.DAMAGE::-webkit-progress-value {
+  /* Change the fill color */
+  background-color: #ff6e1f;
+  border-radius: 10px;
+}
+
 #targetButton {
   transition: opacity 0.1s; /* This controls the speed of the fade */
 }
 #targetButton:active { /* This selector targets the input when it is being clicked */
   opacity: 0.5; /* This makes the input fade out */
 }
-#yourInput.fadeIn { /* This class is added when the mouse button is released */
+#targetButton.fadeIn { /* This class is added when the mouse button is released */
+  opacity: 1; /* This makes the input fade back in */
+}
+
+#soultimateButton {
+  transition: opacity 0.1s; /* This controls the speed of the fade */
+}
+#soultimateButton:active { /* This selector targets the input when it is being clicked */
+  opacity: 0.5; /* This makes the input fade out */
+}
+#soultimateButton.fadeIn { /* This class is added when the mouse button is released */
   opacity: 1; /* This makes the input fade back in */
 }
 
@@ -539,33 +706,153 @@ progress::-webkit-progress-value {
 
 #targetCursor{
   position: absolute;
-  height: 11%;
-  width: 7%;
+  height: 8vmin;
+  width: 8vmin;
   pointer-events: none;
+  transform: translate(50%, 50%);
+}
+
+#checkCursor{
+  position: absolute;
+  height: 8vmin;
+  width: 8vmin;
+  pointer-events: none;
+  transform: translate(50%, 50%);
 }
 
 #myYokai0 {
   position: absolute;
   height: 40%;
-  width: 30%;
+  width: 25%;
   top: 50%;
-  left: 2.5%;
+  left: 5.5%;
 }
 
 #myYokai1 {
   position: absolute;
   height: 40%;
-  width: 30%;
+  width: 25%;
   top: 50%;
-  left: 35%;
+  left: 38%;
 }
 
 #myYokai2 {
   position: absolute;
   height: 40%;
-  width: 30%;
+  width: 25%;
   top: 50%;
-  left: 67.5%;
+  left: 71.5%;
+}
+
+#myGuard0 {
+  position: absolute;
+  top: 65%;
+  left: 10.5%;
+  font-size: 2vw;
+}
+
+#myGuard1 {
+  position: absolute;
+  top: 65%;
+  left: 44%;
+  font-size: 2vw;
+}
+
+#myGuard2 {
+  position: absolute;
+  top: 65%;
+  left: 77.5%;
+  font-size: 2vw;
+}
+
+#myLoaf0 {
+  position: absolute;
+  top: 65%;
+  left: 10.5%;
+  font-size: 2vw;
+  display: none;
+}
+
+#myLoaf1 {
+  position: absolute;
+  top: 65%;
+  left: 44%;
+  font-size: 2vw;
+  display: none;
+}
+
+#myLoaf2 {
+  position: absolute;
+  top: 65%;
+  left: 77.5%;
+  font-size: 2vw;
+  display: none;
+}
+
+#otherGuard0 {
+  position: absolute;
+  top: 25%;
+  left: 14.5%;
+  font-size: 1.5vw;
+}
+
+#otherGuard1 {
+  position: absolute;
+  top: 25%;
+  left: 45%;
+  font-size: 1.5vw;
+}
+
+#otherGuard2 {
+  position: absolute;
+  top: 25%;
+  left: 75.5%;
+  font-size: 1.5vw;
+}
+
+#otherCharge0 {
+  position: absolute;
+  top: 25%;
+  left: 10.5%;
+  font-size: 1.5vw;
+}
+
+#otherCharge1 {
+  position: absolute;
+  top: 25%;
+  left: 41%;
+  font-size: 1.5vw;
+}
+
+#otherCharge2 {
+  position: absolute;
+  top: 25%;
+  left: 71.5%;
+  font-size: 1.5vw;
+}
+
+#otherLoaf0 {
+  position: absolute;
+  top: 25%;
+  left: 14.5%;
+  font-size: 1.5vw;
+  display: none;
+}
+
+#otherLoaf1 {
+  position: absolute;
+  top: 25%;
+  left: 45%;
+  font-size: 1.5vw;
+  display: none;
+}
+
+#otherLoaf2 {
+  position: absolute;
+  top: 25%;
+  left: 75.5%;
+  font-size: 1.5vw;
+  display: none;
 }
 
 #pin0 {
@@ -782,10 +1069,10 @@ progress::-webkit-progress-value {
 .systemMessage{
   color: #fff;
   text-shadow:
-  -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-  1px 1px 0 #000;  
+  -1px -1px 0 #7babff,
+  1px -1px 0 #93bcff,
+  -1px 1px 0 #ffa8f9,
+  1px 1px 0 #ffadf7;  
 }
 
 #startMenu{
@@ -816,10 +1103,10 @@ progress::-webkit-progress-value {
 #switchingText{
   color: #fff;
   text-shadow:
-  -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-  1px 1px 0 #000;  
+  -1px -1px 0 #7babff,
+  1px -1px 0 #93bcff,
+  -1px 1px 0 #ffa8f9,
+  1px 1px 0 #ffadf7;  
   font-size: 3vw;
   position: absolute;
   top: 50%;
@@ -839,10 +1126,10 @@ progress::-webkit-progress-value {
 #cooldownCount{
   color: #fff;
   text-shadow:
-  -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-  1px 1px 0 #000;  
+  -1px -1px 0 #7babff,
+  1px -1px 0 #93bcff,
+  -1px 1px 0 #ffa8f9,
+  1px 1px 0 #ffadf7;  
   font-size: 5vw;
   position: absolute;
   top: 10%;
@@ -862,10 +1149,10 @@ progress::-webkit-progress-value {
 #timerCount{
   color: #fff;
   text-shadow:
-  -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-  1px 1px 0 #000;  
+  -1px -1px 0 #7babff,
+  1px -1px 0 #93bcff,
+  -1px 1px 0 #ffa8f9,
+  1px 1px 0 #ffadf7;   
   font-size: 5vw;
   position: absolute;
   top: 10%;
@@ -876,10 +1163,10 @@ progress::-webkit-progress-value {
 #moveDisplay{
   color: #fff;
   text-shadow:
-  -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-  1px 1px 0 #000;  
+  -1px -1px 0 #7babff,
+  1px -1px 0 #93bcff,
+  -1px 1px 0 #ffa8f9,
+  1px 1px 0 #ffadf7;  
   font-size: 5vw;
   position: absolute;
   top: 10%;
@@ -889,19 +1176,20 @@ progress::-webkit-progress-value {
 
 #infoDisplay{
   position: absolute;
-  height: 40%;
-  width: 25%;
+  height: 19vw;
+  width: 17.5vw;
+  padding-left: 1vw;
   background-color: rgba(255, 255, 255, 0.7);
+  background-image: url('/images/panelBG.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 100%;
+  pointer-events: none;
 }
 
 .infoText{
   font-size: 1vw;
-  color: #fff;
-  text-shadow:
-  -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-  1px 1px 0 #000;  
+  color: rgb(40, 24, 76);
 }
 
 #damage{
@@ -909,7 +1197,7 @@ progress::-webkit-progress-value {
 }
 
 #na{
-  color: #ff9c66;
+  color: #ff823f;
 }
 
 #tech{
@@ -917,7 +1205,7 @@ progress::-webkit-progress-value {
 }
 
 #heal{
-  color: #61ff73;
+  color: #5dff70;
 }
 
 #drain{
@@ -926,6 +1214,22 @@ progress::-webkit-progress-value {
 
 #inspirit{
   color: #ff63d0;
+}
+
+#soult {
+  color: #00ffc3;
+}
+
+#guard{
+  color: #ffca60;
+}
+
+#loaf{
+  color: #8da7aa;
+}
+
+#purify{
+  color: #46ff59;
 }
 
 #results{
@@ -960,7 +1264,7 @@ progress::-webkit-progress-value {
   position: absolute;
   height: 3%;
   width: 28%;
-  top: 23.5%;
+  top: 24.5%;
   left: 36%;
 }
 
@@ -986,7 +1290,7 @@ progress::-webkit-progress-value {
   position: absolute;
   height: 3%;
   width: 28%;
-  top: 74%;
+  top: 73%;
   left: 36%;
   transform: rotate(180deg)
 }
@@ -1015,7 +1319,7 @@ progress::-webkit-progress-value {
   height: 1%;
   width: 27%;
   top: 26.5%;
-  left: 36%;
+  left: 36.5%;
 }
 
 #soul2{
@@ -1023,7 +1327,7 @@ progress::-webkit-progress-value {
   height: 1%;
   width: 27%;
   top: 38%;
-  left: 55.5%;
+  left: 56.5%;
   transform: rotate(60deg)
 }
 
@@ -1031,8 +1335,8 @@ progress::-webkit-progress-value {
   position: absolute;
   height: 1%;
   width: 27%;
-  top: 61.5%;
-  left: 56%;
+  top: 61.3%;
+  left: 56.7%;
   transform: rotate(120deg)
 }
 
@@ -1049,8 +1353,8 @@ progress::-webkit-progress-value {
   position: absolute;
   height: 1%;
   width: 27%;
-  top: 61%;
-  left: 16.5%;
+  top: 61.5%;
+  left: 16.3%;
   transform: rotate(240deg)
 }
 
@@ -1081,19 +1385,19 @@ progress::-webkit-progress-value {
   left: 10%;
   color: #fff;
   text-shadow:
-  -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-  1px 1px 0 #000;  
+  -1px -1px 0 #7babff,
+  1px -1px 0 #93bcff,
+  -1px 1px 0 #ffa8f9,
+  1px 1px 0 #ffadf7;  
 }
 
 #skillAlert{
   color: #ffec7e;
   text-shadow:
-  -1px -1px 0 #000,
-  1px -1px 0 #000,
-  -1px 1px 0 #000,
-  1px 1px 0 #000;  
+  -1px -1px 0 #7babff,
+  1px -1px 0 #93bcff,
+  -1px 1px 0 #ffa8f9,
+  1px 1px 0 #ffadf7;  
   font-size: 2vw;
   position: absolute;
   top: 50%;
@@ -1101,98 +1405,110 @@ progress::-webkit-progress-value {
 
 #myPosInsp0 {
   position: absolute;
-  height: 50%;
-  width: 30%;
+  height: 13%;
+  width: 9%;
   top: 45%;
   left: 2.5%;
+  pointer-events: none;
 }
 
 #myPosInsp1 {
   position: absolute;
-  height: 50%;
-  width: 30%;
+  height: 13%;
+  width: 9%;
   top: 45%;
   left: 35%;
+  pointer-events: none;
 }
 
 #myPosInsp2 {
   position: absolute;
-  height: 50%;
-  width: 30%;
+  height: 13%;
+  width: 9%;
   top: 45%;
   left: 67.5%;
+  pointer-events: none;
 }
 
 #myNegInsp0 {
   position: absolute;
-  height: 50%;
-  width: 30%;
+  height: 13%;
+  width: 9%;
   top: 45%;
   left: 4.5%;
+  pointer-events: none;
 }
 
 #myNegInsp1 {
   position: absolute;
-  height: 50%;
-  width: 30%;
+  height: 13%;
+  width: 9%;
   top: 45%;
   left: 37%;
+  pointer-events: none;
 }
 
 #myNegInsp2 {
   position: absolute;
-  height: 50%;
-  width: 30%;
+  height: 13%;
+  width: 9%;
   top: 45%;
   left: 69.5%;
+  pointer-events: none;
 }
 
 #otherPosInsp0 {
   position: absolute;
-  height: 30%;
-  width: 20%;
+  height: 13%;
+  width: 9%;
   top: 15%;
   left: 70%;
+  pointer-events: none;
 }
 
 #otherPosInsp1 {
   position: absolute;
-  height: 30%;
-  width: 20%;
+  height: 13%;
+  width: 9%;
   top: 15%;
   left: 40%;
+  pointer-events: none;
 }
 
 #otherPosInsp2 {
   position: absolute;
-  height: 30%;
-  width: 20%;
+  height: 13%;
+  width: 9%;
   top: 15%;
   left: 10%;
+  pointer-events: none;
 }
 
 #otherNegInsp0 {
   position: absolute;
-  height: 30%;
-  width: 20%;
+  height: 13%;
+  width: 9%;
   top: 15%;
   left: 68%;
+  pointer-events: none;
 }
 
 #otherNegInsp1 {
   position: absolute;
-  height: 30%;
-  width: 20%;
+  height: 13%;
+  width: 9%;
   top: 15%;
   left: 38%;
+  pointer-events: none;
 }
 
 #otherNegInsp2 {
   position: absolute;
-  height: 30%;
-  width: 20%;
+  height: 13%;
+  width: 9%;
   top: 15%;
   left: 8%;
+  pointer-events: none;
 }
 
 .spin {
@@ -1206,4 +1522,244 @@ progress::-webkit-progress-value {
   to {
     transform: rotate(0deg);
   }
+}
+
+#cancelSoult {
+  font-size: 1.5vw;
+  left: 11%;
+  top: 88%;
+  position: absolute;
+  color: #fff;
+  background-color: #000;
+}
+
+#cancelPurify {
+  font-size: 1.5vw;
+  left: 13%;
+  top: 65%;
+  position: absolute;
+  color: #fff;
+  background-color: #000;
+}
+
+#oneSoult {
+  position: absolute;
+  height: 10vmin;
+  width: 10vmin;
+  top: 66.2vmin;
+  left: 32.5vmin;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  background-color: #00000000;
+  border: none;
+}
+
+#twoSoult {
+  position: absolute;
+  height: 10vmin;
+  width: 10vmin;
+  top: 58vmin;
+  left: 46vmin;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  background-color: #00000000;
+  border: none;
+}
+
+#threeSoult {
+  position: absolute;
+  height: 10vmin;
+  width: 10vmin;
+  top: 66.2vmin;
+  left: 60vmin;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  background-color: #00000000;
+  border: none;
+}
+
+#onePurify {
+  position: absolute;
+  height: 10vmin;
+  width: 10vmin;
+  top: 81.2vmin;
+  left: 32.5vmin;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  background-color: #00000000;
+  border: none;
+}
+
+#twoPurify {
+  position: absolute;
+  height: 10vmin;
+  width: 10vmin;
+  top: 89vmin;
+  left: 46vmin;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  background-color: #00000000;
+  border: none;
+}
+
+#threePurify {
+  position: absolute;
+  height: 10vmin;
+  width: 10vmin;
+  top: 81.2vmin;
+  left: 60vmin;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  background-color: #00000000;
+  border: none;
+}
+
+#soultCharge {
+  position: absolute;
+  height: 2vmin;
+  width: 30vmin;
+  top: 66.2vmin;
+  left: 36vmin;
+}
+
+#pokeDamageCharge {
+  position: absolute;
+  height: 2vmin;
+  width: 30vmin;
+  top: 66.2vmin;
+  left: 36vmin;
+}
+#pokeSoulCharge {
+  position: absolute;
+  height: 2vmin;
+  width: 30vmin;
+  top: 68.2vmin;
+  left: 36vmin;
+}
+
+#pokeDamageButton {
+  position: absolute;
+  height: 5vmin;
+  width: 5vmin;
+  top: 70.2vmin;
+  left: 40vmin;
+}
+
+#pokeSoulButton {
+  position: absolute;
+  height: 5vmin;
+  width: 5vmin;
+  top: 90vmin;
+  left: 66vmin;
+}
+
+#pokeSoulCharge {
+  position: absolute;
+  height: 2vmin;
+  width: 30vmin;
+  top: 68.2vmin;
+  left: 36vmin;
+}
+
+#minigameTypeLabel {
+  position: absolute;
+  height: 2vmin;
+  width: 30vmin;
+  top: 80.2vmin;
+  left: 36vmin;
+  color: #8dc6ff;
+  text-shadow:
+  -1px -1px 0 #7babff,
+  1px -1px 0 #93bcff,
+  -1px 1px 0 #ffa8f9,
+  1px 1px 0 #ffadf7;  
+}
+
+#minigameTypeInput {
+  position: absolute;
+  height: 3vmin;
+  width: 30vmin;
+  top: 85.2vmin;
+  left: 36vmin;
+  background-color: rgba(0, 0, 0, 0);
+  color: #fff;
+  font-family: ykw;
+}
+
+#chargedLabel {
+  position: absolute;
+  height: 2vmin;
+  width: 30vmin;
+  top: 78.2vmin;
+  left: 38vmin;
+  color: #ffffff;
+  font-size: 3vw;
+}
+
+#yokaiThumbnail {
+  position: absolute;
+  height: 30vmin;
+  width: 30vmin;
+  top: 60.2vmin;
+  left: 35vmin;
+}
+
+#soultimateVideo{
+  position: absolute;
+  height: 58%;
+  width: 58%;
+  top: 0%;
+  left: 0%;
+}
+
+.viewText {
+  color: #fff;
+  text-shadow:
+  -1px -1px 0 #000000,
+  1px -1px 0 #000000,
+  -1px 1px 0 #000000,
+  1px 1px 0 #000000;  
+}
+
+#alertMessage {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+#fullPanelBG {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+#alertText1{
+  position: absolute;
+  font-size: 3vw;
+  left: 15%;
+  top: 40%;
 }

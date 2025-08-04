@@ -432,3 +432,9 @@ body {
   font-family: ykw;
   font-size: 1vw;
 }
+
+#bg {
+  position: absolute;
+  width: 110%;
+  height: 110%;
+}

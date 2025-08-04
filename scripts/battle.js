@@ -736,7 +736,7 @@ document.addEventListener('mouseup', function() {
 
 var typing = false
 
-function keyDetected(e) {
+document.onkeydown = function keyDetected(e) {
     if (e.key == "Enter") {
         if (typing) {
             var newMessage = document.createElement("p")

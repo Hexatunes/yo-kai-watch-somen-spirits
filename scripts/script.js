@@ -37,19 +37,29 @@ function switchTeambuilder(){
   document.getElementById("padTrans").style.display = "block";
   document.getElementById("padTrans").style.animation = "fadeIn 1s";
   setTimeout(actuallySwitchTeambuilder, 1000)
+
+  document.getElementById("menuSFX").src = "./audios/SFX/UI/menuButtonClick.wav"
+  document.getElementById("menuSFX").play()
 }
 
 function switchBattle(){
   document.getElementById("padTrans").style.display = "block";
   document.getElementById("padTrans").style.animation = "fadeIn 1s";
   setTimeout(actuallySwitchMatchmaking, 1000)
+
+  document.getElementById("menuSFX").src = "./audios/SFX/UI/menuButtonClick.wav"
+  document.getElementById("menuSFX").play()
 }
 
 const songs = ["Harrisville.mp3", "Springdale.mp3", "Blossom.mp3", "SoAlone.mp3", "Uptown.mp3", "SanFantastico.mp3", "OldHarrisville.mp3", "Sakura.mp3"]
 
 function startGame(){
   clearBattle()
+  
+
   document.getElementById("startMenu").style.display = "none";
+
+
   const randomSong = Math.floor(Math.random() * songs.length);
   const path = "./audios/music/" + songs[randomSong];
   document.getElementById("bgm").src = path;
@@ -62,7 +72,7 @@ function startGame(){
   if(musicToggle == "true"){
     document.getElementById("toggleMusic").src = "./images/musicON.png";
     document.getElementById("bgm").volume = 0.5;
-    document.getElementById("beachSFX").volume = 0.2;
+    document.getElementById("beachSFX").volume = 0.3;
 
   }else if(musicToggle == "false"){
     document.getElementById("toggleMusic").src = "./images/musicOFF.png";
@@ -71,7 +81,7 @@ function startGame(){
   }else{
     document.getElementById("toggleMusic").src = "./images/musicON.png";
     document.getElementById("bgm").volume = 0.5;
-    document.getElementById("beachSFX").volume = 0.2;
+    document.getElementById("beachSFX").volume = 0.3;
     document.cookie = "BGMute=true";
   }
 }
@@ -96,9 +106,17 @@ function loadMusic(){
   
 }
 
+function scrollTop() {
+  window.scrollTo(0, 0);
+}
+
 function hidePad(){
   document.getElementById("padTrans").style.animation = "fadeOut 1s";
   setTimeout(intoFinished, 1000)
+
+
+  addParallaxEffect(document.getElementById("bg"), -10)
+  addParallaxEffect(document.getElementById("dialogPortrait"), -15)
 }
 
 document.getElementById("bgm").addEventListener("ended", function(){
@@ -108,3 +126,27 @@ document.getElementById("bgm").addEventListener("ended", function(){
   document.getElementById("bgm").src = path;
   document.getElementById("bgm").play()
 });
+
+document.getElementById("beachSFX").addEventListener("ended", function(){
+  document.getElementById("beachSFX").currentTime = 0;
+  document.getElementById("beachSFX").play()
+});
+
+
+function addParallaxEffect(element, strength = 20) {
+  const rect = element.getBoundingClientRect();
+
+  window.addEventListener('mousemove', (e) => {
+    const x = e.clientX - (rect.left + rect.width / 2);
+    const y = e.clientY - (rect.top + rect.height / 2);
+
+    const moveX = (x / window.innerWidth) * strength - 100;
+    const moveY = (y / window.innerHeight) * strength - 100;
+
+    element.style.transform = `translate(${moveX}px, ${moveY}px)`;
+  });
+
+  window.addEventListener('mouseleave', () => {
+    element.style.transform = `translate(0px, 0px)`;
+  });
+}

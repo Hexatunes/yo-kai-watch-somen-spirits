@@ -18,12 +18,11 @@
       src: url('./ChangaOne-Regular.ttf');
     }
     body {
-      background-image: url('./images/matchmaking/matchmaking.jpg');
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
+      overflow: hidden;
     }
   </style>
+
+  <img src = './images/home/home2_upscaled (1).jpeg' id = "bg">
 
   <img id = "bgSprite" src = "./images/matchmaking/spriteBG.png">
 
@@ -49,16 +48,20 @@
 
   <button id = "battleButton" onclick = "startMatchmaking()" class = "uiBG">Battle!</button>
 
-  <input type = "text" id = "usernameInput" placeholder = "Enter username" oninput="updateUsername()" class = "uiBG">
+  <input type = "text" id = "usernameInput" placeholder = "Enter username" oninput="updateUsername()" class = "uiBG" autocomplete="off">
   
   
 
   <div id = "matchmakingMenu" onclick = "cancelMatchmaking()">
+    <img id = "fullPanelBG" src = "./images/fullPanelBG.png">
     <p id = "lookingText">Looking for opponents... (click anywhere to cancel)</p>
   </div>
 
 
   <img src = "./images/padTrans.png" id = "padTrans">
+
+  <audio id = "menuSFX"></audio>
+  <audio id = "beachSFX" src = "./audios/BeachBG.mp3"></audio>
   
   <script src="./scripts/matchmaking.js"></script>
 </body>

@@ -4,7 +4,7 @@ const TECHNIQUE_DATABASE = {
     bp: 90,
     hits: 1,
     targets: "single",
-    element: "water",
+    attribute: "water",
     type: "damage"
   },
   "rapids": {
@@ -12,7 +12,7 @@ const TECHNIQUE_DATABASE = {
     bp: 110,
     hits: 1,
     targets: "single",
-    element: "water",
+    attribute: "water",
     type: "damage"
   },
   "waterfall": {
@@ -20,7 +20,7 @@ const TECHNIQUE_DATABASE = {
     bp: 120,
     hits: 1,
     targets: "single",
-    element: "water",
+    attribute: "water",
     type: "damage",
   },
   "pebble": {
@@ -28,7 +28,7 @@ const TECHNIQUE_DATABASE = {
     bp: 90,
     hits: 1,
     targets: "single",
-    element: "earth",
+    attribute: "earth",
     type: "damage"
   },
   "rockslide": {
@@ -36,7 +36,7 @@ const TECHNIQUE_DATABASE = {
     bp: 110,
     hits: 1,
     targets: "single",
-    element: "earth",
+    attribute: "earth",
     type: "damage"
   },
   "meteor": {
@@ -44,7 +44,7 @@ const TECHNIQUE_DATABASE = {
     bp: 120,
     hits: 1,
     targets: "single",
-    element: "earth",
+    attribute: "earth",
     type: "damage"
   },
   "fire": {
@@ -52,7 +52,7 @@ const TECHNIQUE_DATABASE = {
     bp: 90,
     hits: 1,
     targets: "single",
-    element: "fire",
+    attribute: "fire",
     type: "damage"
   },
   "blaze": {
@@ -60,7 +60,7 @@ const TECHNIQUE_DATABASE = {
     bp: 110,
     hits: 1,
     targets: "single",
-    element: "fire",
+    attribute: "fire",
     type: "damage"
   },
   "incinerate": {
@@ -68,7 +68,7 @@ const TECHNIQUE_DATABASE = {
     bp: 120,
     hits: 1,
     targets: "single",
-    element: "fire",
+    attribute: "fire",
     type: "damage"
   },
   "whirlwind": {
@@ -76,7 +76,7 @@ const TECHNIQUE_DATABASE = {
     bp: 90,
     hits: 1,
     targets: "single",
-    element: "wind",
+    attribute: "wind",
     type: "damage",
   },
   "tornado": {
@@ -84,7 +84,7 @@ const TECHNIQUE_DATABASE = {
     bp: 110,
     hits: 1,
     targets: "single",
-    element: "wind",
+    attribute: "wind",
     type: "damage"
   },
   "storm": {
@@ -92,7 +92,7 @@ const TECHNIQUE_DATABASE = {
     bp: 120,
     hits: 1,
     targets: "single",
-    element: "wind",
+    attribute: "wind",
     type: "damage"
   },
   "hail": {
@@ -100,7 +100,7 @@ const TECHNIQUE_DATABASE = {
     bp: 90,
     hits: 1,
     targets: "single",
-    element: "ice",
+    attribute: "ice",
     type: "damage",
   },
   "frost": {
@@ -108,7 +108,7 @@ const TECHNIQUE_DATABASE = {
     bp: 110,
     hits: 1,
     targets: "single",
-    element: "ice",
+    attribute: "ice",
     type: "damage",
   },
   "blizzard": {
@@ -116,7 +116,7 @@ const TECHNIQUE_DATABASE = {
     bp: 120,
     hits: 1,
     targets: "single",
-    element: "ice",
+    attribute: "ice",
     type: "damage",
   },
   "shock": {
@@ -124,7 +124,7 @@ const TECHNIQUE_DATABASE = {
     bp: 90,
     hits: 1,
     targets: "single",
-    element: "lightning",
+    attribute: "lightning",
     type: "damage",
   },
   "lightning": {
@@ -132,7 +132,7 @@ const TECHNIQUE_DATABASE = {
     bp: 110,
     hits: 1,
     targets: "single",
-    element: "lightning",
+    attribute: "lightning",
     type: "damage",
   },
   "voltage": {
@@ -140,7 +140,7 @@ const TECHNIQUE_DATABASE = {
     bp: 120,
     hits: 1,
     targets: "single",
-    element: "lightning",
+    attribute: "lightning",
     type: "damage",
   },
   "absorb": {
@@ -148,7 +148,7 @@ const TECHNIQUE_DATABASE = {
     bp: 90,
     hits: 1,
     targets: "single",
-    element: "drain",
+    attribute: "drain",
     type: "drain",
   },
   "drain": {
@@ -156,7 +156,7 @@ const TECHNIQUE_DATABASE = {
     bp: 110,
     hits: 1,
     targets: "single",
-    element: "drain",
+    attribute: "drain",
     type: "drain",
   },
   "reaper": {
@@ -164,7 +164,7 @@ const TECHNIQUE_DATABASE = {
     bp: 120,
     hits: 1,
     targets: "single",
-    element: "drain",
+    attribute: "drain",
     type: "drain",
   },
   "heal": {
@@ -172,7 +172,7 @@ const TECHNIQUE_DATABASE = {
     bp: 90,
     hits: 1,
     targets: "party",
-    element: "restoration",
+    attribute: "restoration",
     type: "heal",
   },
   "restore": {
@@ -180,7 +180,7 @@ const TECHNIQUE_DATABASE = {
     bp: 110,
     hits: 1,
     targets: "party",
-    element: "restoration",
+    attribute: "restoration",
     type: "heal",
   },
   "paradise": {
@@ -188,8 +188,9 @@ const TECHNIQUE_DATABASE = {
     bp: 120,
     hits: 1,
     targets: "party",
-    element: "restoration",
+    attribute: "restoration",
     type: "heal",
   },
 }
 
+module.exports = TECHNIQUE_DATABASE

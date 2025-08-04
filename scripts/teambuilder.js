@@ -23,6 +23,9 @@ function switchHome(){
   document.getElementById("padTrans").style.display = "block";
   document.getElementById("padTrans").style.animation = "fadeIn 1s";
   setTimeout(actuallySwitchHome, 1000)
+
+  document.getElementById("menuSFX").src = "./audios/SFX/UI/quit.wav"
+  document.getElementById("menuSFX").play()
 }
 
 
@@ -68,6 +71,8 @@ function setUp(){
   const randomSong = Math.floor(Math.random() * songs.length);
   const path = "./audios/music/" + songs[randomSong];
   document.getElementById("bgm").src = path;
+
+  document.getElementById("beachSFX").play()
   
   var musicToggle = getCookie("BGMute")
 
@@ -75,13 +80,16 @@ function setUp(){
   if(musicToggle == "true"){
     document.getElementById("toggleMusic").src = "./images/musicON.png";
     document.getElementById("bgm").volume = 0.5;
+    document.getElementById("beachSFX").volume = 0.3;
 
   }else if(musicToggle == "false"){
     document.getElementById("toggleMusic").src = "./images/musicOFF.png";
     document.getElementById("bgm").volume = 0.0;
+    document.getElementById("beachSFX").volume = 0.0;
   }else{
     document.getElementById("toggleMusic").src = "./images/musicON.png";
     document.getElementById("bgm").volume = 0.5;
+    document.getElementById("beachSFX").volume = 0.3;
     document.cookie = "BGMute=true";
   }
 
@@ -153,6 +161,9 @@ function setUp(){
   }
   
   document.getElementById("padTrans").style.animation = "fadeOut 1s";
+
+  addParallaxEffect(document.getElementById("bg"), -10)
+
   setTimeout(intoFinished, 1000)
 
   teams = JSON.parse(localStorage.getItem("teams"))
@@ -173,11 +184,17 @@ function setUp(){
 function toYokai(){
   document.getElementById("yokaiList").style.display = "block"
   document.getElementById("itemList").style.display = "none"
+
+  document.getElementById("menuSFX").src = "./audios/SFX/UI/switch.wav"
+  document.getElementById("menuSFX").play()
 }
 
 function toItems(){
   document.getElementById("yokaiList").style.display = "none"
   document.getElementById("itemList").style.display = "block"
+
+  document.getElementById("menuSFX").src = "./audios/SFX/UI/switch.wav"
+  document.getElementById("menuSFX").play()
 }
 
 function refreshTeamList(){
@@ -235,6 +252,9 @@ function createTeam(){
   else{
     alert("Too many teams! Why do you need 51 of them?")
   }
+
+  document.getElementById("menuSFX").src = "./audios/SFX/UI/menuButtonClick2.wav"
+  document.getElementById("menuSFX").play()
 }
 
 function renameTeam(){
@@ -244,6 +264,9 @@ function renameTeam(){
   document.getElementById("teamSelect").selectedIndex = currentTeam
   localStorage.setItem('teams', JSON.stringify(teams));
   console.log()
+
+  document.getElementById("menuSFX").src = "./audios/SFX/UI/menuButtonClick2.wav"
+  document.getElementById("menuSFX").play()
 }
 
 function deleteTeam(){
@@ -270,11 +293,17 @@ function deleteTeam(){
   document.getElementById("yokaiGif").src = "./images/teambuilder/whisperPlaceholder.webp"
   
   loadTeam()
+
+  document.getElementById("menuSFX").src = "./audios/SFX/UI/menuButtonClick2.wav"
+  document.getElementById("menuSFX").play()
 }
 
 
 
 function appendYokai(toAppend){
+  document.getElementById("menuSFX").src = "./audios/SFX/UI/menuButtonClick.wav"
+  document.getElementById("menuSFX").play()
+
   if(teams[currentTeam].length <= 6){
     
     var calcHP = Math.floor(YOKAI_DATABASE[toAppend]["hpA"] + ( ( (YOKAI_DATABASE[toAppend]["hpB"] - YOKAI_DATABASE[toAppend]["hpA"] + 0) * (59) ) / 98))
@@ -290,16 +319,9 @@ function appendYokai(toAppend){
     teams[currentTeam].push({
       code: toAppend,
       order: -1,
-      displayName: YOKAI_DATABASE[toAppend]["displayName"],
       army: "bony",
       attitude: "rough",
       loafAttitude: "serious",
-      na: YOKAI_DATABASE[toAppend]["normalAttack"],
-      tech: YOKAI_DATABASE[toAppend]["technique"],
-      soult: YOKAI_DATABASE[toAppend]["soultimate"],
-      insp: YOKAI_DATABASE[toAppend]["inspirit"],
-      skill: YOKAI_DATABASE[toAppend]["skill"],
-      skillData: 0,
       hp: calcHP,
       str: calcSTR,
       spr: calcSPR,
@@ -319,15 +341,8 @@ function appendYokai(toAppend){
       gpSPR: 0,
       gpDEF: 0,
       gpSPD: 0,
-      dbID: toAppend,
       items: [],
-      AP: 0,
-      down: false,
       UID: 0,
-      currentHP: 0,
-      soul: 0,
-      guard: 1,
-      currentInspirits: [],
     })
 
     for (var i = 1; i < teams[currentTeam].length; i++) {
@@ -351,13 +366,24 @@ function appendYokai(toAppend){
 function appendItem(toAppend){
   if(selectedYokai >= 0){
     if(teams[currentTeam][selectedYokai]["items"].length < YOKAI_DATABASE[teams[currentTeam][selectedYokai].code].items){
-      teams[currentTeam][selectedYokai]["items"].push(ITEM_DATABASE[toAppend])
-      document.getElementById("equipName").innerHTML = teams[currentTeam][selectedYokai]["items"]
+      teams[currentTeam][selectedYokai]["items"].push({
+        "displayName" : ITEM_DATABASE[toAppend]["displayName"],
+        "itemData": 0,
+        "code": toAppend,
+      })
+      var itemListText = ""
+      for ( var i = 0; i < teams[currentTeam][selectedYokai]["items"].length; i++ ) {
+        itemListText = itemListText + teams[currentTeam][selectedYokai]["items"][i]["displayName"] + ", "
+      }
+      document.getElementById("equipName").innerHTML = itemListText
     }else{
       alert("This yokai can't hold any more items!")
     }
     localStorage.setItem('teams', JSON.stringify(teams));
   }
+
+  document.getElementById("menuSFX").src = "./audios/SFX/UI/menuButtonClick.wav"
+  document.getElementById("menuSFX").play()
 }
 
 function setBony(){
@@ -365,6 +391,9 @@ function setBony(){
   document.getElementById("setBony").style.color = "rgba(255, 188, 188, 1)"
   document.getElementById("setFleshy").style.color = "rgba(128, 200, 255, 0.5)"
   localStorage.setItem('teams', JSON.stringify(teams));
+
+  document.getElementById("menuSFX").src = "./audios/SFX/UI/switch.wav"
+  document.getElementById("menuSFX").play()
 }
 
 function setFleshy(){
@@ -372,6 +401,9 @@ function setFleshy(){
   document.getElementById("setBony").style.color = "rgba(255, 188, 188, 0.5)"
   document.getElementById("setFleshy").style.color = "rgba(128, 200, 255, 1)"
   localStorage.setItem('teams', JSON.stringify(teams));
+
+  document.getElementById("menuSFX").src = "./audios/SFX/UI/switch.wav"
+  document.getElementById("menuSFX").play()
 }
 
 function setAttitude(attitudeValue){
@@ -390,6 +422,9 @@ function clearItems(){
     document.getElementById("equipName").innerHTML = teams[currentTeam][selectedYokai]["items"]
     localStorage.setItem('teams', JSON.stringify(teams));
   }
+
+  document.getElementById("menuSFX").src = "./audios/SFX/UI/menuButtonClick2.wav"
+  document.getElementById("menuSFX").play()
 }
 
 
@@ -408,6 +443,9 @@ function calcAP(sentSPD){
 }
 
 function selectYokai(index){
+
+  document.getElementById("menuSFX").src = "./audios/SFX/UI/menuButtonClick.wav"
+  document.getElementById("menuSFX").play()
   
   document.getElementById("currentInfo").style.display = "block"
   document.getElementById("statsChart").style.display = "block"
@@ -438,13 +476,18 @@ function selectYokai(index){
   document.getElementById("probGuard").innerHTML = "Chance to guard: " + Math.floor(YOKAI_DATABASE[teams[currentTeam][index]["code"]]["probGuard"] * 100) + "%"
   document.getElementById("probLoaf").innerHTML = "Chance to loaf: " + Math.floor(YOKAI_DATABASE[teams[currentTeam][index]["code"]]["probLoaf"] * 100) + "%"
 
-  document.getElementById("equipName").innerHTML = teams[currentTeam][index]["items"]
+  var itemListText = ""
+  for ( var i = 0; i < teams[currentTeam][index]["items"].length; i++ ) {
+    itemListText = itemListText + teams[currentTeam][index]["items"][i]["displayName"] + ", "
+  }
+  document.getElementById("equipName").innerHTML = itemListText
   
   if(index <= teams[currentTeam].length){
-    selectedYokai = index
-    selectedID = teams[currentTeam][index]["dbID"]
     
-    document.getElementById("yokaiName").innerHTML = teams[currentTeam][index]["displayName"]
+    selectedYokai = index
+    selectedID = teams[currentTeam][index]["code"]
+    
+    document.getElementById("yokaiName").innerHTML = YOKAI_DATABASE[teams[currentTeam][index]["code"]]["displayName"]
     document.getElementById("yokaiGif").src = YOKAI_DATABASE[teams[currentTeam][index]["code"]]["frontIdle"]
 
     var stats = ["hp", "str", "spr", "def", "spd"]
@@ -503,6 +546,9 @@ function deleteYokai(){
     document.getElementById("yokaiGif").src = "./images/teambuilder/whisperPlaceholder.webp"
     localStorage.setItem('teams', JSON.stringify(teams));
   }
+
+  document.getElementById("menuSFX").src = "./audios/SFX/UI/menuButtonClick2.wav"
+  document.getElementById("menuSFX").play()
 }
 
 function updateStat(stat){
@@ -540,6 +586,9 @@ function updateStat(stat){
   
   localStorage.setItem('teams', JSON.stringify(teams));
   selectYokai(selectedYokai)
+
+  document.getElementById("menuSFX").src = "./audios/SFX/UI/menuButtonClick2.wav"
+  document.getElementById("menuSFX").play()
 }
 
 document.getElementById("bgm").addEventListener("ended", function(){
@@ -554,22 +603,138 @@ function importTeam(){
   let toImport = prompt("Paste the team you want to import here.");
 
   if (toImport != null) {
-    teams.push(JSON.parse(toImport))
+
+    var importedTeam = []
+
+    var stringChunks = toImport.split("\n-----\n")
+
+    importedTeam.push(stringChunks[stringChunks.length - 1])
+
+
+    for ( var i = 0; i < stringChunks.length - 1; i++ ) {
+      var yokaiChunks = stringChunks[i].split("\n")
+
+      console.log(yokaiChunks)
+
+      var ivs = yokaiChunks[4].split(" | ")
+      var evs = yokaiChunks[5].split(" | ")
+      var gps = yokaiChunks[6].split(" | ")
+
+      importedTeam.push({
+        code: yokaiChunks[8],
+        order: i + 1,
+        army: yokaiChunks[1],
+        attitude: yokaiChunks[2],
+        loafAttitude: yokaiChunks[3],
+        hp: Math.floor(YOKAI_DATABASE[yokaiChunks[8]]["hpA"] + ( ( (YOKAI_DATABASE[yokaiChunks[8]]["hpB"] - YOKAI_DATABASE[yokaiChunks[8]]["hpA"] + 0) * (59) ) / 98)),
+        str: Math.floor(YOKAI_DATABASE[yokaiChunks[8]]["strA"] + ( ( (YOKAI_DATABASE[yokaiChunks[8]]["strB"] - YOKAI_DATABASE[yokaiChunks[8]]["strA"] + 0) * (59) ) / 98)),
+        spr: Math.floor(YOKAI_DATABASE[yokaiChunks[8]]["sprA"] + ( ( (YOKAI_DATABASE[yokaiChunks[8]]["sprB"] - YOKAI_DATABASE[yokaiChunks[8]]["sprA"] + 0) * (59) ) / 98)),
+        def: Math.floor(YOKAI_DATABASE[yokaiChunks[8]]["defA"] + ( ( (YOKAI_DATABASE[yokaiChunks[8]]["defB"] - YOKAI_DATABASE[yokaiChunks[8]]["defA"] + 0) * (59) ) / 98)),
+        spd: Math.floor(YOKAI_DATABASE[yokaiChunks[8]]["spdA"] + ( ( (YOKAI_DATABASE[yokaiChunks[8]]["spdB"] - YOKAI_DATABASE[yokaiChunks[8]]["spdA"] + 0) * (59) ) / 98)),
+        ivHP: parseInt(ivs[0]),
+        ivSTR: parseInt(ivs[1]),
+        ivSPR: parseInt(ivs[2]),
+        ivDEF: parseInt(ivs[3]),
+        ivSPD: parseInt(ivs[4]),
+        evHP: parseInt(evs[0]),
+        evSTR: parseInt(evs[1]),
+        evSPR: parseInt(evs[2]),
+        evDEF: parseInt(evs[3]),
+        evSPD: parseInt(evs[4]),
+        gpSTR: parseInt(gps[0]),
+        gpSPR: parseInt(gps[1]),
+        gpDEF: parseInt(gps[2]),
+        gpSPD: parseInt(gps[3]),
+        items: JSON.parse(yokaiChunks[7]),
+        UID: 0,
+      })
+    }
+
+    console.log(importedTeam)
+
+    teams.push(importedTeam)
     localStorage.setItem('teams', JSON.stringify(teams));
     refreshTeamList()
     document.getElementById("teamSelect").selectedIndex = teams.length - 1
     loadTeam()
+
   }else{
     alert("Team was not provided.")
   }
+
+  document.getElementById("menuSFX").src = "./audios/SFX/UI/menuButtonClick2.wav"
+  document.getElementById("menuSFX").play()
 }
 
 function exportTeam(){
-  document.getElementById("pasteText").innerHTML = JSON.stringify(teams[currentTeam])
+  var exportText = ""
+
+  console.log(teams[currentTeam])
+
+  for (var i = 1; i < teams[currentTeam].length; i++ ) {
+    exportText += teams[currentTeam][i]["displayName"] + "<br>"
+
+    exportText += teams[currentTeam][i]["army"] + "<br>"
+    exportText += teams[currentTeam][i]["attitude"] + "<br>"
+    exportText += teams[currentTeam][i]["loafAttitude"] + "<br>"
+
+    exportText += teams[currentTeam][i]["ivHP"] + " | "
+    exportText += teams[currentTeam][i]["ivSTR"] + " | "
+    exportText += teams[currentTeam][i]["ivSPR"] + " | "
+    exportText += teams[currentTeam][i]["ivDEF"] + " | "
+    exportText += teams[currentTeam][i]["ivSPD"] + " | <br>"
+
+    exportText += teams[currentTeam][i]["evHP"] + " | "
+    exportText += teams[currentTeam][i]["evSTR"] + " | "
+    exportText += teams[currentTeam][i]["evSPR"] + " | "
+    exportText += teams[currentTeam][i]["evDEF"] + " | "
+    exportText += teams[currentTeam][i]["evSPD"] + " | <br>"
+
+    exportText += teams[currentTeam][i]["gpSTR"] + " | "
+    exportText += teams[currentTeam][i]["gpSPR"] + " | "
+    exportText += teams[currentTeam][i]["gpDEF"] + " | "
+    exportText += teams[currentTeam][i]["gpSPD"] + " | <br>"
+
+    exportText += JSON.stringify(teams[currentTeam][i]["items"]) + "<br>"
+
+    exportText += teams[currentTeam][i]["code"] + "<br>-----<br>"
+  }
+  exportText += teams[currentTeam][0]
+
+  document.getElementById("pasteText").innerHTML = exportText
   document.getElementById("pasteOutput").style.display = "block"
-  console.log(localStorage.getItem('teams'))
+
+  document.getElementById("menuSFX").src = "./audios/SFX/UI/menuButtonClick2.wav"
+  document.getElementById("menuSFX").play()
 }
 
 function closePaste(){
   document.getElementById("pasteOutput").style.display = "none"
+
+  document.getElementById("menuSFX").src = "./audios/SFX/UI/quit.wav"
+  document.getElementById("menuSFX").play()
 }
+
+
+function addParallaxEffect(element, strength = 20) {
+  const rect = element.getBoundingClientRect();
+
+  window.addEventListener('mousemove', (e) => {
+    const x = e.clientX - (rect.left + rect.width / 2);
+    const y = e.clientY - (rect.top + rect.height / 2);
+
+    const moveX = (x / window.innerWidth) * strength - 100;
+    const moveY = (y / window.innerHeight) * strength - 100;
+
+    element.style.transform = `translate(${moveX}px, ${moveY}px)`;
+  });
+
+  window.addEventListener('mouseleave', () => {
+    element.style.transform = `translate(0px, 0px)`;
+  });
+}
+
+document.getElementById("beachSFX").addEventListener("ended", function(){
+  document.getElementById("beachSFX").currentTime = 0;
+  document.getElementById("beachSFX").play()
+});

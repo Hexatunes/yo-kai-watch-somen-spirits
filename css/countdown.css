@@ -1,0 +1,71 @@
+@font-face {
+  font-family: ykw;
+  src: url('./ChangaOne-Regular.ttf');
+}
+
+p{
+  font-family: ykw;
+  color: #fff;
+  text-shadow:
+  -5px -5px 0 #7babff,
+  5px -5px 0 #93bcff,
+  -5px 5px 0 #ffa8f9,
+  5px 5px 0 #ffadf7;  
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+
+body {
+    background-image: url('./images/home/home.png'); 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+
+#logo{
+  position: absolute;
+  top: 0%;
+  left: 56.5%;
+  height: 50%;
+  width: 40%;
+}
+
+
+#dialogPortrait{
+  position: absolute;
+  height: 100%;
+  width: 40%;
+  left: 1%;
+  top: 10%;
+}
+
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+#bg {
+  position: absolute;
+  height: 110%;
+  width: 110%;
+  top: -5;
+  left: -5;
+}
+
+#countdown {
+    position: absolute;
+    font-size: 10vw;
+    top: 35%;
+    left: 40%;
+}

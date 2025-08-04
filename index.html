@@ -16,15 +16,14 @@
       src: url('./ChangaOne-Regular.ttf');
     }
     body {
-      background-image: url('./images/home/home.png'); 
-      background-repeat: no-repeat;
-      background-position: center;
+      overflow: hidden;
     }
   </style>
-  <img src = "./images/Tokonatsu-Hime-Upscaled.png" id = "dialogPortrait">
+  <img src = "./images/home/homeBG.jpg" id = "bg">
+  <img src = "./images/home/TokoPortrait.png" id = "dialogPortrait" onload = "scrollTop()">
 
   <img src = "./images/home/homePanel.png" id = "homePanel">
-  <img src = "./images/home/Logo.png" id = "logo">
+  <img src = "./images/home/Logo.png" id = "logo" >
 
  
   
@@ -36,15 +35,16 @@
   
 
   <audio id = "bgm" src = ""></audio>
+  <audio id = "menuSFX" src = ""></audio>
   <audio id = "beachSFX" src = "./audios/BeachBG.mp3"></audio>
 
   <div id = "startMenu" onclick = "startGame()">
     <p id = "startText">Click anywhere to play!</p>
   </div>
 
-  <img src = "./images/padTrans.png" id = "padTrans">
+  <img src = "./images/padTrans.png" id = "padTrans" >
   
-  <script src="./scripts/script.js"></script>
+  <script src="./scripts/script.js" ></script>
 </body>
 
 </html>

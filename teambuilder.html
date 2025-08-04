@@ -16,12 +16,11 @@
       src: url('./ChangaOne-Regular.ttf');
     }
     body {
-      background-image: url('./images/teambuilder/padBG.png');
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
+      overflow: hidden;
     }
   </style>
+
+  <img src = "./images/teambuilder/padBGNew.png" id = "bg">
   <input id="homeButton" type="image" src="./images/teambuilder/padIcon.png" onclick="switchHome()">
 
   <input id = "toggleMusic" type = "image" src = "./images/musicON.png" onclick = "toggleMusic()">
@@ -141,6 +140,9 @@
     <p id = "pasteText"></p>
   </div>
 
+
+  <audio id = "menuSFX"></audio>
+  <audio id = "beachSFX" src = "./audios/BeachBG.mp3"></audio>
 
   <img src = "./images/padTrans.png" id = "padTrans">
 
