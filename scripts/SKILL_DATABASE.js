@@ -189,7 +189,7 @@ const SKILL_DATABASE = {
   },
   "toadallySaved" : {
     "events": ["naDamage", "techDamage"],
-    "naDamage":  function naDamage(p1Team, p2Team, targetSide, targetIDX, turnOrder, pendingDamage, skillOrder, skillSide, skillIDX, crits) {
+    "naDamage":  function naDamage(p1Team, p2Team, targetSide, targetIDX, turnOrder, pendingDamage, skillOrder, skillSide, skillIDX, crits, bp) {
       if (skillSide == targetSide) {
         if ( (targetSide == 1) && (p1Team[targetIDX]["currentHP"] <= pendingDamage) && (p1Team[skillIDX]["currentHP"] > 0) && ((p1Team[0]["displayName"] == "Toadal Dude") || (p1Team[1]["displayName"] == "Toadal Dude") || (p1Team[2]["displayName"] == "Toadal Dude")) ) {
           p1Team[userIDX]["currentHP"] -= pendingDamage
@@ -205,7 +205,7 @@ const SKILL_DATABASE = {
       }
       
     },
-    "techDamage":  function techDamage(p1Team, p2Team, targetSide, targetIDX, turnOrder, pendingDamage, skillOrder, skillSide, skillIDX, crits) {
+    "techDamage":  function techDamage(p1Team, p2Team, targetSide, targetIDX, turnOrder, pendingDamage, skillOrder, skillSide, skillIDX, crits, bp) {
       if (skillSide == targetSide) {
         if ( (targetSide == 1) && (p1Team[targetIDX]["currentHP"] <= pendingDamage) && (p1Team[skillIDX]["currentHP"] > 0) && ((p1Team[0]["displayName"] == "Toadal Dude") || (p1Team[1]["displayName"] == "Toadal Dude") || (p1Team[2]["displayName"] == "Toadal Dude")) ) {
           p1Team[userIDX]["currentHP"] -= pendingDamage
@@ -374,7 +374,7 @@ const SKILL_DATABASE = {
   },
   "purrsistence" : {
     "events": ["naDamage", "techDamage"],
-    "naDamage":  function naDamage(p1Team, p2Team, targetSide, targetIDX, turnOrder, pendingDamage, skillOrder, skillSide, skillIDX, crits) {
+    "naDamage":  function naDamage(p1Team, p2Team, targetSide, targetIDX, turnOrder, pendingDamage, skillOrder, skillSide, skillIDX, crits, bp) {
       if (skillSide == targetSide && skillSide == 1 && p1Team[skillIDX]["currentHP"] - pendingDamage <= 0 && p1Team[skillIDX]["skillData"] <= 1) {
 
         p1Team[skillIDX]["skillData"] += 1
@@ -394,7 +394,7 @@ const SKILL_DATABASE = {
       }
       
     },
-    "techDamage":  function techDamage(p1Team, p2Team, targetSide, targetIDX, turnOrder, pendingDamage, skillOrder, skillSide, skillIDX, crits) {
+    "techDamage":  function techDamage(p1Team, p2Team, targetSide, targetIDX, turnOrder, pendingDamage, skillOrder, skillSide, skillIDX, crits, bp) {
       if (skillSide == targetSide && skillSide == 1 && p1Team[skillIDX]["currentHP"] - pendingDamage <= 0 && p1Team[skillIDX]["skillData"] <= 1) {
 
         p1Team[skillIDX]["skillData"] += 1
@@ -515,7 +515,7 @@ const SKILL_DATABASE = {
   },
   "rubberneck" : {
       "events" : ["naDamage", "techDamage"],
-      "naDamage":  function naDamage(p1Team, p2Team, targetSide, targetIDX, turnOrder, pendingDamage, skillOrder, skillSide, skillIDX, crits) {
+      "naDamage":  function naDamage(p1Team, p2Team, targetSide, targetIDX, turnOrder, pendingDamage, skillOrder, skillSide, skillIDX, crits, bp, res) {
 
         var d1
         var userSTR = turnOrder[0]["str"]
@@ -569,7 +569,7 @@ const SKILL_DATABASE = {
         }
         
       },
-      "techDamage":  function techDamage(p1Team, p2Team, targetSide, targetIDX, turnOrder, pendingDamage, skillOrder, skillSide, skillIDX, crits) {
+      "techDamage":  function techDamage(p1Team, p2Team, targetSide, targetIDX, turnOrder, pendingDamage, skillOrder, skillSide, skillIDX, crits, bp, res) {
         var d1
         var userSTR = turnOrder[0]["str"]
         var targetDEF = 0
@@ -981,7 +981,7 @@ const SKILL_DATABASE = {
   },
   "sunShield" : {
     "events" : ["techDamage"],
-    "techDamage":  function techDamage(p1Team, p2Team, targetSide, targetIDX, turnOrder, pendingDamage, skillOrder, skillSide, skillIDX, crits) {
+    "techDamage":  function techDamage(p1Team, p2Team, targetSide, targetIDX, turnOrder, pendingDamage, skillOrder, skillSide, skillIDX, crits, bp) {
       if ( skillSide == targetSide ) {
         if ( targetSide == 1 && p1Team[skillIDX]["guard"] < 1 ) {
 
