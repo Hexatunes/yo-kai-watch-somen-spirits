@@ -552,7 +552,27 @@ function deleteYokai(){
 }
 
 function updateStat(stat){
-  teams[currentTeam][selectedYokai][stat] = document.getElementById(stat).value
+
+  var pendingStat = document.getElementById(stat).value
+
+  if ( stat.slice(0, 2) == "iv" && document.getElementById(stat).value > 15 ) {
+    pendingStat = 15
+    document.getElementById(stat).value = 15
+  }
+
+  if ( stat.slice(0, 2) == "ev" && document.getElementById(stat).value > 26 ) {
+    pendingStat = 40
+    document.getElementById(stat).value = 40
+  }
+
+  if ( stat.slice(0, 2) == "gp" && document.getElementById(stat).value > 5 ) {
+    pendingStat = 40
+    document.getElementById(stat).value = 40
+  }
+
+  teams[currentTeam][selectedYokai][stat] = pendingStat
+
+
 
   var stats = ["hp", "str", "spr", "def", "spd"]
   var statsCAPS = ["HP", "STR", "SPR", "DEF", "SPD"]
@@ -672,7 +692,7 @@ function exportTeam(){
   console.log(teams[currentTeam])
 
   for (var i = 1; i < teams[currentTeam].length; i++ ) {
-    exportText += teams[currentTeam][i]["displayName"] + "<br>"
+    exportText += YOKAI_DATABASE[teams[currentTeam][i]["code"]]["displayName"] + "<br>"
 
     exportText += teams[currentTeam][i]["army"] + "<br>"
     exportText += teams[currentTeam][i]["attitude"] + "<br>"

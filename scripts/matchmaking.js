@@ -18,6 +18,7 @@ function getCookie(name) {
 //YOU WILL BE CONNECTING TO A 3RD PARTY SERVER
 //I AM NOT RESPONSIBLE FOR ANYTHING THAT HAPPENS BY USING AN UNOFFICIAL SERVER
 const socket = io('https://somen-spirits-server.onrender.com/');
+//
 
 
 var teams = []
