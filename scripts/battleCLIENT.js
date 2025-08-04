@@ -452,9 +452,6 @@ var checkDisconnect
 
 // Turn advanced
 socket.on('turn_advanced', (data) => {
-    if ( checkDisconnect ) {
-        clearTimeout(checkDisconnect)
-    }
     myTeam = data.myTeam
     otherTeam = data.otherTeam
 
@@ -480,9 +477,6 @@ socket.on('turn_advanced', (data) => {
 
     refreshDisplays()
 
-    checkDisconnect = setTimeout(() => {
-      serverGameLost();
-    }, 10000);
 });
 
 

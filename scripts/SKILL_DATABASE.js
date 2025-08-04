@@ -929,20 +929,28 @@ const SKILL_DATABASE = {
           p1Team[skillIDX]["skillData"] = 1
           p1Team[skillIDX]["def"] += 50
 
+          return [p1Team, p2Team]
+
         } else if ( skillSide == 2 && skillIDX == 1 && p2Team[skillIDX]["skillData"] == 0 ) {
 
           p2Team[skillIDX]["skillData"] = 1
           p2Team[skillIDX]["def"] += 50
+
+          return [p1Team, p2Team]
 
         } else if ( skillSide == 1 && skillIDX != 1 ) {
 
           p1Team[skillIDX]["skillData"] = 0
           p1Team[skillIDX]["def"] -= 50
 
+          return [p1Team, p2Team]
+
         } else if ( skillSide == 2 && skillIDX != 1 ) {
 
           p2Team[skillIDX]["skillData"] = 0
           p2Team[skillIDX]["def"] -= 50
+
+          return [p1Team, p2Team]
 
         } else {
           return "skip"
@@ -1001,16 +1009,22 @@ const SKILL_DATABASE = {
     "naRollCrit" : function naRollCrit(p1Team, p2Team, targetSide, targetIDX, turnOrder, skillOrder, skillSide, skillIDX) {
       if ( ( targetIDX == skillIDX && targetSide == skillSide ) || ( turnOrder[0]["displayName"] == "Jibanyan S") ) {
         return Math.floor(Math.random() * 10)
+      } else {
+        return "skip"
       }
     },
     "techRollCrit" : function naRollCrit(p1Team, p2Team, targetSide, targetIDX, turnOrder, skillOrder, skillSide, skillIDX) {
       if ( ( targetIDX == skillIDX && targetSide == skillSide ) || ( turnOrder[0]["displayName"] == "Jibanyan S") ) {
         return Math.floor(Math.random() * 10)
+      } else {
+        return "skip"
       }
     },
     "soultRollCrit" : function naRollCrit(p1Team, p2Team, targetSide, targetIDX, turnOrder, skillOrder, skillSide, skillIDX) {
       if ( ( targetIDX == skillIDX && targetSide == skillSide ) || ( turnOrder[0]["displayName"] == "Jibanyan S") ) {
         return Math.floor(Math.random() * 10)
+      } else {
+        return "skip"
       }
     },
   }
