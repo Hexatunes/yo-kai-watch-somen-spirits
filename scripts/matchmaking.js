@@ -114,6 +114,7 @@ function hidePad() {
 
 
     setTimeout(intoFinished, 1000)
+    fetch_count_data()
 }
 
 function actuallySwitchHome() {
@@ -251,4 +252,13 @@ function addParallaxEffect(element, strength = 20) {
 document.getElementById("beachSFX").addEventListener("ended", function(){
   document.getElementById("beachSFX").currentTime = 0;
   document.getElementById("beachSFX").play()
+});
+
+function fetch_count_data() {
+    socket.emit("get_player_count_data")
+    setTimeout(fetch_count_data, 3000)
+}
+
+socket.on('return_player_count_data', (data) => {
+    document.getElementById("countData").innerHTML = "Players Online: " + data.totalOnline + " | Active Battles: " + data.activeBattles + " | Players Matchmaking: " + data.playersLooking
 });

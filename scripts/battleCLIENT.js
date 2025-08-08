@@ -43,6 +43,7 @@ document.getElementById("bgm").addEventListener("ended", function() {
 //I AM NOT RESPONSIBLE FOR ANYTHING THAT HAPPENS BY USING AN UNOFFICIAL SERVER
 const socket = io('https://somen-spirits-server.onrender.com/');
 // 
+//
 
 var myTeam = []
 var otherTeam = []
@@ -443,7 +444,7 @@ function ping_server() {
     }
     
     if ( battling ) {
-        setTimeout(ping_server, 5000)
+        setTimeout(ping_server, 3000)
     }
     
 }

@@ -192,10 +192,10 @@ const SKILL_DATABASE = {
     "naDamage":  function naDamage(p1Team, p2Team, targetSide, targetIDX, turnOrder, pendingDamage, skillOrder, skillSide, skillIDX, crits, bp) {
       if (skillSide == targetSide) {
         if ( (targetSide == 1) && (p1Team[targetIDX]["currentHP"] <= pendingDamage) && (p1Team[skillIDX]["currentHP"] > 0) && ((p1Team[0]["displayName"] == "Toadal Dude") || (p1Team[1]["displayName"] == "Toadal Dude") || (p1Team[2]["displayName"] == "Toadal Dude")) ) {
-          p1Team[userIDX]["currentHP"] -= pendingDamage
+          p1Team[skillIDX]["currentHP"] -= pendingDamage
           return [p1Team, p2Team]
         } else if ( (targetSide == 2) && (p2Team[targetIDX]["currentHP"] <= pendingDamage) && (p2Team[skillIDX]["currentHP"] > 0) && (p2Team[targetIDX]["currentHP"] <= pendingDamage) && ((p2Team[0]["displayName"] == "Toadal Dude") || (p2Team[1]["displayName"] == "Toadal Dude") || (p2Team[2]["displayName"] == "Toadal Dude")) ) {
-          p2Team[userIDX]["currentHP"] -= pendingDamage
+          p2Team[skillIDX]["currentHP"] -= pendingDamage
           return [p1Team, p2Team]
         } else {
           return "skip"
@@ -208,10 +208,10 @@ const SKILL_DATABASE = {
     "techDamage":  function techDamage(p1Team, p2Team, targetSide, targetIDX, turnOrder, pendingDamage, skillOrder, skillSide, skillIDX, crits, bp) {
       if (skillSide == targetSide) {
         if ( (targetSide == 1) && (p1Team[targetIDX]["currentHP"] <= pendingDamage) && (p1Team[skillIDX]["currentHP"] > 0) && ((p1Team[0]["displayName"] == "Toadal Dude") || (p1Team[1]["displayName"] == "Toadal Dude") || (p1Team[2]["displayName"] == "Toadal Dude")) ) {
-          p1Team[userIDX]["currentHP"] -= pendingDamage
+          p1Team[skillIDX]["currentHP"] -= pendingDamage
           return [p1Team, p2Team]
         } else if ( (targetSide == 2) && (p2Team[targetIDX]["currentHP"] <= pendingDamage) && (p2Team[skillIDX]["currentHP"] > 0) && (p2Team[targetIDX]["currentHP"] <= pendingDamage) && ((p2Team[0]["displayName"] == "Toadal Dude") || (p2Team[1]["displayName"] == "Toadal Dude") || (p2Team[2]["displayName"] == "Toadal Dude")) ) {
-          p2Team[userIDX]["currentHP"] -= pendingDamage
+          p2Team[skillIDX]["currentHP"] -= pendingDamage
           return [p1Team, p2Team]
         } else {
           return "skip"

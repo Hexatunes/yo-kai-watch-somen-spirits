@@ -98,6 +98,13 @@ body {
   top: 30%;
 }
 
+#countData{
+  font-size: 1.5vw;
+  position: absolute;
+  left: 27.5%;
+  top: 60%;
+}
+
 #battleButton{
   font-size: 2vw;
   position: absolute;
