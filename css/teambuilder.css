@@ -284,6 +284,16 @@ body {
   font-size: 1vw;
 }
 
+#moveYokai {
+  position: absolute;
+  height: 5%;
+  width: 8%;
+  left: 26.5%;
+  top: 52.5%;
+  font-family: ykw;
+  font-size: 1vw;
+}
+
 #currentText {
   font-size: 1.5vw;
 }

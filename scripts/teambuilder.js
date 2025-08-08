@@ -551,6 +551,31 @@ function deleteYokai(){
   document.getElementById("menuSFX").play()
 }
 
+
+function moveYokai(){
+  var newSpot = prompt("Move to which spot? 1-6")
+  console.log(newSpot)
+  console.log(teams[currentTeam])
+  
+  if ( newSpot >= 1 && newSpot <= 6 ) {
+    var temp = teams[currentTeam][selectedYokai]
+    teams[currentTeam][selectedYokai] = teams[currentTeam][newSpot]
+    teams[currentTeam][newSpot] = temp
+    selectedYokai = -1
+    loadTeam()
+    
+    localStorage.setItem('teams', JSON.stringify(teams));
+  } else {
+    alert("Error: You either submitted a number not between 1-6 or you didn't submit a number.")
+  }
+
+  document.getElementById("menuSFX").src = "./audios/SFX/UI/swap.wav"
+  document.getElementById("menuSFX").play()
+}
+
+
+
+
 function updateStat(stat){
 
   var pendingStat = document.getElementById(stat).value
