@@ -30,7 +30,7 @@ body {
 }
 
 #battleViewport{
-  background-image: url('./images/battle/viewportBG.png');
+  background-image: url('../images/battle/viewportBG.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
