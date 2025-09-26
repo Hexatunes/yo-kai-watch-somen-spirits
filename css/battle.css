@@ -22,7 +22,7 @@ p{
 }
 
 body {
-  background-image: url('/images/battle/battleBG.png');
+  background-image: url('./images/battle/battleBG.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -30,7 +30,7 @@ body {
 }
 
 #battleViewport{
-  background-image: url('/images/battle/viewportBG.png');
+  background-image: url('./images/battle/viewportBG.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

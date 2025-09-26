@@ -119,7 +119,12 @@ const INSPIRIT_DATABASE = {
     displayName: "Slow Down S",
     displayBuff: "Slow Down S (🠟 SPD 🠟)"
   },
-  
+  "legUp" : {
+    tags: "spdUp",
+    type: "positive",
+    displayName: "Leg Up",
+    displayBuff: "Leg Up (🠝 SPD 🠝)"
+  },
 }
 
 module.exports = INSPIRIT_DATABASE
