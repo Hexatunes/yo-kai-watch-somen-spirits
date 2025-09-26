@@ -1763,3 +1763,9 @@ progress::-webkit-progress-value {
   left: 15%;
   top: 40%;
 }
+
+#battleViewportBG {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
